@@ -1,0 +1,93 @@
+<section class="contact-section" [class.dark]="ps.isDarkMode()">
+  <div class="section-container">
+
+    <div class="section-header">
+      <span class="section-tag">Let's Talk</span>
+      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info">
+        <div class="contact-card" *ngFor="let item of contactItems">
+          <div class="contact-icon-wrap" [style.background]="item.bg">
+            <i [class]="item.icon" [style.color]="item.color"></i>
+          </div>
+          <div>
+            <div class="contact-label">{{ item.label }}</div>
+            <a [href]="item.href" class="contact-value" target="_blank">{{ item.value }}</a>
+          </div>
+        </div>
+
+        <a href="assets/resume.pdf" download class="resume-btn">
+          <i class="fas fa-file-download"></i> Download Resume
+        </a>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input
+              type="text"
+              placeholder="Raman Boya"
+              [(ngModel)]="form.name"
+              name="name"
+              required
+              [class.error]="submitted && !form.name"
+            />
+          </div>
+          <div class="form-group">
+            <label>Your Email</label>
+            <input
+              type="email"
+              placeholder="raman@example.com"
+              [(ngModel)]="form.email"
+              name="email"
+              required
+              [class.error]="submitted && !form.email"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <input
+            type="text"
+            placeholder="Project Inquiry / Collaboration"
+            [(ngModel)]="form.subject"
+            name="subject"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea
+            rows="5"
+            placeholder="Tell me about your project..."
+            [(ngModel)]="form.message"
+            name="message"
+            required
+            [class.error]="submitted && !form.message"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="sending">
+          <i [class]="sending ? 'fas fa-spinner fa-spin' : 'fas fa-paper-plane'"></i>
+          {{ sending ? 'Sending...' : 'Send Message' }}
+        </button>
+
+        <div class="form-msg success" *ngIf="formSuccess">
+          <i class="fas fa-check-circle"></i> Message sent successfully! I'll reply soon.
+        </div>
+        <div class="form-msg error-msg" *ngIf="formError">
+          <i class="fas fa-exclamation-circle"></i> Please fill in all required fields.
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<section class="about-section" [class.dark]="ps.isDarkMode()">
+  <div class="section-container">
+
+    <div class="section-header">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <!-- Left: key points -->
+      <div class="about-text">
+        <p class="about-para" [innerHTML]="ps.aboutIntro" style="font-size:16px;font-weight:500;margin-bottom:24px"></p>
+        <div class="about-point" *ngFor="let pt of ps.aboutPoints; let i = index" [style.animation-delay]="(i*0.1)+'s'">
+          <div class="pt-icon"><i [class]="pt.icon"></i></div>
+          <p [innerHTML]="pt.text"></p>
+        </div>
+      </div>
+
+      <!-- Right: info cards -->
+      <div class="about-cards">
+        <div class="info-card" *ngFor="let card of ps.infoCards">
+          <div class="info-icon" [style.background]="card.bg">
+            <i [class]="card.icon" [style.color]="card.color"></i>
+          </div>
+          <div>
+            <div class="info-label">{{ card.label }}</div>
+            <div class="info-value">{{ card.value }}</div>
+          </div>
+        </div>
+        <a href="assets/resume.pdf" download class="resume-btn">
+          <i class="fas fa-file-download"></i> Download Resume
+        </a>
+        <button class="exp-btn" (click)="ps.navigateTo('experience')">
+          <i class="fas fa-briefcase"></i> View Experience Timeline
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

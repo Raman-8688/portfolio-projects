@@ -1,0 +1,63 @@
+<section class="hero" [class.dark]="ps.isDarkMode()">
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="social-sidebar">
+    <a
+      *ngFor="let link of ps.socialLinks"
+      [href]="link.url"
+      [title]="link.label"
+      target="_blank"
+      class="social-link"
+    >
+      <i [class]="link.icon"></i>
+    </a>
+    <div class="social-line"></div>
+  </div>
+
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <h1 class="hero-name animate-1">
+        Hi, I'm<br />
+        <span class="name-highlight">{{ ps.name }}</span>
+      </h1>
+
+      <div class="hero-title animate-2">
+        <span class="tw-text" [style.color]="ps.themeColor()">{{
+          tw.displayText()
+        }}</span
+        ><span class="cursor" [class.on]="tw.showCursor()">|</span>
+      </div>
+
+      <p class="hero-sub animate-3" [innerHTML]="ps.heroSub"></p>
+
+      <div class="hero-ctas animate-4">
+        <button class="cta-primary" (click)="ps.navigateTo('experience')">
+          <i class="fas fa-briefcase"></i> View My Work
+        </button>
+        <a class="cta-outline" href="assets/resume.pdf" download>
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: clean profile, spinning rings only, no icons -->
+    <div class="hero-right animate-img">
+      <div class="profile-wrap">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="profile-img-wrap">
+          <img src="assets/profile.png" alt="Ramanjaneyulu Boya" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" (click)="ps.navigateTo('about')">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>Scroll Down</span>
+  </div>
+</section>

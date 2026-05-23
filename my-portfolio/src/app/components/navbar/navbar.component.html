@@ -1,0 +1,29 @@
+<header class="navbar" [class.dark]="ps.isDarkMode()">
+  <div class="navbar-logo">
+    <div class="logo-icon">
+      <i class="fas fa-code"></i>
+    </div>
+    <span class="logo-text">Ramanjaneyulu<span class="logo-dot">.</span></span>
+  </div>
+
+  <nav class="navbar-nav">
+    <a
+      *ngFor="let item of navItems"
+      class="nav-link"
+      [class.active]="ps.activeSection() === item.id"
+      (click)="navigate(item.id)"
+    >
+      {{ item.label }}
+      <span class="nav-underline"></span>
+    </a>
+  </nav>
+
+  <div class="navbar-actions">
+    <button class="icon-btn" (click)="ps.toggleDarkMode()" title="Toggle Dark Mode">
+      <i [class]="ps.isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
+    <button class="icon-btn settings-trigger" (click)="ps.toggleSettings()" title="Settings">
+      <i class="fas fa-cog" [class.spinning]="ps.settingsPanelOpen()"></i>
+    </button>
+  </div>
+</header>

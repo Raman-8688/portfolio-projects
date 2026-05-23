@@ -1,0 +1,28 @@
+<footer class="footer" [class.dark]="ps.isDarkMode()">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">
+        <div class="logo-icon"><i class="fas fa-code"></i></div>
+        <span>Ramanjaneyulu<span class="dot">.</span></span>
+      </div>
+      <p class="footer-tagline">
+        Full Stack Developer · Java · Spring Boot · Angular · PostgreSQL
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-socials">
+        <a
+          *ngFor="let link of ps.socialLinks"
+          [href]="link.url"
+          [title]="link.label"
+          target="_blank"
+          class="footer-social"
+        >
+          <i [class]="link.icon"></i>
+        </a>
+      </div>
+      <p class="footer-copy">© 2025 Ramanjaneyulu Boya. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

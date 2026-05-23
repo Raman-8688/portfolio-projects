@@ -1,0 +1,73 @@
+<section class="exp-section" [class.dark]="ps.isDarkMode()">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">My Journey</span>
+      <h2 class="section-title">Work <span class="accent">Experience</span></h2>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-track"></div>
+
+      <div
+        class="timeline-item"
+        *ngFor="let exp of ps.experiences; let i = index"
+        [class.right]="i % 2 !== 0"
+        [class.visible]="itemsVisible[i]"
+        [style.--accent]="exp.color"
+        [style.transition-delay]="i * 0.1 + 's'"
+      >
+        <div
+          class="timeline-dot"
+          [style.background]="exp.color"
+          [style.box-shadow]="'0 0 20px ' + exp.color + '44'"
+        >
+          <i [class]="exp.logo"></i>
+        </div>
+
+        <div class="exp-card" [style.--accent]="exp.color">
+          <div class="card-accent" [style.background]="exp.color"></div>
+
+          <div class="exp-header">
+            <div class="exp-company-wrap">
+              <div
+                class="exp-logo"
+                [style.background]="exp.color + '18'"
+                [style.color]="exp.color"
+              >
+                <i [class]="exp.logo"></i>
+              </div>
+              <div>
+                <h3 class="exp-company">{{ exp.company }}</h3>
+                <div class="exp-role">{{ exp.role }}</div>
+              </div>
+            </div>
+            <div class="exp-meta">
+              <span class="exp-period"
+                ><i class="fas fa-calendar-alt"></i> {{ exp.period }}</span
+              >
+              <span
+                class="exp-type"
+                [style.background]="exp.color + '18'"
+                [style.color]="exp.color"
+                >{{ exp.type }}</span
+              >
+            </div>
+          </div>
+
+          <p class="exp-desc">{{ exp.description }}</p>
+
+          <ul class="exp-achievements">
+            <li *ngFor="let item of exp.achievements" [innerHTML]="item"></li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag" *ngFor="let tech of exp.techUsed">{{
+              tech
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

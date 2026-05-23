@@ -1,0 +1,102 @@
+<section class="projects-section" [class.dark]="ps.isDarkMode()">
+
+  <div class="proj-orb orb1"></div>
+  <div class="proj-orb orb2"></div>
+
+  <div class="section-container">
+
+    <div class="section-header" [class.visible]="headerVisible">
+      <span class="section-tag">What I've Built</span>
+      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      <p class="section-sub">Real production applications — from multi-tenant pharma systems to AI-powered analytics</p>
+      <div class="title-line"></div>
+    </div>
+
+    <!-- FILTER -->
+    <div class="filter-bar" [class.visible]="headerVisible">
+      <button *ngFor="let f of filters" class="filter-btn" [class.active]="activeFilter === f.id" (click)="setFilter(f.id)">
+        <i [class]="f.icon"></i> {{ f.label }}
+      </button>
+    </div>
+
+    <!-- PROJECT CARDS — each has unique animation class -->
+    <div class="projects-layout">
+
+      <!-- CARD 0: Featured large card — PHARMA -->
+      <div
+        *ngIf="isVisible(filteredProjects, 0)"
+        class="proj-card card-featured"
+        [class.visible]="cardsVisible[0]"
+        [style.--c]="filteredProjects[0].accent"
+      >
+        <div class="featured-glow" [style.background]="filteredProjects[0].accent"></div>
+        <div class="card-inner">
+          <div class="featured-left">
+            <div class="proj-badge gold">{{ filteredProjects[0].badge }}</div>
+            <h3 class="proj-title">{{ filteredProjects[0].title }}</h3>
+            <div class="proj-meta-row">
+              <span><i class="fas fa-building"></i> {{ filteredProjects[0].institution }}</span>
+              <span><i class="fas fa-clock"></i> {{ filteredProjects[0].timeline }}</span>
+            </div>
+            <p class="proj-desc">{{ filteredProjects[0].description }}</p>
+            <div class="proj-stack-tags">
+              <span *ngFor="let t of filteredProjects[0].techStack.split(' · ')" class="stack-tag">{{ t }}</span>
+            </div>
+          </div>
+          <div class="featured-right">
+            <div class="highlights-list">
+              <div class="hl-item" *ngFor="let h of filteredProjects[0].highlights; let i = index" [style.animation-delay]="(i*0.1)+'s'">
+                <span class="hl-bullet" [style.background]="filteredProjects[0].accent"></span>
+                <span>{{ h }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARDS 1+ : standard grid -->
+      <div class="cards-grid">
+        <div
+          *ngFor="let proj of filteredProjects.slice(1); let i = index"
+          class="proj-card card-standard"
+          [class]="'proj-card card-standard anim-' + getAnimClass(i)"
+          [class.visible]="cardsVisible[i + 1]"
+          [style.--c]="proj.accent"
+        >
+          <!-- Top gradient bar -->
+          <div class="card-bar" [style.background]="'linear-gradient(90deg,' + proj.accent + ',' + proj.accent + '66)'"></div>
+
+          <!-- Floating badge -->
+          <div class="card-badge" [style.background]="proj.accent + '20'" [style.color]="proj.accent">{{ proj.badge }}</div>
+
+          <div class="card-body">
+            <h3 class="proj-title-sm">{{ proj.title }}</h3>
+            <div class="meta-sm">
+              <span><i class="fas fa-building"></i> {{ proj.institution }}</span>
+              <span><i class="fas fa-calendar"></i> {{ proj.timeline }}</span>
+            </div>
+            <p class="desc-sm">{{ proj.description }}</p>
+
+            <!-- Mini highlights -->
+            <div class="mini-highlights">
+              <div class="mini-hl" *ngFor="let h of proj.highlights.slice(0, 3)">
+                <i class="fas fa-check-circle" [style.color]="proj.accent"></i>
+                <span>{{ h }}</span>
+              </div>
+            </div>
+
+            <!-- Tech pills -->
+            <div class="tech-pills">
+              <span *ngFor="let t of proj.techStack.split(' · ').slice(0,4)" class="tech-pill">{{ t }}</span>
+            </div>
+          </div>
+
+          <!-- Hover glow effect -->
+          <div class="card-hover-glow" [style.background]="proj.accent"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
