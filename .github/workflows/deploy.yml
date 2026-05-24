@@ -1,0 +1,40 @@
+name: Deploy Angular Portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: my-portfolio
+        run: npm ci
+
+      - name: Build Angular
+        working-directory: my-portfolio
+        run: npm run build -- --base-href /portfolio-projects/
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: my-portfolio/dist/my-portfolio/browser
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
