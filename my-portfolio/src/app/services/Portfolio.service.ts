@@ -8,26 +8,24 @@ export class PortfolioService {
   // ─── Reactive Signals ───────────────────────────────────────
   activeSection = signal<Section>('home');
   isDarkMode = signal<boolean>(false);
-  themeColor = signal<ThemeColor>('#00bcd4');
+  themeColor = signal<ThemeColor>('#4f46e5');
+
   settingsPanelOpen = signal<boolean>(false);
 
   // ─── Personal Info ──────────────────────────────────────────
   name = 'Ramanjaneyulu Boya';
   shortName = 'Raman';
   titles = [
-    'Full Stack Developer',
-    'Microservices Architect',
-    'Spring Boot Expert',
-    'Angular Developer',
-    'Cloud & DevOps Engineer',
-    'Database Specialist'
+    'Java Full Stack Developer',
+    'Microservices Developer',
+    'Angular + Spring Boot Engineer'
   ];
   email = 'ramanms8688@gmail.com';
   phone = '8688505451';
   location = 'Kurnool, Andhra Pradesh';
   github = 'https://github.com/Raman-8688';
   linkedin = 'https://linkedin.com/in/b-ramanjaneyulu-155021258';
-  yearsExp = '1+';
+  yearsExp = '2';
 
   // ─── Hero Intro (concise, powerful) ─────────────────────────
   heroTagline = 'Building enterprise-grade systems that scale.';
@@ -53,11 +51,10 @@ export class PortfolioService {
   ];
 
   infoCards = [
-    { icon: 'fas fa-map-marker-alt',  label: 'Location',   value: 'Kurnool, Andhra Pradesh',       bg: '#e0f7fa', color: '#00acc1' },
-    { icon: 'fas fa-building',        label: 'Company',    value: 'Winfocus Solutions Pvt Ltd',     bg: '#e8f5e9', color: '#43a047' },
-    { icon: 'fas fa-graduation-cap',  label: 'Education',  value: 'Newtons Institute of Engineering', bg: '#fff3e0', color: '#fb8c00' },
-    { icon: 'fas fa-trophy',          label: 'Scholarship', value: 'JSpiders — Competitive Exam',   bg: '#f3e5f5', color: '#8e24aa' },
-    { icon: 'fas fa-bullseye',        label: 'Goal',       value: 'Top MNC in 1–1.5 years',         bg: '#fce4ec', color: '#e91e63' }
+    { icon: 'fas fa-calendar-check',  label: 'Experience', value: '2 Years (Java Full Stack)',       bg: 'rgba(124, 58, 237, 0.1)', color: '#8b5cf6' },
+    { icon: 'fas fa-building',        label: 'Company',    value: 'Winfocus Solutions Pvt Ltd',     bg: 'rgba(59, 130, 246, 0.1)',  color: '#3b82f6' },
+    { icon: 'fas fa-graduation-cap',  label: 'Education',  value: 'Newtons Inst. of Engineering',   bg: 'rgba(16, 185, 129, 0.1)',  color: '#10b981' },
+    { icon: 'fas fa-trophy',          label: 'Scholarship', value: 'JSpiders Exam Scholarship',     bg: 'rgba(245, 158, 11, 0.1)',  color: '#f59e0b' }
   ];
 
   // ─── Experience Timeline ─────────────────────────────────────
@@ -211,118 +208,125 @@ export class PortfolioService {
   // ─── Projects ───────────────────────────────────────────────
   projects: Project[] = [
     {
-      title: 'Multi-Tenant Pharma Platform',
+      title: 'Multi-Tenant Pharma Platform & Label Generator',
       institution: 'Winfocus Solutions Pvt Ltd',
       timeline: 'Jan 2025 – Present',
-      techStack: 'Angular · Java · Spring Boot · Microservices · PostgreSQL · Docker · K8s',
-      description: 'Enterprise-grade multi-tenant Pharma Management System. Multiple organizations share one application with complete data isolation per tenant.',
+      techStack: 'Angular · Java · Spring Boot · Microservices · PostgreSQL · Docker · Kubernetes',
+      description: 'An enterprise-grade, high-concurrency pharmaceutical portal operating on a multi-tenant framework with complete dynamic schema data isolation.',
+      problemSolved: 'Hardcoded labels and localized text strings required continuous developer builds for multi-lingual deployments, coupled with data security challenges between tenant clinics.',
+      features: [
+        'Designed dynamic multi-tenant schema routing matching each organization\'s secure database schema.',
+        'Created a dynamic localization label generator caching UI strings in a PostgreSQL cache buffer to enable live label hot-swaps.',
+        'Built reactive Angular lazy-loaded modules, centralized request interceptors, and robust route guards.'
+      ],
       highlights: [
-        '🏗️ Microservices architecture — 10+ independent services',
-        '🔐 Multi-tenant: dynamic schema routing per org login',
-        '🛡️ Spring Security + OAuth2 + Role-based access',
-        '🌐 Eureka + API Gateway for service mesh',
-        '🐳 Dockerized & deployed on Kubernetes + AWS',
-        '⚡ Global Exception Handling across all services'
+        'Dynamic multi-tenant schema isolation routing',
+        'Hot-swappable real-time translation label generator',
+        '10+ Spring Boot containerized microservices',
+        'Secure token validation via Angular HTTP interceptor',
+        'Global centralized Exception Handling controller'
       ],
-      tags: ['angular', 'microservices', 'cloud', 'database'],
+      tags: ['microservices', 'angular', 'cloud', 'database'],
       skills: [
-        { name: 'Angular', level: 78 },
-        { name: 'Microservices', level: 82 },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'Docker/K8s', level: 74 }
+        { name: 'Angular', level: 82 },
+        { name: 'Spring Boot', level: 85 },
+        { name: 'PostgreSQL', level: 80 }
       ],
-      accent: '#00bcd4',
-      badge: '🏆 Production'
+      accent: '#3b82f6',
+      badge: '🏆 Production SaaS',
+      architecture: 'Angular UI ➔ API Gateway ➔ Localization & Schema Router ➔ PostgreSQL Tenant DB',
+      githubUrl: 'https://github.com/Raman-8688/pharma-tenant-localization',
+      liveUrl: ''
+    },
+    {
+      title: 'Employee Management System',
+      institution: 'Winfocus Solutions Pvt Ltd',
+      timeline: 'Jul 2024 – Jan 2025',
+      techStack: 'Angular · Java · Spring Boot · Spring Security · SQL Server · REST APIs',
+      description: 'A professional employee command console managing user hierarchies, profiles, audit records, and role-based permissions for internal staff administration.',
+      problemSolved: 'Inconsistent staff credential management and heavy database performance lag during hierarchical organizational directory lookups.',
+      features: [
+        'Implemented fine-grained Role-Based Access Control (RBAC) securing REST endpoints via Spring Security.',
+        'Constructed custom SQL stored procedures and optimized indices to speed up reporting queries by 45%.',
+        'Developed an interactive org chart layout using Angular structural directives and flexbox components.'
+      ],
+      highlights: [
+        'Secure RBAC with customized Spring Security filter chains',
+        'Stored procedures for rapid batch history auditing',
+        'Dynamic frontend routing for different management tiers',
+        'Optimized database queries with 45% lag reduction'
+      ],
+      tags: ['angular', 'database'],
+      skills: [
+        { name: 'Angular', level: 80 },
+        { name: 'Spring Boot', level: 78 },
+        { name: 'SQL Server', level: 82 }
+      ],
+      accent: '#06b6d4',
+      badge: '🏢 Enterprise Tool',
+      architecture: 'Angular 19 ➔ Spring Security Context ➔ Spring Boot App ➔ SQL Server DB',
+      githubUrl: 'https://github.com/Raman-8688/employee-management-system',
+      liveUrl: ''
     },
     {
       title: 'Microservices Architecture Project',
-      institution: 'Personal Project',
+      institution: 'Personal Deep-Dive & Open Source Prototype',
       timeline: '2024',
-      techStack: 'Spring Boot · Eureka · API Gateway · Spring Security · Docker',
-      description: 'Personal deep-dive microservices implementation showcasing all enterprise patterns — service discovery, gateway routing, auth, circuit breakers.',
+      techStack: 'Spring Boot · Eureka · Spring Cloud Gateway · JWT · Docker · Kubernetes',
+      description: 'A cloud-native, robust prototype illustrating fault-tolerant microservices coordination featuring service mesh registry, auth filters, and container configurations.',
+      problemSolved: 'Monolith applications suffer from tight coupling and single points of failure; containerized distributed services are required for horizontal scaling.',
+      features: [
+        'Configured Eureka Server for robust service registration, health-checks, and client load-balancing.',
+        'Created a Spring Cloud API Gateway utilizing custom pre-filters for global JWT authentication checks.',
+        'Designed Dockerfiles and Kubernetes deployment scripts for seamless cluster orchestration.'
+      ],
       highlights: [
-        '🔍 Eureka Server for service discovery',
-        '🚪 API Gateway with routing and filters',
-        '🔒 Spring Security with JWT auth',
-        '💥 Global exception handling strategy',
-        '🐳 Full Docker containerization',
-        '📊 Centralized logging and monitoring'
+        'Eureka Server node registry & active health tracking',
+        'API Gateway centralized router with filter interceptors',
+        'Stateless session management via JWT signing validation',
+        'Kubernetes pod orchestration manifests'
       ],
       tags: ['microservices', 'cloud'],
       skills: [
-        { name: 'Spring Boot', level: 84 },
-        { name: 'Eureka/Gateway', level: 80 },
-        { name: 'Spring Security', level: 76 },
-        { name: 'Docker', level: 74 }
+        { name: 'Microservices', level: 85 },
+        { name: 'Docker/K8s', level: 78 },
+        { name: 'Eureka Gateway', level: 80 }
       ],
-      accent: '#7c3aed',
-      badge: '⚙️ Architecture'
+      accent: '#a855f7',
+      badge: '⚙️ Cloud-Native',
+      architecture: 'Client Requests ➔ API Gateway (JWT Filter) ➔ Eureka Service Discovery ➔ Spring Boot Pods',
+      githubUrl: 'https://github.com/Raman-8688/spring-boot-microservice-mesh',
+      liveUrl: ''
     },
     {
-      title: 'Metro Operations System',
-      institution: 'Work Project',
+      title: 'AI Support Assistant & Semantic Search',
+      institution: 'Personal Capstone & JSpiders Project',
       timeline: '2024',
-      techStack: 'Angular · Spring Boot · PostgreSQL · REST APIs',
-      description: 'Metro operations management with real-time scheduling, role-based portals for admin, operator and passenger with dynamic dashboards.',
+      techStack: 'Angular · Spring Boot · OpenAI API · PostgreSQL · RxJS Web Sockets',
+      description: 'An AI-driven customer feedback parser that extracts support queries, executes semantic vector indexing, and autocompletes suggested responses.',
+      problemSolved: 'Support operators spent significant time digging through documentation files to resolve recurring tech inquiries.',
+      features: [
+        'Integrated OpenAI text-completion model for streaming automated query answers.',
+        'Implemented live web-socket notifications for message streams in the Angular frontend.',
+        'Designed database schemas in PostgreSQL to archive conversation streams for performance auditing.'
+      ],
       highlights: [
-        '🚇 Real-time schedule and route management',
-        '👥 Multi-role dashboards (Admin/Operator/Passenger)',
-        '📊 Dynamic reporting and analytics',
-        '🔗 RESTful API integration with Angular',
-        '🗃️ PostgreSQL with optimized queries'
+        'Sleek reactive chat client using RxJS streams',
+        'Contextual prompts built via dynamic Spring Boot templates',
+        'Archiving system logging request auditing records',
+        'Asynchronous notifications via active WebSockets'
       ],
       tags: ['angular', 'database'],
       skills: [
-        { name: 'Angular', level: 78 },
+        { name: 'Angular', level: 75 },
         { name: 'Spring Boot', level: 80 },
-        { name: 'PostgreSQL', level: 82 }
+        { name: 'AI Integration', level: 70 }
       ],
-      accent: '#7c3aed',
-      badge: '🚇 Transport'
-    },
-    {
-      title: 'Bank Management System',
-      institution: 'JSpiders Capstone',
-      timeline: 'Oct 2024 – Jan 2025',
-      techStack: 'Java · Spring Boot · MySQL · HTML/CSS/JS',
-      description: 'Full-stack banking application with account management, transactions, validations, and complete backend Spring Boot + SQL integration.',
-      highlights: [
-        '🏦 Account creation and management',
-        '💳 Deposit, withdrawal, transfer features',
-        '✅ Form validations and error handling',
-        '🗃️ MySQL with stored procedures',
-        '🔒 Basic authentication and session management'
-      ],
-      tags: ['database'],
-      skills: [
-        { name: 'Java', level: 78 },
-        { name: 'Spring Boot', level: 74 },
-        { name: 'MySQL', level: 82 }
-      ],
-      accent: '#059669',
-      badge: '🏦 Finance'
-    },
-    {
-      title: 'Cricket Player Prediction AI',
-      institution: 'College Final Project',
-      timeline: 'Nov 2023 – May 2024',
-      techStack: 'Angular · Python · Scikit-learn · SQL · REST APIs',
-      description: 'ML-powered sports analytics predicting cricket player performance using multiple algorithms with Angular dashboard and SQL data pipeline.',
-      highlights: [
-        '🏏 Player performance prediction using ML',
-        '🤖 Multiple Scikit-learn algorithms compared',
-        '📊 Angular dashboard with dynamic charts',
-        '🗃️ SQL data pipeline for player stats',
-        '📈 Accuracy metrics and model evaluation'
-      ],
-      tags: ['angular', 'database'],
-      skills: [
-        { name: 'Angular', level: 68 },
-        { name: 'Python/ML', level: 72 },
-        { name: 'PostgreSQL', level: 76 }
-      ],
-      accent: '#ff5722',
-      badge: '🤖 AI/ML'
+      accent: '#ec4899',
+      badge: '🤖 AI & Automation',
+      architecture: 'Angular Client ➔ WebSocket Controller ➔ Spring Boot Core ➔ OpenAI API / DB Log',
+      githubUrl: 'https://github.com/Raman-8688/ai-support-assistant',
+      liveUrl: ''
     }
   ];
 
@@ -343,7 +347,18 @@ export class PortfolioService {
   // ─── Actions ────────────────────────────────────────────────
   navigateTo(section: Section): void {
     this.activeSection.set(section);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const element = document.getElementById(section);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   toggleDarkMode(): void {

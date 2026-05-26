@@ -14,17 +14,27 @@ import { PortfolioService } from '../../services/Portfolio.service';
 export class NavbarComponent {
 
   navItems: { id: Section; label: string }[] = [
-    { id: 'home',       label: 'Home'       },
-    { id: 'about',      label: 'About'      },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills',     label: 'Skills'     },
-    { id: 'projects',   label: 'Projects'   },
-    { id: 'contact',    label: 'Contact'    }
+    { id: 'home',         label: 'Home' },
+    { id: 'about',        label: 'About' },
+    { id: 'skills',       label: 'Skills' },
+    { id: 'experience',   label: 'Experience' },
+    { id: 'architecture', label: 'Architecture' },
+    { id: 'projects',     label: 'Projects' },
+    { id: 'devops',       label: 'DevOps' },
+    { id: 'github',       label: 'GitHub' },
+    { id: 'contact',      label: 'Contact' }
   ];
+
+  menuOpen = false;
 
   constructor(public ps: PortfolioService) {}
 
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
   navigate(section: Section): void {
     this.ps.navigateTo(section);
+    this.menuOpen = false; // close mobile menu on click
   }
 }

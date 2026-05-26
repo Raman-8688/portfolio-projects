@@ -6,19 +6,64 @@
   padding: 90px 80px 60px;
   position: relative;
   overflow: hidden;
-  background: #f4f7ff;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.94) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
   font-family: 'DM Sans', sans-serif;
   transition: background 0.4s;
+  --mouse-x: -999px;
+  --mouse-y: -999px;
 }
-.hero.dark { background: #06060f; }
+.hero.dark { background: radial-gradient(circle at center, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.94) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; }
+
+
+
+/* Spotlight overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(124, 58, 237, 0.07), transparent 80%);
+}
 
 /* Subtle grid */
 .hero-grid {
   position: absolute; inset: 0; pointer-events: none;
   background-image:
-    linear-gradient(rgba(0,188,212,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,188,212,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
   background-size: 52px 52px;
+}
+
+/* Optimized Particles style - hidden on mobile */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--theme-color);
+  border-radius: 50%;
+  opacity: 0.15;
+}
+.p-1 { top: 20%; left: 15%; animation: floatUp 8s infinite alternate ease-in-out; }
+.p-2 { top: 60%; left: 25%; animation: floatUp 12s infinite alternate-reverse ease-in-out; }
+.p-3 { top: 40%; left: 80%; animation: floatUp 10s infinite alternate ease-in-out; }
+.p-4 { top: 75%; left: 70%; animation: floatUp 14s infinite alternate-reverse ease-in-out; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.1; }
+  100% { transform: translateY(-30px) scale(1.2); opacity: 0.2; }
+}
+
+@media (max-width: 900px) {
+  .particles-container {
+    display: none !important;
+  }
 }
 
 /* Soft orbs */
@@ -73,7 +118,16 @@
   gap: 60px; max-width: 1160px;
   margin: 0 auto; width: 100%;
   position: relative; z-index: 2;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
+
+
 
 /* ── LEFT ── */
 .hero-left { flex: 1; max-width: 600px; }

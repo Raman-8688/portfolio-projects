@@ -1,101 +1,92 @@
 <section class="projects-section" [class.dark]="ps.isDarkMode()">
-
   <div class="proj-orb orb1"></div>
   <div class="proj-orb orb2"></div>
 
   <div class="section-container">
-
     <div class="section-header" [class.visible]="headerVisible">
-      <span class="section-tag">What I've Built</span>
+      <span class="section-tag">Systems Catalog</span>
       <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
-      <p class="section-sub">Real production applications — from multi-tenant pharma systems to AI-powered analytics</p>
+      <p class="section-sub">Production systems and professional prototypes built with enterprise-level patterns</p>
       <div class="title-line"></div>
     </div>
 
-    <!-- FILTER -->
+    <!-- FILTER BAR -->
     <div class="filter-bar" [class.visible]="headerVisible">
       <button *ngFor="let f of filters" class="filter-btn" [class.active]="activeFilter === f.id" (click)="setFilter(f.id)">
         <i [class]="f.icon"></i> {{ f.label }}
       </button>
     </div>
 
-    <!-- PROJECT CARDS — each has unique animation class -->
-    <div class="projects-layout">
-
-      <!-- CARD 0: Featured large card — PHARMA -->
-      <div
-        *ngIf="isVisible(filteredProjects, 0)"
-        class="proj-card card-featured"
-        [class.visible]="cardsVisible[0]"
-        [style.--c]="filteredProjects[0].accent"
+    <!-- GRID LAYOUT -->
+    <div class="projects-grid">
+      <div 
+        *ngFor="let proj of filteredProjects; let i = index" 
+        class="proj-card"
+        [class.visible]="cardsVisible[i]"
+        [style.--c]="proj.accent"
       >
-        <div class="featured-glow" [style.background]="filteredProjects[0].accent"></div>
-        <div class="card-inner">
-          <div class="featured-left">
-            <div class="proj-badge gold">{{ filteredProjects[0].badge }}</div>
-            <h3 class="proj-title">{{ filteredProjects[0].title }}</h3>
-            <div class="proj-meta-row">
-              <span><i class="fas fa-building"></i> {{ filteredProjects[0].institution }}</span>
-              <span><i class="fas fa-clock"></i> {{ filteredProjects[0].timeline }}</span>
-            </div>
-            <p class="proj-desc">{{ filteredProjects[0].description }}</p>
-            <div class="proj-stack-tags">
-              <span *ngFor="let t of filteredProjects[0].techStack.split(' · ')" class="stack-tag">{{ t }}</span>
-            </div>
+        <!-- Top Gradient bar -->
+        <div class="card-glow-bar" [style.background]="'linear-gradient(90deg, ' + proj.accent + ', #8b5cf6)'"></div>
+        
+        <!-- Header -->
+        <div class="card-header">
+          <div class="badge-row">
+            <span class="timeline-tag"><i class="fas fa-calendar-alt"></i> {{ proj.timeline }}</span>
+            <span class="badge" [style.background]="proj.accent + '22'" [style.color]="proj.accent">{{ proj.badge }}</span>
           </div>
-          <div class="featured-right">
-            <div class="highlights-list">
-              <div class="hl-item" *ngFor="let h of filteredProjects[0].highlights; let i = index" [style.animation-delay]="(i*0.1)+'s'">
-                <span class="hl-bullet" [style.background]="filteredProjects[0].accent"></span>
-                <span>{{ h }}</span>
-              </div>
-            </div>
+          <h3 class="proj-title">{{ proj.title }}</h3>
+          <span class="institution-name"><i class="fas fa-building"></i> {{ proj.institution }}</span>
+        </div>
+
+        <div class="card-body">
+          <p class="proj-desc">{{ proj.description }}</p>
+
+          <!-- Problem Solved Section -->
+          <div class="detail-section problem-box">
+            <span class="label"><i class="fas fa-exclamation-triangle"></i> Problem Solved</span>
+            <p class="val">{{ proj.problemSolved }}</p>
+          </div>
+
+          <!-- Architecture Summary Section -->
+          <div class="detail-section arch-box" *ngIf="proj.architecture">
+            <span class="label"><i class="fas fa-sitemap"></i> Architecture Summary</span>
+            <div class="val arch-pipeline">{{ proj.architecture }}</div>
+          </div>
+
+          <!-- Features Section -->
+          <div class="detail-section features-box" *ngIf="proj.features && proj.features.length > 0">
+            <span class="label"><i class="fas fa-list-ul"></i> Key Implementations</span>
+            <ul class="features-list">
+              <li *ngFor="let feature of proj.features">{{ feature }}</li>
+            </ul>
+          </div>
+
+          <!-- Tech stack pills -->
+          <div class="tech-pills-row">
+            <span *ngFor="let tech of proj.techStack.split(' · ')" class="tech-pill">{{ tech }}</span>
           </div>
         </div>
-      </div>
 
-      <!-- CARDS 1+ : standard grid -->
-      <div class="cards-grid">
-        <div
-          *ngFor="let proj of filteredProjects.slice(1); let i = index"
-          class="proj-card card-standard"
-          [class]="'proj-card card-standard anim-' + getAnimClass(i)"
-          [class.visible]="cardsVisible[i + 1]"
-          [style.--c]="proj.accent"
-        >
-          <!-- Top gradient bar -->
-          <div class="card-bar" [style.background]="'linear-gradient(90deg,' + proj.accent + ',' + proj.accent + '66)'"></div>
-
-          <!-- Floating badge -->
-          <div class="card-badge" [style.background]="proj.accent + '20'" [style.color]="proj.accent">{{ proj.badge }}</div>
-
-          <div class="card-body">
-            <h3 class="proj-title-sm">{{ proj.title }}</h3>
-            <div class="meta-sm">
-              <span><i class="fas fa-building"></i> {{ proj.institution }}</span>
-              <span><i class="fas fa-calendar"></i> {{ proj.timeline }}</span>
-            </div>
-            <p class="desc-sm">{{ proj.description }}</p>
-
-            <!-- Mini highlights -->
-            <div class="mini-highlights">
-              <div class="mini-hl" *ngFor="let h of proj.highlights.slice(0, 3)">
-                <i class="fas fa-check-circle" [style.color]="proj.accent"></i>
-                <span>{{ h }}</span>
-              </div>
-            </div>
-
-            <!-- Tech pills -->
-            <div class="tech-pills">
-              <span *ngFor="let t of proj.techStack.split(' · ').slice(0,4)" class="tech-pill">{{ t }}</span>
-            </div>
-          </div>
-
-          <!-- Hover glow effect -->
-          <div class="card-hover-glow" [style.background]="proj.accent"></div>
+        <!-- Action Links -->
+        <div class="card-footer">
+          <a [href]="proj.githubUrl" target="_blank" class="footer-btn git-btn" *ngIf="proj.githubUrl">
+            <i class="fab fa-github"></i> Repository
+          </a>
+          <span class="footer-btn disabled-btn" *ngIf="!proj.githubUrl">
+            <i class="fab fa-github"></i> Private Source
+          </span>
+          
+          <a [href]="proj.liveUrl" target="_blank" class="footer-btn live-btn" *ngIf="proj.liveUrl && proj.liveUrl !== ''">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <span class="footer-btn disabled-btn" *ngIf="!proj.liveUrl || proj.liveUrl === ''">
+            <i class="fas fa-lock"></i> Corporate Internal
+          </span>
         </div>
-      </div>
 
+        <!-- Glass overlay spotlight effect -->
+        <div class="card-spotlight"></div>
+      </div>
     </div>
 
   </div>

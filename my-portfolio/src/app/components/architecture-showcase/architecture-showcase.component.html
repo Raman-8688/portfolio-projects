@@ -1,0 +1,71 @@
+<section class="arch-section" [class.dark]="ps.isDarkMode()">
+  <div class="arch-orb"></div>
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">System Topology</span>
+      <h2 class="section-title">Production <span class="accent">Architecture</span></h2>
+      <p class="section-sub">A production-grade microservices pipeline built for dynamic scalability and data isolation</p>
+      <div class="title-line"></div>
+    </div>
+
+    <!-- ARCHITECTURE FLOWCHART -->
+    <div class="arch-container">
+      <div class="flow-track">
+        <!-- Connecting glowing path -->
+        <div class="glow-path"></div>
+      </div>
+
+      <div class="flow-nodes">
+        <div 
+          *ngFor="let step of steps; let i = index" 
+          class="flow-card"
+          [class.active]="activeNode === i"
+          (mouseenter)="selectNode(i)"
+          (mouseleave)="selectNode(null)"
+          [style.--node-color]="step.color"
+        >
+          <div class="node-icon-box" [style.background]="step.color + '15'" [style.color]="step.color">
+            <i [class]="step.icon"></i>
+          </div>
+
+          <div class="node-details">
+            <div class="node-title-row">
+              <h3 class="node-title">{{ step.title }}</h3>
+              <span class="step-num">0{{ i + 1 }}</span>
+            </div>
+            <p class="node-desc">{{ step.desc }}</p>
+          </div>
+          
+          <!-- Subtle indicator glow behind -->
+          <div class="card-glow" [style.background]="step.color"></div>
+        </div>
+      </div>
+
+      <!-- Live Pipeline Insights Panel -->
+      <div class="insight-panel">
+        <div class="insight-header">
+          <i class="fas fa-microchip pulse-icon"></i>
+          <h3>Enterprise Reliability Summary</h3>
+        </div>
+        <div class="insight-grid">
+          <div class="insight-item">
+            <span class="insight-label">Security Focus</span>
+            <span class="insight-val">Stateful JWT + RBAC filters</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-label">Database Isolation</span>
+            <span class="insight-val">PostgreSQL Multi-Schema routing</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-label">Orchestration Mesh</span>
+            <span class="insight-val">Eureka + local Kubernetes nodes</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-label">API Routing latency</span>
+            <span class="insight-val">&lt; 12ms network overhead</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

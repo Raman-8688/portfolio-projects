@@ -22,6 +22,12 @@ export interface Project {
   skills: { name: string; level: number }[];
   accent: string;
   badge?: string;
+  image?: string;
+  problemSolved?: string;
+  features?: string[];
+  architecture?: string;
+  githubUrl?: string;
+  liveUrl?: string;
 }
 
 export interface Experience {
@@ -51,4 +57,4 @@ export interface SocialLink {
 }
 
 export type ThemeColor = string;
-export type Section = 'home' | 'about' | 'experience' | 'skills' | 'projects' | 'contact';
+export type Section = 'home' | 'about' | 'skills' | 'experience' | 'projects' | 'architecture' | 'devops' | 'github' | 'contact';
