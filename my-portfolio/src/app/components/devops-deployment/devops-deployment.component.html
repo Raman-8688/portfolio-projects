@@ -1,0 +1,105 @@
+<section class="devops-section" [class.dark]="ps.isDarkMode()">
+  <div class="devops-orb-left"></div>
+  
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">Infrastructure Automation</span>
+      <h2 class="section-title">DevOps & <span class="accent">Deployment</span></h2>
+      <p class="section-sub">Zero-downtime microservices packaging, service routing, and cloud orchestration</p>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="devops-dashboard-grid">
+      
+      <!-- LEFT: Pipeline Runner -->
+      <div class="glass-panel pipeline-card">
+        <div class="panel-top">
+          <div class="dot-group">
+            <span class="panel-dot red"></span>
+            <span class="panel-dot yellow"></span>
+            <span class="panel-dot green"></span>
+          </div>
+          <span class="terminal-title"><i class="fab fa-github"></i> github-actions-workflow.yml</span>
+          <button class="run-btn" (click)="triggerPipeline()"><i class="fas fa-play"></i> Run Build</button>
+        </div>
+
+        <div class="pipeline-flow">
+          <div 
+            *ngFor="let step of pipelineSteps; let i = index" 
+            class="pipeline-step"
+            [class.active]="i === activeStep"
+            [class.completed]="i < activeStep"
+          >
+            <div class="step-icon-wrap">
+              <i [class]="step.icon"></i>
+            </div>
+            
+            <div class="step-info">
+              <div class="step-title-row">
+                <span class="step-name">{{ step.title }}</span>
+                <span class="status-pill" [class.running]="i === activeStep" [class.success]="i < activeStep">
+                  {{ i === activeStep ? 'Running' : (i < activeStep ? 'Passed' : 'Pending') }}
+                </span>
+              </div>
+              <p class="step-desc">{{ step.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Kubernetes Cluster Mesh -->
+      <div class="glass-panel k8s-card">
+        <div class="panel-top">
+          <div class="mesh-indicator"><span class="pulse-dot"></span></div>
+          <span class="panel-title"><i class="fas fa-dharmachakra"></i> Kubernetes Core Cluster</span>
+          <span class="node-count">Node: Local cluster</span>
+        </div>
+
+        <div class="k8s-metrics-row">
+          <div class="metric-block">
+            <span class="metric-val">3 / 3</span>
+            <span class="metric-label">Pods Active</span>
+          </div>
+          <div class="metric-block">
+            <span class="metric-val">100%</span>
+            <span class="metric-label">Health Index</span>
+          </div>
+          <div class="metric-block">
+            <span class="metric-val">Nginx</span>
+            <span class="metric-label">Ingress Proxy</span>
+          </div>
+        </div>
+
+        <div class="pods-list">
+          <div class="pod-item" *ngFor="let pod of pods">
+            <div class="pod-status-icon" [style.background]="pod.color + '22'" [style.color]="pod.color">
+              <i class="fas fa-cubes"></i>
+            </div>
+            
+            <div class="pod-details">
+              <span class="pod-name">{{ pod.name }}</span>
+              <span class="pod-uptime">Uptime: {{ pod.uptime }}</span>
+            </div>
+
+            <div class="pod-status-tag">
+              <span class="status-indicator-light" [style.background]="pod.color"></span>
+              <span class="status-text">{{ pod.status }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="infra-highlights">
+          <h4>Infrastructure Stack</h4>
+          <div class="infra-pills">
+            <span><i class="fab fa-docker"></i> Docker Containers</span>
+            <span><i class="fas fa-server"></i> Nginx Gateway</span>
+            <span><i class="fab fa-aws"></i> AWS Hostings</span>
+            <span><i class="fas fa-lock"></i> SSL Secured</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

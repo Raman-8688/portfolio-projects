@@ -1,12 +1,12 @@
-<header class="navbar" [class.dark]="ps.isDarkMode()">
-  <div class="navbar-logo">
+<header class="navbar" [class.dark]="ps.isDarkMode()" [class.menu-open]="menuOpen">
+  <div class="navbar-logo" (click)="navigate('home')">
     <div class="logo-icon">
       <i class="fas fa-code"></i>
     </div>
     <span class="logo-text">Ramanjaneyulu<span class="logo-dot">.</span></span>
   </div>
 
-  <nav class="navbar-nav">
+  <nav class="navbar-nav" [class.open]="menuOpen">
     <a
       *ngFor="let item of navItems"
       class="nav-link"
@@ -24,6 +24,9 @@
     </button>
     <button class="icon-btn settings-trigger" (click)="ps.toggleSettings()" title="Settings">
       <i class="fas fa-cog" [class.spinning]="ps.settingsPanelOpen()"></i>
+    </button>
+    <button class="icon-btn hamburger-btn" (click)="toggleMenu()" aria-label="Toggle Navigation Menu">
+      <i [class]="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
     </button>
   </div>
 </header>

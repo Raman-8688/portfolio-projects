@@ -3,24 +3,15 @@
   <app-settings-panel></app-settings-panel>
 
   <main class="main-content">
-    <div *ngIf="ps.activeSection() === 'home'">
-      <app-hero></app-hero>
-    </div>
-    <div *ngIf="ps.activeSection() === 'about'">
-      <app-about></app-about>
-    </div>
-    <div *ngIf="ps.activeSection() === 'experience'">
-      <app-experience></app-experience>
-    </div>
-    <div *ngIf="ps.activeSection() === 'skills'">
-      <app-skills></app-skills>
-    </div>
-    <div *ngIf="ps.activeSection() === 'projects'">
-      <app-projects></app-projects>
-    </div>
-    <div *ngIf="ps.activeSection() === 'contact'">
-      <app-contact></app-contact>
-    </div>
+    <app-hero id="home"></app-hero>
+    <app-about id="about"></app-about>
+    <app-skills id="skills"></app-skills>
+    <app-experience id="experience"></app-experience>
+    <app-architecture-showcase id="architecture"></app-architecture-showcase>
+    <app-projects id="projects"></app-projects>
+    <app-devops-deployment id="devops"></app-devops-deployment>
+    <app-github-stats id="github"></app-github-stats>
+    <app-contact id="contact"></app-contact>
   </main>
 
   <app-footer></app-footer>

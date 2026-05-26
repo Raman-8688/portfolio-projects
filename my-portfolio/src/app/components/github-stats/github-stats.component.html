@@ -1,0 +1,92 @@
+<section class="git-section" [class.dark]="ps.isDarkMode()">
+  <div class="git-orb"></div>
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">Open Source Presence</span>
+      <h2 class="section-title">Developer <span class="accent">Activity</span></h2>
+      <p class="section-sub">Real-time open source statistics and core repository highlights</p>
+      <div class="title-line"></div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="git-dashboard">
+      
+      <!-- Profile Card -->
+      <div class="glass-card profile-card" *ngIf="profile">
+        <div class="profile-header">
+          <div class="avatar-wrap">
+            <img [src]="profile.avatar_url" alt="GitHub Avatar" class="avatar-img" />
+          </div>
+          <div class="user-meta">
+            <h3 class="git-name">Ramanjaneyulu Boya</h3>
+            <a [href]="profile.html_url" target="_blank" class="git-username">
+              <i class="fab fa-github"></i> &#64;{{ profile.login }}
+            </a>
+          </div>
+        </div>
+
+        <div class="stats-counter-grid">
+          <div class="stat-box">
+            <span class="num">{{ profile.public_repos }}</span>
+            <span class="lbl">Public Repos</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">{{ profile.followers }}</span>
+            <span class="lbl">Followers</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">200+</span>
+            <span class="lbl">Commits</span>
+          </div>
+        </div>
+
+        <div class="profile-cta">
+          <a [href]="profile.html_url" target="_blank" class="view-profile-btn">
+            <i class="fas fa-external-link-alt"></i> View GitHub Profile
+          </a>
+        </div>
+      </div>
+
+      <!-- Activity Calendar representation -->
+      <div class="glass-card activity-highlights">
+        <div class="card-title-row">
+          <h4><i class="fas fa-calendar-check"></i> Code Cadence Highlights</h4>
+          <span class="sync-status" [class.live]="!error">
+            <span class="sync-dot"></span> {{ error ? 'Offline Highlights' : 'Live Syncing' }}
+          </span>
+        </div>
+
+        <!-- Simulated grid -->
+        <div class="contribution-board">
+          <div class="grid-wrap">
+            <div 
+              *ngFor="let item of contributions" 
+              class="grid-tile" 
+              [attr.data-level]="item.level"
+              [title]="'Date: ' + item.date"
+            ></div>
+          </div>
+        </div>
+
+        <div class="legend-row">
+          <span>Less</span>
+          <div class="legend-tiles">
+            <span class="grid-tile" data-level="0"></span>
+            <span class="grid-tile" data-level="1"></span>
+            <span class="grid-tile" data-level="2"></span>
+            <span class="grid-tile" data-level="3"></span>
+            <span class="grid-tile" data-level="4"></span>
+          </div>
+          <span>More</span>
+        </div>
+
+        <div class="highlights-footer">
+          <div class="highlight-pill"><i class="fas fa-history"></i> Daily commits</div>
+          <div class="highlight-pill"><i class="fas fa-code"></i> Java &amp; TS focused</div>
+          <div class="highlight-pill"><i class="fas fa-code-branch"></i> Git branch operations</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
