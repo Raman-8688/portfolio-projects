@@ -2,6 +2,22 @@
   <app-navbar></app-navbar>
   <app-settings-panel></app-settings-panel>
 
+  <!-- Global Sticky Social Sidebar -->
+  <aside class="social-sidebar" aria-label="Social links">
+    <a
+      *ngFor="let link of ps.socialLinks"
+      [href]="link.url"
+      [title]="link.label"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+    >
+      <i [class]="link.icon"></i>
+      <span class="social-tooltip">{{ link.label }}</span>
+    </a>
+    <div class="social-line"></div>
+  </aside>
+
   <main class="main-content">
     <app-hero id="home"></app-hero>
     <app-about id="about"></app-about>
