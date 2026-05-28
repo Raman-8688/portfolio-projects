@@ -1,4 +1,4 @@
-<section class="exp-section" [class.dark]="ps.isDarkMode()">
+<section class="exp-section">
   <div class="section-container">
     <div class="section-header">
       <span class="section-tag">My Journey</span>
@@ -20,19 +20,19 @@
         <div
           class="timeline-dot"
           [style.background]="exp.color"
-          [style.box-shadow]="'0 0 20px ' + exp.color + '44'"
+          [style.box-shadow]="'0 0 20px ' + exp.color + '33'"
         >
           <i [class]="exp.logo"></i>
         </div>
 
-        <div class="exp-card" [style.--accent]="exp.color">
+        <div class="exp-card glass-card" [style.--accent]="exp.color">
           <div class="card-accent" [style.background]="exp.color"></div>
 
           <div class="exp-header">
             <div class="exp-company-wrap">
               <div
                 class="exp-logo"
-                [style.background]="exp.color + '18'"
+                [style.background]="exp.color + '12'"
                 [style.color]="exp.color"
               >
                 <i [class]="exp.logo"></i>
@@ -48,7 +48,7 @@
               >
               <span
                 class="exp-type"
-                [style.background]="exp.color + '18'"
+                [style.background]="exp.color + '12'"
                 [style.color]="exp.color"
                 >{{ exp.type }}</span
               >

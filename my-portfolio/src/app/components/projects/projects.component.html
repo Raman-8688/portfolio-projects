@@ -1,7 +1,4 @@
-<section class="projects-section" [class.dark]="ps.isDarkMode()">
-  <div class="proj-orb orb1"></div>
-  <div class="proj-orb orb2"></div>
-
+<section class="projects-section">
   <div class="section-container">
     <div class="section-header" [class.visible]="headerVisible">
       <span class="section-tag">Systems Catalog</span>
@@ -21,7 +18,7 @@
     <div class="projects-grid">
       <div 
         *ngFor="let proj of filteredProjects; let i = index" 
-        class="proj-card"
+        class="proj-card glass-card"
         [class.visible]="cardsVisible[i]"
         [style.--c]="proj.accent"
       >
@@ -32,7 +29,7 @@
         <div class="card-header">
           <div class="badge-row">
             <span class="timeline-tag"><i class="fas fa-calendar-alt"></i> {{ proj.timeline }}</span>
-            <span class="badge" [style.background]="proj.accent + '22'" [style.color]="proj.accent">{{ proj.badge }}</span>
+            <span class="badge" [style.background]="proj.accent + '18'" [style.color]="proj.accent">{{ proj.badge }}</span>
           </div>
           <h3 class="proj-title">{{ proj.title }}</h3>
           <span class="institution-name"><i class="fas fa-building"></i> {{ proj.institution }}</span>
@@ -49,16 +46,37 @@
 
           <!-- Architecture Summary Section -->
           <div class="detail-section arch-box" *ngIf="proj.architecture">
-            <span class="label"><i class="fas fa-sitemap"></i> Architecture Summary</span>
+            <span class="label"><i class="fas fa-sitemap"></i> System Architecture</span>
             <div class="val arch-pipeline">{{ proj.architecture }}</div>
           </div>
 
-          <!-- Features Section -->
+          <!-- Key Implementations (if any) -->
           <div class="detail-section features-box" *ngIf="proj.features && proj.features.length > 0">
             <span class="label"><i class="fas fa-list-ul"></i> Key Implementations</span>
             <ul class="features-list">
               <li *ngFor="let feature of proj.features">{{ feature }}</li>
             </ul>
+          </div>
+
+          <!-- Engineering Specs Grid -->
+          <div class="specs-grid-title">Engineering Specifications</div>
+          <div class="specs-grid">
+            <div class="spec-item" *ngIf="proj.backendFrontendSeparation">
+              <span class="spec-label"><i class="fas fa-arrows-alt-h"></i> Stack Boundary</span>
+              <span class="spec-value">{{ proj.backendFrontendSeparation }}</span>
+            </div>
+            <div class="spec-item" *ngIf="proj.dockerK8sUsage">
+              <span class="spec-label"><i class="fab fa-docker"></i> Containerization</span>
+              <span class="spec-value">{{ proj.dockerK8sUsage }}</span>
+            </div>
+            <div class="spec-item" *ngIf="proj.securityAuth">
+              <span class="spec-label"><i class="fas fa-shield-alt"></i> Security & Auth</span>
+              <span class="spec-value">{{ proj.securityAuth }}</span>
+            </div>
+            <div class="spec-item" *ngIf="proj.cicdWorkflow">
+              <span class="spec-label"><i class="fas fa-sync-alt"></i> CI/CD Pipeline</span>
+              <span class="spec-value">{{ proj.cicdWorkflow }}</span>
+            </div>
           </div>
 
           <!-- Tech stack pills -->
@@ -69,17 +87,17 @@
 
         <!-- Action Links -->
         <div class="card-footer">
-          <a [href]="proj.githubUrl" target="_blank" class="footer-btn git-btn" *ngIf="proj.githubUrl">
+          <a [href]="proj.githubUrl" target="_blank" class="primary-button" *ngIf="proj.githubUrl">
             <i class="fab fa-github"></i> Repository
           </a>
-          <span class="footer-btn disabled-btn" *ngIf="!proj.githubUrl">
+          <span class="secondary-button disabled-btn" *ngIf="!proj.githubUrl">
             <i class="fab fa-github"></i> Private Source
           </span>
           
-          <a [href]="proj.liveUrl" target="_blank" class="footer-btn live-btn" *ngIf="proj.liveUrl && proj.liveUrl !== ''">
+          <a [href]="proj.liveUrl" target="_blank" class="primary-button" *ngIf="proj.liveUrl && proj.liveUrl !== ''">
             <i class="fas fa-external-link-alt"></i> Live Demo
           </a>
-          <span class="footer-btn disabled-btn" *ngIf="!proj.liveUrl || proj.liveUrl === ''">
+          <span class="secondary-button disabled-btn" *ngIf="!proj.liveUrl || proj.liveUrl === ''">
             <i class="fas fa-lock"></i> Corporate Internal
           </span>
         </div>
