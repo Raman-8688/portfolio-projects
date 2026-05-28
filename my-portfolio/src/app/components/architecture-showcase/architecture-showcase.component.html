@@ -1,66 +1,193 @@
 <section class="arch-section">
   <div class="section-container">
+
+    <!-- Header -->
     <div class="section-header">
       <span class="section-tag">System Design</span>
       <h2 class="section-title">Enterprise <span class="accent">Architecture</span></h2>
-      <p class="section-sub">Production system topology illustrating secure microservice flow and containerization</p>
+      <p class="section-sub">Production microservice topology — click any node to explore implementation details</p>
       <div class="title-line"></div>
     </div>
 
-    <!-- FLOW CHART SCHEMATIC -->
-    <div class="flowchart-container glass-card">
-      <div class="flowchart-track"></div>
-      
-      <div 
-        class="flow-card" 
-        *ngFor="let node of ps.architectureNodes; let i = index"
-        [class.active]="selectedNodeIndex === i"
-        (click)="selectNode(i)"
-        [style.--node-color]="node.color"
-        [style.animation-delay]="(i * 0.1) + 's'"
-      >
-        <div class="node-icon" [style.background]="node.color + '12'" [style.color]="node.color">
-          <i [class]="node.icon"></i>
-        </div>
-        <div class="node-details">
-          <div class="node-type" [style.color]="node.color">{{ node.type }}</div>
-          <h4 class="node-title">{{ node.title }}</h4>
-        </div>
-        <div class="node-connector" *ngIf="i < ps.architectureNodes.length - 1">
-          <i class="fas fa-chevron-right arrow-horizontal"></i>
-          <i class="fas fa-chevron-down arrow-vertical"></i>
-        </div>
-      </div>
+    <!-- SVG FLOW DIAGRAM -->
+    <div class="diagram-wrapper glass-card">
+      <svg class="arch-svg" viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Arrow marker -->
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="rgba(148,163,184,0.5)"/>
+          </marker>
+          <!-- Glow filters per node color -->
+          <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <!-- Subtle grid pattern -->
+          <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+            <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background grid -->
+        <rect width="1060" height="260" fill="url(#grid)" rx="16"/>
+
+        <!-- ── Connection lines ── -->
+        <!-- Angular → Gateway -->
+        <line x1="168" y1="130" x2="238" y2="130" stroke="rgba(148,163,184,0.35)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <!-- Gateway → Services -->
+        <line x1="388" y1="130" x2="458" y2="130" stroke="rgba(148,163,184,0.35)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <!-- Services → DB -->
+        <line x1="608" y1="130" x2="678" y2="130" stroke="rgba(148,163,184,0.35)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <!-- DB → Docker -->
+        <line x1="828" y1="130" x2="898" y2="130" stroke="rgba(148,163,184,0.35)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <!-- Docker → CI/CD (curve from bottom) -->
+        <path d="M 940 195 Q 940 240 960 240 Q 980 240 980 220" stroke="rgba(240,80,50,0.4)" stroke-width="1.5" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <!-- CI/CD back to Gateway (feedback loop top) -->
+        <path d="M 980 60 Q 980 24 580 24 Q 320 24 310 60" stroke="rgba(240,80,50,0.25)" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+        <!-- Label on feedback loop -->
+        <text x="530" y="18" fill="rgba(240,80,50,0.55)" font-size="9" font-family="monospace" text-anchor="middle">CI/CD deploy trigger</text>
+
+        <!-- JWT label on Gateway→Services arrow -->
+        <text x="423" y="124" fill="rgba(167,139,250,0.7)" font-size="8.5" font-family="monospace" text-anchor="middle">JWT</text>
+
+        <!-- ── NODE 0: Angular UI ── -->
+        <g class="svg-node" (click)="selectNode(0)" [class.svg-active]="selectedNodeIndex===0" style="cursor:pointer">
+          <rect x="20" y="72" width="148" height="116" rx="14"
+            fill="rgba(221,0,49,0.06)" stroke="rgba(221,0,49,0.35)" stroke-width="1.5"
+            [attr.stroke]="selectedNodeIndex===0 ? '#dd0031' : 'rgba(221,0,49,0.35)'"
+            [attr.fill]="selectedNodeIndex===0 ? 'rgba(221,0,49,0.12)' : 'rgba(221,0,49,0.06)'"/>
+          <circle cx="94" cy="108" r="22" fill="rgba(221,0,49,0.14)" stroke="rgba(221,0,49,0.3)" stroke-width="1"/>
+          <text x="94" y="114" text-anchor="middle" font-size="18" font-family="'Font Awesome 6 Free', sans-serif" fill="#dd0031">&#xf420;</text>
+          <text x="94" y="147" text-anchor="middle" font-size="8.5" font-weight="700" fill="rgba(221,0,49,0.8)" font-family="monospace" letter-spacing="0.8">FRONTEND</text>
+          <text x="94" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9" font-family="'DM Sans', sans-serif">Angular UI</text>
+          <text x="94" y="177" text-anchor="middle" font-size="10" fill="rgba(148,163,184,0.7)" font-family="'DM Sans', sans-serif">Client App</text>
+        </g>
+
+        <!-- ── NODE 1: API Gateway ── -->
+        <g class="svg-node" (click)="selectNode(1)" [class.svg-active]="selectedNodeIndex===1" style="cursor:pointer">
+          <rect x="240" y="72" width="148" height="116" rx="14"
+            fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.35)" stroke-width="1.5"
+            [attr.stroke]="selectedNodeIndex===1 ? '#a78bfa' : 'rgba(167,139,250,0.35)'"
+            [attr.fill]="selectedNodeIndex===1 ? 'rgba(167,139,250,0.12)' : 'rgba(167,139,250,0.06)'"/>
+          <circle cx="314" cy="108" r="22" fill="rgba(167,139,250,0.14)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+          <text x="314" y="114" text-anchor="middle" font-size="16" font-family="'Font Awesome 6 Free', sans-serif" fill="#a78bfa">&#xf0e8;</text>
+          <text x="314" y="147" text-anchor="middle" font-size="8.5" font-weight="700" fill="rgba(167,139,250,0.8)" font-family="monospace" letter-spacing="0.8">ROUTING</text>
+          <text x="314" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9" font-family="'DM Sans', sans-serif">API Gateway</text>
+          <text x="314" y="177" text-anchor="middle" font-size="10" fill="rgba(148,163,184,0.7)" font-family="'DM Sans', sans-serif">Spring Cloud Gateway</text>
+        </g>
+
+        <!-- ── NODE 2: Microservices ── -->
+        <g class="svg-node" (click)="selectNode(2)" [class.svg-active]="selectedNodeIndex===2" style="cursor:pointer">
+          <rect x="460" y="72" width="148" height="116" rx="14"
+            fill="rgba(109,179,63,0.06)" stroke="rgba(109,179,63,0.35)" stroke-width="1.5"
+            [attr.stroke]="selectedNodeIndex===2 ? '#6db33f' : 'rgba(109,179,63,0.35)'"
+            [attr.fill]="selectedNodeIndex===2 ? 'rgba(109,179,63,0.12)' : 'rgba(109,179,63,0.06)'"/>
+          <circle cx="534" cy="108" r="22" fill="rgba(109,179,63,0.14)" stroke="rgba(109,179,63,0.3)" stroke-width="1"/>
+          <text x="534" y="114" text-anchor="middle" font-size="16" font-family="'Font Awesome 6 Free', sans-serif" fill="#6db33f">&#xf233;</text>
+          <text x="534" y="147" text-anchor="middle" font-size="8.5" font-weight="700" fill="rgba(109,179,63,0.8)" font-family="monospace" letter-spacing="0.8">BACKEND</text>
+          <text x="534" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9" font-family="'DM Sans', sans-serif">Microservices</text>
+          <text x="534" y="177" text-anchor="middle" font-size="10" fill="rgba(148,163,184,0.7)" font-family="'DM Sans', sans-serif">Spring Boot + Eureka</text>
+        </g>
+
+        <!-- ── NODE 3: PostgreSQL ── -->
+        <g class="svg-node" (click)="selectNode(3)" [class.svg-active]="selectedNodeIndex===3" style="cursor:pointer">
+          <rect x="680" y="72" width="148" height="116" rx="14"
+            fill="rgba(51,103,145,0.06)" stroke="rgba(51,103,145,0.45)" stroke-width="1.5"
+            [attr.stroke]="selectedNodeIndex===3 ? '#336791' : 'rgba(51,103,145,0.45)'"
+            [attr.fill]="selectedNodeIndex===3 ? 'rgba(51,103,145,0.14)' : 'rgba(51,103,145,0.06)'"/>
+          <circle cx="754" cy="108" r="22" fill="rgba(51,103,145,0.18)" stroke="rgba(51,103,145,0.4)" stroke-width="1"/>
+          <text x="754" y="114" text-anchor="middle" font-size="16" font-family="'Font Awesome 6 Free', sans-serif" fill="#5b9bd5">&#xf1c0;</text>
+          <text x="754" y="147" text-anchor="middle" font-size="8.5" font-weight="700" fill="rgba(91,155,213,0.85)" font-family="monospace" letter-spacing="0.8">DATA LAYER</text>
+          <text x="754" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9" font-family="'DM Sans', sans-serif">PostgreSQL</text>
+          <text x="754" y="177" text-anchor="middle" font-size="10" fill="rgba(148,163,184,0.7)" font-family="'DM Sans', sans-serif">Multi-tenant Schema</text>
+        </g>
+
+        <!-- ── NODE 4: Docker/K8s ── -->
+        <g class="svg-node" (click)="selectNode(4)" [class.svg-active]="selectedNodeIndex===4" style="cursor:pointer">
+          <rect x="900" y="60" width="140" height="130" rx="14"
+            fill="rgba(50,108,229,0.06)" stroke="rgba(50,108,229,0.35)" stroke-width="1.5"
+            [attr.stroke]="selectedNodeIndex===4 ? '#326ce5' : 'rgba(50,108,229,0.35)'"
+            [attr.fill]="selectedNodeIndex===4 ? 'rgba(50,108,229,0.12)' : 'rgba(50,108,229,0.06)'"/>
+          <circle cx="970" cy="108" r="22" fill="rgba(50,108,229,0.14)" stroke="rgba(50,108,229,0.3)" stroke-width="1"/>
+          <text x="970" y="114" text-anchor="middle" font-size="16" font-family="'Font Awesome 6 Free Brands', 'Font Awesome 6 Brands', sans-serif" fill="#326ce5">&#xf395;</text>
+          <text x="970" y="147" text-anchor="middle" font-size="8.5" font-weight="700" fill="rgba(50,108,229,0.85)" font-family="monospace" letter-spacing="0.8">CONTAINERS</text>
+          <text x="970" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#f1f5f9" font-family="'DM Sans', sans-serif">Docker / K8s</text>
+          <text x="970" y="177" text-anchor="middle" font-size="10" fill="rgba(148,163,184,0.7)" font-family="'DM Sans', sans-serif">Orchestration</text>
+        </g>
+
+        <!-- ── NODE 5: CI/CD ── -->
+        <g class="svg-node" (click)="selectNode(5)" [class.svg-active]="selectedNodeIndex===5" style="cursor:pointer">
+          <rect x="900" y="205" width="140" height="48" rx="10"
+            fill="rgba(240,80,50,0.06)" stroke="rgba(240,80,50,0.35)" stroke-width="1.5"
+            [attr.stroke]="selectedNodeIndex===5 ? '#f05032' : 'rgba(240,80,50,0.35)'"
+            [attr.fill]="selectedNodeIndex===5 ? 'rgba(240,80,50,0.12)' : 'rgba(240,80,50,0.06)'"/>
+          <text x="920" y="225" text-anchor="start" font-size="8.5" font-weight="700" fill="rgba(240,80,50,0.85)" font-family="monospace" letter-spacing="0.8">CI/CD</text>
+          <text x="920" y="242" text-anchor="start" font-size="11" font-weight="700" fill="#f1f5f9" font-family="'DM Sans', sans-serif">GitHub Actions</text>
+        </g>
+
+        <!-- Pulse dots on active node -->
+        <circle *ngIf="selectedNodeIndex===0" cx="94" cy="72" r="4" fill="#dd0031" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle *ngIf="selectedNodeIndex===1" cx="314" cy="72" r="4" fill="#a78bfa" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle *ngIf="selectedNodeIndex===2" cx="534" cy="72" r="4" fill="#6db33f" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle *ngIf="selectedNodeIndex===3" cx="754" cy="72" r="4" fill="#336791" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle *ngIf="selectedNodeIndex===4" cx="970" cy="60" r="4" fill="#326ce5" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle *ngIf="selectedNodeIndex===5" cx="970" cy="205" r="4" fill="#f05032" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+
+      <!-- Click hint -->
+      <p class="diagram-hint"><i class="fas fa-hand-pointer"></i> Click any node to explore its implementation details</p>
     </div>
 
     <!-- INSIGHTS PANEL -->
     <div class="insights-panel glass-card" *ngIf="selectedNodeIndex !== null">
-      <div class="panel-accent" [style.background]="ps.architectureNodes[selectedNodeIndex].color"></div>
+      <div class="panel-accent" [style.background]="architectureNodes[selectedNodeIndex].color"></div>
       <div class="insights-content">
         <div class="insights-header">
           <div class="insights-title-row">
-            <span class="node-tag" [style.background]="ps.architectureNodes[selectedNodeIndex].color + '12'" [style.color]="ps.architectureNodes[selectedNodeIndex].color">
-              {{ ps.architectureNodes[selectedNodeIndex].type }}
+            <span class="node-tag"
+              [style.background]="architectureNodes[selectedNodeIndex].color + '18'"
+              [style.color]="architectureNodes[selectedNodeIndex].color">
+              {{ architectureNodes[selectedNodeIndex].type }}
             </span>
-            <h3>{{ ps.architectureNodes[selectedNodeIndex].title }}</h3>
+            <h3>{{ architectureNodes[selectedNodeIndex].title }}</h3>
           </div>
-          <p class="node-purpose">{{ ps.architectureNodes[selectedNodeIndex].purpose }}</p>
+          <p class="node-purpose">{{ architectureNodes[selectedNodeIndex].purpose }}</p>
         </div>
-
         <div class="details-grid">
-          <!-- Tech Stack -->
           <div class="detail-box">
             <h5><i class="fas fa-microchip"></i> Technology Stack</h5>
             <div class="tech-tags">
-              <span class="tech-tag" *ngFor="let tech of ps.architectureNodes[selectedNodeIndex].techStack">{{ tech }}</span>
+              <span class="tech-tag" *ngFor="let tech of architectureNodes[selectedNodeIndex].techStack">{{ tech }}</span>
             </div>
           </div>
-
-          <!-- Key Responsibilities -->
           <div class="detail-box">
             <h5><i class="fas fa-list-check"></i> Core Implementations</h5>
             <ul class="resp-list">
-              <li *ngFor="let resp of ps.architectureNodes[selectedNodeIndex].responsibilities" [innerHTML]="resp"></li>
+              <li *ngFor="let resp of architectureNodes[selectedNodeIndex].responsibilities" [innerHTML]="resp"></li>
             </ul>
           </div>
         </div>
