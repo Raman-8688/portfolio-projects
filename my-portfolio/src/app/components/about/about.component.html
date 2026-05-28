@@ -1,4 +1,4 @@
-<section class="about-section" [class.dark]="ps.isDarkMode()">
+<section class="about-section">
   <div class="section-container">
 
     <div class="section-header">
@@ -10,8 +10,8 @@
     <div class="about-grid">
       <!-- Left: key points -->
       <div class="about-text">
-        <p class="about-para" [innerHTML]="ps.aboutIntro" style="font-size:16px;font-weight:500;margin-bottom:24px"></p>
-        <div class="about-point" *ngFor="let pt of ps.aboutPoints; let i = index" [style.animation-delay]="(i*0.1)+'s'">
+        <p class="about-para" [innerHTML]="ps.aboutIntro"></p>
+        <div class="about-point glass-card" *ngFor="let pt of ps.aboutPoints; let i = index" [style.animation-delay]="(i*0.1)+'s'">
           <div class="pt-icon"><i [class]="pt.icon"></i></div>
           <p [innerHTML]="pt.text"></p>
         </div>
@@ -19,21 +19,24 @@
 
       <!-- Right: info cards -->
       <div class="about-cards">
-        <div class="info-card" *ngFor="let card of ps.infoCards">
+        <div class="info-card glass-card" *ngFor="let card of ps.infoCards">
           <div class="info-icon" [style.background]="card.bg">
             <i [class]="card.icon" [style.color]="card.color"></i>
           </div>
-          <div>
+          <div class="info-content">
             <div class="info-label">{{ card.label }}</div>
             <div class="info-value">{{ card.value }}</div>
           </div>
         </div>
-        <a href="assets/resume.pdf" download class="resume-btn">
-          <i class="fas fa-file-download"></i> Download Resume
-        </a>
-        <button class="exp-btn" (click)="ps.navigateTo('experience')">
-          <i class="fas fa-briefcase"></i> View Experience Timeline
-        </button>
+        
+        <div class="action-buttons">
+          <a href="assets/resume.pdf" download class="primary-button">
+            <i class="fas fa-file-download"></i> Download Resume
+          </a>
+          <button class="secondary-button" (click)="ps.navigateTo('experience')">
+            <i class="fas fa-briefcase"></i> View Experience
+          </button>
+        </div>
       </div>
     </div>
 

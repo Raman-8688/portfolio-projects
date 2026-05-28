@@ -28,6 +28,10 @@ export interface Project {
   architecture?: string;
   githubUrl?: string;
   liveUrl?: string;
+  backendFrontendSeparation?: string;
+  dockerK8sUsage?: string;
+  securityAuth?: string;
+  cicdWorkflow?: string;
 }
 
 export interface Experience {
@@ -58,3 +62,13 @@ export interface SocialLink {
 
 export type ThemeColor = string;
 export type Section = 'home' | 'about' | 'skills' | 'experience' | 'projects' | 'architecture' | 'devops' | 'github' | 'contact';
+
+export interface ArchitectureNode {
+  type: string;
+  title: string;
+  icon: string;
+  color: string;
+  purpose: string;
+  techStack: string[];
+  responsibilities: string[];
+}
