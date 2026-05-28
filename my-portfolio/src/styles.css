@@ -3,12 +3,36 @@
    MNC-Level · Dark Theme · Scroll Animations
    ============================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-  --theme-color: #00bcd4;
-  --font-display: "Syne", sans-serif;
-  --font-body: "DM Sans", sans-serif;
+  /* Color Palette (SaaS Theme Colors) */
+  --bg-color: #0b1120;
+  --card-bg: #111827;
+  --primary-color: #3b82f6;
+  --accent-color: #8b5cf6;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.06);
+
+  /* Spacing and Dimensions */
+  --section-padding: 100px 80px;
+  --container-width: 1140px;
+  --card-radius: 20px;
+
+  /* Theme configuration defaults */
+  --theme-color: #3b82f6;
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* Appearance theme overrides */
+.app-root:not(.dark) {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: rgba(0, 0, 0, 0.08);
 }
 
 *,
@@ -18,25 +42,31 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: var(--font-body);
-  background: #fcfcfd;
-  color: #1f2937;
+  background: var(--bg-color);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
+
 button {
   cursor: pointer;
+  font-family: inherit;
 }
+
 img {
   max-width: 100%;
   display: block;
@@ -44,19 +74,106 @@ img {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: var(--bg-color);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--theme-color);
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 /* Selection */
 ::selection {
   background: var(--theme-color);
-  color: #000;
+  color: #fff;
+}
+
+/* ============================================
+   REUSABLE UTILITY CLASSES
+   ============================================ */
+
+.section-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  border-radius: var(--card-radius);
+  padding: 48px;
+  background: rgba(17, 24, 39, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.app-root:not(.dark) .section-container {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--theme-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--theme-color) 40%, transparent);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--theme-color) 50%, transparent);
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--text-secondary);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.secondary-button:hover {
+  border-color: var(--theme-color);
+  color: var(--theme-color);
+  background: color-mix(in srgb, var(--theme-color) 8%, transparent);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--theme-color), var(--accent-color, #8b5cf6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

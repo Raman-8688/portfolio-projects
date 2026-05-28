@@ -1,71 +1,71 @@
-<section class="arch-section" [class.dark]="ps.isDarkMode()">
-  <div class="arch-orb"></div>
+<section class="arch-section">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-tag">System Topology</span>
-      <h2 class="section-title">Production <span class="accent">Architecture</span></h2>
-      <p class="section-sub">A production-grade microservices pipeline built for dynamic scalability and data isolation</p>
+      <span class="section-tag">System Design</span>
+      <h2 class="section-title">Enterprise <span class="accent">Architecture</span></h2>
+      <p class="section-sub">Production system topology illustrating secure microservice flow and containerization</p>
       <div class="title-line"></div>
     </div>
 
-    <!-- ARCHITECTURE FLOWCHART -->
-    <div class="arch-container">
-      <div class="flow-track">
-        <!-- Connecting glowing path -->
-        <div class="glow-path"></div>
+    <!-- FLOW CHART SCHEMATIC -->
+    <div class="flowchart-container glass-card">
+      <div class="flowchart-track"></div>
+      
+      <div 
+        class="flow-card" 
+        *ngFor="let node of ps.architectureNodes; let i = index"
+        [class.active]="selectedNodeIndex === i"
+        (click)="selectNode(i)"
+        [style.--node-color]="node.color"
+        [style.animation-delay]="(i * 0.1) + 's'"
+      >
+        <div class="node-icon" [style.background]="node.color + '12'" [style.color]="node.color">
+          <i [class]="node.icon"></i>
+        </div>
+        <div class="node-details">
+          <div class="node-type" [style.color]="node.color">{{ node.type }}</div>
+          <h4 class="node-title">{{ node.title }}</h4>
+        </div>
+        <div class="node-connector" *ngIf="i < ps.architectureNodes.length - 1">
+          <i class="fas fa-chevron-right arrow-horizontal"></i>
+          <i class="fas fa-chevron-down arrow-vertical"></i>
+        </div>
       </div>
+    </div>
 
-      <div class="flow-nodes">
-        <div 
-          *ngFor="let step of steps; let i = index" 
-          class="flow-card"
-          [class.active]="activeNode === i"
-          (mouseenter)="selectNode(i)"
-          (mouseleave)="selectNode(null)"
-          [style.--node-color]="step.color"
-        >
-          <div class="node-icon-box" [style.background]="step.color + '15'" [style.color]="step.color">
-            <i [class]="step.icon"></i>
+    <!-- INSIGHTS PANEL -->
+    <div class="insights-panel glass-card" *ngIf="selectedNodeIndex !== null">
+      <div class="panel-accent" [style.background]="ps.architectureNodes[selectedNodeIndex].color"></div>
+      <div class="insights-content">
+        <div class="insights-header">
+          <div class="insights-title-row">
+            <span class="node-tag" [style.background]="ps.architectureNodes[selectedNodeIndex].color + '12'" [style.color]="ps.architectureNodes[selectedNodeIndex].color">
+              {{ ps.architectureNodes[selectedNodeIndex].type }}
+            </span>
+            <h3>{{ ps.architectureNodes[selectedNodeIndex].title }}</h3>
           </div>
+          <p class="node-purpose">{{ ps.architectureNodes[selectedNodeIndex].purpose }}</p>
+        </div>
 
-          <div class="node-details">
-            <div class="node-title-row">
-              <h3 class="node-title">{{ step.title }}</h3>
-              <span class="step-num">0{{ i + 1 }}</span>
+        <div class="details-grid">
+          <!-- Tech Stack -->
+          <div class="detail-box">
+            <h5><i class="fas fa-microchip"></i> Technology Stack</h5>
+            <div class="tech-tags">
+              <span class="tech-tag" *ngFor="let tech of ps.architectureNodes[selectedNodeIndex].techStack">{{ tech }}</span>
             </div>
-            <p class="node-desc">{{ step.desc }}</p>
           </div>
-          
-          <!-- Subtle indicator glow behind -->
-          <div class="card-glow" [style.background]="step.color"></div>
-        </div>
-      </div>
 
-      <!-- Live Pipeline Insights Panel -->
-      <div class="insight-panel">
-        <div class="insight-header">
-          <i class="fas fa-microchip pulse-icon"></i>
-          <h3>Enterprise Reliability Summary</h3>
-        </div>
-        <div class="insight-grid">
-          <div class="insight-item">
-            <span class="insight-label">Security Focus</span>
-            <span class="insight-val">Stateful JWT + RBAC filters</span>
-          </div>
-          <div class="insight-item">
-            <span class="insight-label">Database Isolation</span>
-            <span class="insight-val">PostgreSQL Multi-Schema routing</span>
-          </div>
-          <div class="insight-item">
-            <span class="insight-label">Orchestration Mesh</span>
-            <span class="insight-val">Eureka + local Kubernetes nodes</span>
-          </div>
-          <div class="insight-item">
-            <span class="insight-label">API Routing latency</span>
-            <span class="insight-val">&lt; 12ms network overhead</span>
+          <!-- Key Responsibilities -->
+          <div class="detail-box">
+            <h5><i class="fas fa-list-check"></i> Core Implementations</h5>
+            <ul class="resp-list">
+              <li *ngFor="let resp of ps.architectureNodes[selectedNodeIndex].responsibilities" [innerHTML]="resp"></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>

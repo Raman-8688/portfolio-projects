@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Section, ThemeColor, Achievement, Experience, SkillCategory, Project, SocialLink } from '../models/Portfolio';
+import { Section, ThemeColor, Achievement, Experience, SkillCategory, Project, SocialLink, ArchitectureNode } from '../models/Portfolio';
 
 
 @Injectable({ providedIn: 'root' })
@@ -7,8 +7,8 @@ export class PortfolioService {
 
   // ─── Reactive Signals ───────────────────────────────────────
   activeSection = signal<Section>('home');
-  isDarkMode = signal<boolean>(false);
-  themeColor = signal<ThemeColor>('#4f46e5');
+  isDarkMode = signal<boolean>(true);
+  themeColor = signal<ThemeColor>('#3b82f6');
 
   settingsPanelOpen = signal<boolean>(false);
 
@@ -236,7 +236,11 @@ export class PortfolioService {
       badge: '🏆 Production SaaS',
       architecture: 'Angular UI ➔ API Gateway ➔ Localization & Schema Router ➔ PostgreSQL Tenant DB',
       githubUrl: 'https://github.com/Raman-8688/pharma-tenant-localization',
-      liveUrl: ''
+      liveUrl: '',
+      backendFrontendSeparation: 'Decoupled Angular 19 SPA communicating with Spring Boot REST endpoints.',
+      dockerK8sUsage: 'Multi-stage Dockerfiles packaged and deployed to Kubernetes cluster with horizontal pod autoscalers.',
+      securityAuth: 'Centralized Spring Security context checking dynamic tenant parameters via Custom Request Filters.',
+      cicdWorkflow: 'GitHub Actions running tests, building Docker images, and triggering Kubernetes rollouts.'
     },
     {
       title: 'Employee Management System',
@@ -266,7 +270,11 @@ export class PortfolioService {
       badge: '🏢 Enterprise Tool',
       architecture: 'Angular 19 ➔ Spring Security Context ➔ Spring Boot App ➔ SQL Server DB',
       githubUrl: 'https://github.com/Raman-8688/employee-management-system',
-      liveUrl: ''
+      liveUrl: '',
+      backendFrontendSeparation: 'Modular Angular admin portal consuming a secure, monolithic Java Spring Boot REST API.',
+      dockerK8sUsage: 'Dockerized application run locally in a multi-container Docker Compose environment alongside SQL Server.',
+      securityAuth: 'Strict Role-Based Access Control (RBAC) and method-level pre-authorization guards.',
+      cicdWorkflow: 'Git validation workflow building JAR package and verifying Angular production compilation.'
     },
     {
       title: 'Microservices Architecture Project',
@@ -296,7 +304,11 @@ export class PortfolioService {
       badge: '⚙️ Cloud-Native',
       architecture: 'Client Requests ➔ API Gateway (JWT Filter) ➔ Eureka Service Discovery ➔ Spring Boot Pods',
       githubUrl: 'https://github.com/Raman-8688/spring-boot-microservice-mesh',
-      liveUrl: ''
+      liveUrl: '',
+      backendFrontendSeparation: 'Standalone Spring Cloud Gateway distributing load dynamically to back-end services.',
+      dockerK8sUsage: 'Each service has a multi-stage Dockerfile deployed inside Kubernetes local/remote cluster.',
+      securityAuth: 'Gateway acts as authentication barrier, verifying JWT signature and appending claims to requests.',
+      cicdWorkflow: 'GitHub actions compiling modules, building Docker images, and deploying to Kubernetes.'
     },
     {
       title: 'AI Support Assistant & Semantic Search',
@@ -326,7 +338,105 @@ export class PortfolioService {
       badge: '🤖 AI & Automation',
       architecture: 'Angular Client ➔ WebSocket Controller ➔ Spring Boot Core ➔ OpenAI API / DB Log',
       githubUrl: 'https://github.com/Raman-8688/ai-support-assistant',
-      liveUrl: ''
+      liveUrl: '',
+      backendFrontendSeparation: 'Angular SPA utilizing WebSocket connections to stream real-time chat with Spring Boot server.',
+      dockerK8sUsage: 'Spring Boot server and PostgreSQL DB packaged as containers for quick setup.',
+      securityAuth: 'OAuth2 authentication controls with security parameters validation.',
+      cicdWorkflow: 'Pipeline validating Maven compilation dependencies and executing Unit tests.'
+    }
+  ];
+
+  // ─── Architecture Nodes ─────────────────────────────────────
+  architectureNodes: ArchitectureNode[] = [
+    {
+      type: 'Frontend',
+      title: 'Angular UI Client',
+      icon: 'fab fa-angular',
+      color: '#dd0031',
+      purpose: 'Modern, highly responsive client frontend featuring lazy-loaded routes, state signals, and reactive forms.',
+      techStack: ['Angular 19', 'TypeScript', 'RxJS', 'HTTP Interceptors', 'Route Guards', 'Reactive Forms'],
+      responsibilities: [
+        'Lazy-loaded feature modules for optimized bundle sizes',
+        'Centralized <strong>HTTP Interceptors</strong> for JWT token injection',
+        'Route Guards enforcing role-based navigation access',
+        'Reactive form validation with custom validators',
+        'Signal-based state management for real-time UI updates'
+      ]
+    },
+    {
+      type: 'Routing Layer',
+      title: 'API Gateway',
+      icon: 'fas fa-route',
+      color: '#a78bfa',
+      purpose: 'Central entrance routing client requests. Applies custom JWT authentication filters, CORS, and request rate-limiting.',
+      techStack: ['Spring Cloud Gateway', 'JWT Filter', 'CORS Config', 'Rate Limiter', 'Load Balancer'],
+      responsibilities: [
+        'Global <strong>JWT authentication filter</strong> intercepting all inbound requests',
+        'Dynamic route configuration resolving service instances via Eureka',
+        'CORS policy enforcement across all microservice endpoints',
+        'Request rate-limiting to prevent API abuse',
+        'Forwarding authenticated claims to downstream services'
+      ]
+    },
+    {
+      type: 'Backend Services',
+      title: 'Spring Boot Microservices',
+      icon: 'fas fa-server',
+      color: '#6db33f',
+      purpose: 'Resilient Microservices registry via Eureka. Includes separate Inventory, Billing, and Core Auth services interacting via OpenFeign.',
+      techStack: ['Spring Boot', 'Eureka Server', 'OpenFeign', 'Spring Security', 'Global Exception Handler', 'REST APIs'],
+      responsibilities: [
+        '<strong>Eureka Server</strong> for dynamic service registration and health tracking',
+        'Inter-service communication via <strong>OpenFeign</strong> declarative HTTP clients',
+        'Global exception handling with standardized error response DTOs',
+        'Spring Security context enforcing role-based method-level authorization',
+        'Separate services for Inventory, Billing, User Auth, and Reporting domains'
+      ]
+    },
+    {
+      type: 'Data Layer',
+      title: 'Database Schema Router',
+      icon: 'fas fa-database',
+      color: '#336791',
+      purpose: 'Dynamic PostgreSQL connection routing. Isolates clinics into isolated private schemas per tenant organization.',
+      techStack: ['PostgreSQL', 'Multi-Tenant Schema', 'Dynamic DataSource', 'PL/SQL', 'Connection Pool', 'Query Optimization'],
+      responsibilities: [
+        '<strong>Multi-tenant schema isolation</strong> — public schema for config, private schemas per tenant',
+        'Dynamic DataSource routing resolving tenant context from request headers',
+        'PL/SQL stored procedures for high-performance batch operations',
+        'Connection pooling via HikariCP for optimal throughput',
+        'Query optimization and index strategies reducing query lag by 45%'
+      ]
+    },
+    {
+      type: 'Containerization',
+      title: 'Docker & Kubernetes',
+      icon: 'fab fa-docker',
+      color: '#326ce5',
+      purpose: 'Microservices containerized as Docker layers and orchestrated within a highly fault-tolerant local Kubernetes pod network.',
+      techStack: ['Docker', 'Kubernetes', 'Multi-stage Dockerfile', 'K8s Deployments', 'Pod Autoscaler', 'Docker Compose'],
+      responsibilities: [
+        'Multi-stage <strong>Dockerfiles</strong> minimizing final image sizes for each microservice',
+        'Kubernetes Deployments with replica sets for high availability',
+        'Horizontal Pod Autoscaler (HPA) responding to CPU/memory thresholds',
+        'ConfigMaps and Secrets managing environment-specific configurations',
+        'Docker Compose for local development multi-service orchestration'
+      ]
+    },
+    {
+      type: 'CI/CD Pipeline',
+      title: 'GitHub Actions CI/CD',
+      icon: 'fab fa-github-alt',
+      color: '#f05032',
+      purpose: 'Automated continuous integration pipeline testing compile status, compiling images, and pushing to secure deployment registries.',
+      techStack: ['GitHub Actions', 'Maven Build', 'Docker Build', 'K8s Rollout', 'Test Automation', 'Registry Push'],
+      responsibilities: [
+        '<strong>Automated Maven builds</strong> compiling all microservice modules on every push',
+        'Unit and integration test execution gate before image builds',
+        'Docker image building and pushing to container registry',
+        'Kubernetes rolling update deployment triggered on merge to main',
+        'Angular production build validation with lint and test checks'
+      ]
     }
   ];
 
