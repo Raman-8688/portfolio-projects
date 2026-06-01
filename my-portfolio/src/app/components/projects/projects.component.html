@@ -18,7 +18,7 @@
     <div class="projects-grid">
       <div 
         *ngFor="let proj of filteredProjects; let i = index" 
-        class="proj-card glass-card"
+        class="proj-card glass-card" data-aos="fade-up"
         [class.visible]="cardsVisible[i]"
         [style.--c]="proj.accent"
       >
