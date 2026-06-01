@@ -1,7 +1,7 @@
-<section class="contact-section" [class.dark]="ps.isDarkMode()">
+<section class="contact-section section-alt" [class.dark]="ps.isDarkMode()">
   <div class="section-container">
 
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <span class="section-tag">Let's Talk</span>
       <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
       <div class="title-line"></div>
@@ -94,7 +94,7 @@
           <i class="fas fa-check-circle"></i> Message sent successfully! I'll reply soon.
         </div>
         <div class="form-msg error-msg" *ngIf="formError">
-          <i class="fas fa-exclamation-circle"></i> Please fill in all required fields.
+          <i class="fas fa-exclamation-circle"></i> {{ formErrorMsg }}
         </div>
       </form>
 

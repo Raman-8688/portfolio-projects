@@ -1,18 +1,18 @@
-<section class="git-section" [class.dark]="ps.isDarkMode()">
+<section class="git-section section-alt" [class.dark]="ps.isDarkMode()">
   <div class="git-orb"></div>
   <div class="section-container">
-    <div class="section-header">
+
+    <div class="section-header" data-aos="fade-up">
       <span class="section-tag">Open Source Presence</span>
       <h2 class="section-title">Developer <span class="accent">Activity</span></h2>
       <p class="section-sub">Real-time open source statistics and core repository highlights</p>
       <div class="title-line"></div>
     </div>
 
-    <!-- MAIN GRID -->
     <div class="git-dashboard">
-      
+
       <!-- Profile Card -->
-      <div class="glass-card profile-card" *ngIf="profile">
+      <div class="glass-card profile-card" *ngIf="profile" data-aos="fade-right" data-aos-delay="100">
         <div class="profile-header">
           <div class="avatar-wrap">
             <img [src]="profile.avatar_url" alt="GitHub Avatar" class="avatar-img" />
@@ -28,7 +28,7 @@
         <div class="stats-counter-grid">
           <div class="stat-box">
             <span class="num">{{ profile.public_repos }}</span>
-            <span class="lbl">Public Repos</span>
+            <span class="lbl">Repos</span>
           </div>
           <div class="stat-box">
             <span class="num">{{ profile.followers }}</span>
@@ -40,31 +40,28 @@
           </div>
         </div>
 
-        <div class="profile-cta">
-          <a [href]="profile.html_url" target="_blank" class="view-profile-btn">
-            <i class="fas fa-external-link-alt"></i> View GitHub Profile
-          </a>
-        </div>
+        <a [href]="profile.html_url" target="_blank" class="view-profile-btn">
+          <i class="fab fa-github"></i> View GitHub Profile
+        </a>
       </div>
 
-      <!-- Activity Calendar representation -->
-      <div class="glass-card activity-highlights">
+      <!-- Activity Card -->
+      <div class="glass-card activity-card" data-aos="fade-left" data-aos-delay="200">
         <div class="card-title-row">
-          <h4><i class="fas fa-calendar-check"></i> Code Cadence Highlights</h4>
+          <h4><i class="fas fa-chart-bar"></i> Contribution Activity</h4>
           <span class="sync-status" [class.live]="!error">
-            <span class="sync-dot"></span> {{ error ? 'Offline Highlights' : 'Live Syncing' }}
+            <span class="sync-dot"></span> {{ error ? 'Offline Mode' : 'Live Syncing' }}
           </span>
         </div>
 
-        <!-- Simulated grid -->
         <div class="contribution-board">
           <div class="grid-wrap">
-            <div 
-              *ngFor="let item of contributions" 
-              class="grid-tile" 
+            <div
+              *ngFor="let item of contributions"
+              class="grid-tile"
               [attr.data-level]="item.level"
-              [title]="'Date: ' + item.date"
-            ></div>
+              [title]="'Date: ' + item.date">
+            </div>
           </div>
         </div>
 
@@ -82,8 +79,9 @@
 
         <div class="highlights-footer">
           <div class="highlight-pill"><i class="fas fa-history"></i> Daily commits</div>
-          <div class="highlight-pill"><i class="fas fa-code"></i> Java &amp; TS focused</div>
-          <div class="highlight-pill"><i class="fas fa-code-branch"></i> Git branch operations</div>
+          <div class="highlight-pill"><i class="fas fa-code"></i> Java &amp; TypeScript</div>
+          <div class="highlight-pill"><i class="fas fa-code-branch"></i> Feature branch workflow</div>
+          <div class="highlight-pill"><i class="fas fa-robot"></i> AI projects</div>
         </div>
       </div>
 

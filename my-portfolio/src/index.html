@@ -12,26 +12,26 @@
     
     <!-- Open Graph / LinkedIn / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ramanjaneyuluboya.dev/" />
+    <meta property="og:url" content="https://raman-8688.github.io/portfolio-projects/" />
     <meta property="og:title" content="Ramanjaneyulu Boya | Java Full Stack & Microservices Developer" />
     <meta property="og:description" content="2+ years building production-grade Spring Boot microservices, Angular frontends, multi-tenant architectures, and Kubernetes cloud deployments at Winfocus Solutions." />
-    <meta property="og:image" content="https://ramanjaneyuluboya.dev/assets/profile.png" />
+    <meta property="og:image" content="https://raman-8688.github.io/portfolio-projects/assets/profile.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://ramanjaneyuluboya.dev/" />
+    <meta name="twitter:url" content="https://raman-8688.github.io/portfolio-projects/" />
     <meta name="twitter:title" content="Ramanjaneyulu Boya | Java Full Stack & Microservices Developer" />
     <meta name="twitter:description" content="2+ years building production-grade Spring Boot microservices, Angular frontends, multi-tenant architectures, and Kubernetes cloud deployments." />
-    <meta name="twitter:image" content="https://ramanjaneyuluboya.dev/assets/profile.png" />
+    <meta name="twitter:image" content="https://raman-8688.github.io/portfolio-projects/assets/profile.png" />
 
     <!-- Additional SEO -->
     <meta name="author" content="Ramanjaneyulu Boya" />
     <meta name="keywords" content="Java Developer, Spring Boot, Angular, Microservices, Kubernetes, Full Stack, Hyderabad, Winfocus Solutions" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ramanjaneyuluboya.dev/" />
+    <link rel="canonical" href="https://raman-8688.github.io/portfolio-projects/" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,6 +43,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      (function(){
+        if (typeof emailjs !== "undefined") {
+          emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" });
+        }
+      })();
+    </script>
   </head>
   <body>
     <app-root></app-root>
