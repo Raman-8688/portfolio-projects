@@ -42,55 +42,55 @@ export class PortfolioService {
   // ─── Stats / Achievements counters ──────────────────────────
   achievements: Achievement[] = [
     {
-      icon: 'fas fa-code-branch',
-      value: '5+',
-      label: 'Projects Delivered',
-      color: '#00bcd4',
+      icon: 'fas fa-train',
+      value: 'Live',
+      label: 'Metro Client Project',
+      color: '#7c3aed',
     },
     {
       icon: 'fas fa-layer-group',
       value: '10+',
       label: 'Microservices Built',
-      color: '#7c3aed',
+      color: '#00bcd4',
     },
     {
       icon: 'fas fa-database',
-      value: '5+',
-      label: 'DB Schemas Designed',
+      value: '3',
+      label: 'DB Technologies',
       color: '#059669',
     },
     {
       icon: 'fas fa-robot',
       value: 'AI',
-      label: 'AI App Built',
+      label: 'AI Tools Integrated',
       color: '#ec4899',
     },
   ];
 
   // ─── About ──────────────────────────────────────────────────
   aboutIntro =
-    'I am a <strong>Full Stack Developer</strong> with hands-on experience building production-grade <strong>Microservices architectures</strong> deployed on <strong>AWS</strong> using <strong>Docker & Kubernetes</strong>.';
+    'I am a <strong>Java Full Stack Developer</strong> with 2+ years of hands-on experience delivering real production systems — from a <strong>live Hyderabad Metro asset management platform</strong> to a <strong>multi-tenant Pharma microservices product</strong> — using Angular, Spring Boot, and enterprise databases.';
 
   aboutPoints = [
     {
-      icon: 'fas fa-building',
-      text: 'Working at <strong>Winfocus Solutions Pvt Ltd</strong> — architecting a full-fledged multi-tenant Pharma platform with Angular + Java microservices + PostgreSQL.',
+      icon: 'fas fa-train',
+      text: 'Contributed to <strong>AMS (Asset Management System)</strong> — a live client project actively used by <strong>Hyderabad Metro Rail</strong>. Built inventory screens, MSSQL stored procedures, database indexes/synonyms, and implemented new screens based on direct client requirements. Tech: <strong>Angular · .NET · MSSQL</strong>.',
+    },
+    {
+      icon: 'fas fa-capsules',
+      text: 'Currently at <strong>Winfocus Solutions</strong> building a production <strong>multi-tenant Pharma platform</strong> — separate Spring Boot microservices (Inventory, Billing, Users, Reports) with dynamic PostgreSQL schema-per-tenant routing and <strong>multilanguage dynamic UI</strong>.',
+    },
+    {
+      icon: 'fas fa-language',
+      text: 'Built an internal <strong>Multilanguage Converter Tool</strong> (Angular + AI) that auto-converts any Angular project to multilanguage — scans HTML/TS files, uses <strong>Hugging Face AI</strong> for batch translation, and generates SQL INSERT queries ready for database import.',
     },
     {
       icon: 'fas fa-network-wired',
-      text: 'Implemented <strong>Eureka Server, API Gateway, Spring Security, OAuth2</strong> — building resilient service meshes with global exception handling.',
-    },
-    {
-      icon: 'fas fa-users-cog',
-      text: 'Designed a <strong>Multi-Tenant architecture</strong> — single application serving multiple organizations via dynamic schema routing (public/private schema isolation).',
-    },
-    {
-      icon: 'fas fa-cloud-upload-alt',
-      text: 'Deployed applications using <strong>Docker, Kubernetes</strong> and <strong>AWS</strong> — containerized microservices with CI/CD pipelines.',
+      text: 'Experienced with <strong>Eureka Server, API Gateway, Spring Security, JWT, OAuth2</strong> — building resilient microservice meshes with global exception handling and role-based access control.',
     },
     {
       icon: 'fas fa-database',
-      text: 'Deep expertise in <strong>PostgreSQL, MySQL, PL/SQL</strong> — stored procedures, query optimization, multi-schema data isolation strategies.',
+      text: 'Strong database skills across <strong>PostgreSQL, MSSQL, MySQL</strong> — stored procedures, query optimization, index design, synonyms, and multi-schema data isolation strategies.',
     },
   ];
 
@@ -136,7 +136,7 @@ export class PortfolioService {
       logo: 'fas fa-capsules',
       color: '#00bcd4',
       description:
-        'Delivering production-grade multi-tenant Pharma Management System and a pioneering Multilanguage Dynamic Converter tool used across the organization\'s Angular + Java Microservices platform.',
+        "Delivering production-grade multi-tenant Pharma Management System and a pioneering Multilanguage Dynamic Converter tool used across the organization's Angular + Java Microservices platform.",
       achievements: [
         'Built <strong>multi-tenant Pharma Management System</strong> — separate microservices for inventory, billing, user management, and reporting with PostgreSQL schema-per-tenant isolation',
         'Implemented <strong>multilanguage dynamic UI</strong> — labels, button names, placeholders, and field names all driven from the database, switchable per user preference at runtime',
@@ -147,9 +147,19 @@ export class PortfolioService {
         'Worked on <strong>Angular frontend</strong> with lazy-loaded modules, reactive forms, HTTP interceptors, and route guards',
       ],
       techUsed: [
-        'Angular', 'Java', 'Spring Boot', 'Microservices', 'PostgreSQL',
-        'Eureka', 'API Gateway', 'Spring Security', 'Docker', 'Kubernetes',
-        'Hugging Face AI', 'Git', 'SVN',
+        'Angular',
+        'Java',
+        'Spring Boot',
+        'Microservices',
+        'PostgreSQL',
+        'Eureka',
+        'API Gateway',
+        'Spring Security',
+        'Docker',
+        'Kubernetes',
+        'Hugging Face AI',
+        'Git',
+        'SVN',
       ],
     },
     {
@@ -172,9 +182,13 @@ export class PortfolioService {
         'Collaborated on <strong>client system integration</strong> — regularly interfaced with client environments and adapted the system to their operational requirements',
       ],
       techUsed: [
-        'Angular', 'Java', 'Spring Boot', 'Microservices',
-        'MSSQL', 'Stored Procedures', 'API Gateway',
-        'Common Library', 'Git',
+        'Angular',
+        'NET',
+        'MSSQL',
+        'Stored Procedures',
+        'API Gateway',
+        'Common Library',
+        'Git',
       ],
     },
     {
@@ -194,7 +208,13 @@ export class PortfolioService {
         'Learned <strong>Microservices patterns</strong>: Eureka, Feign, Circuit Breaker',
       ],
       techUsed: [
-        'Java', 'Spring Boot', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Angular',
+        'Java',
+        'Spring Boot',
+        'MySQL',
+        'HTML',
+        'CSS',
+        'JavaScript',
+        'Angular',
       ],
     },
   ];
@@ -296,7 +316,8 @@ export class PortfolioService {
       title: 'Multi-Tenant Pharma Platform with Multilanguage UI',
       institution: 'Winfocus Solutions Pvt Ltd',
       timeline: 'Jan 2025 – Present',
-      techStack: 'Angular · Spring Boot · Microservices · PostgreSQL · Eureka · API Gateway · Spring Security · Docker · Kubernetes',
+      techStack:
+        'Angular · Spring Boot · Microservices · PostgreSQL · Eureka · API Gateway · Spring Security · Docker · Kubernetes',
       description:
         'Production-grade multi-tenant Pharma Management System with full microservices architecture and dynamic multilanguage UI — labels, placeholders, button names all switchable per user preference from the database.',
       problemSolved:
@@ -322,19 +343,25 @@ export class PortfolioService {
       ],
       accent: '#00bcd4',
       badge: '💊 Pharma · Live',
-      architecture: 'Angular SPA → API Gateway → [Inventory | Billing | User | Report] Services → PostgreSQL (schema-per-tenant)',
+      architecture:
+        'Angular SPA → API Gateway → [Inventory | Billing | User | Report] Services → PostgreSQL (schema-per-tenant)',
       githubUrl: 'https://github.com/Raman-8688',
       liveUrl: '',
-      backendFrontendSeparation: 'Decoupled Angular SPA with module-level lazy loading communicating to isolated Spring Boot services via API Gateway.',
-      dockerK8sUsage: 'All microservices containerized; Kubernetes manages rolling deployments, pod autoscaling, ConfigMaps, and Secrets.',
-      securityAuth: 'Spring Security stateless JWT filter chain with role-based method-level authorization across all services.',
-      cicdWorkflow: 'Git + SVN version control; Docker image builds with manual K8s rollout per service.',
+      backendFrontendSeparation:
+        'Decoupled Angular SPA with module-level lazy loading communicating to isolated Spring Boot services via API Gateway.',
+      dockerK8sUsage:
+        'All microservices containerized; Kubernetes manages rolling deployments, pod autoscaling, ConfigMaps, and Secrets.',
+      securityAuth:
+        'Spring Security stateless JWT filter chain with role-based method-level authorization across all services.',
+      cicdWorkflow:
+        'Git + SVN version control; Docker image builds with manual K8s rollout per service.',
     },
     {
       title: 'Multilanguage Dynamic Converter Tool',
       institution: 'Winfocus Solutions Pvt Ltd — Internal Tooling',
       timeline: '2025',
-      techStack: 'Angular · Hugging Face AI API · Docker · CSV / SQL Generation',
+      techStack:
+        'Angular · Hugging Face AI API · Docker · CSV / SQL Generation',
       description:
         'An internal developer tool that converts any existing Angular project into a fully dynamic multilanguage application — accepts a project ZIP, scans all HTML and TypeScript files, replaces static text with dynamic label keys, and outputs ready-to-import CSV + SQL INSERT queries.',
       problemSolved:
@@ -360,57 +387,69 @@ export class PortfolioService {
       ],
       accent: '#f59e0b',
       badge: '🌐 AI · Internal Tool',
-      architecture: 'Angular Upload UI → Backend API → Hugging Face AI Batch Translator → CSV/SQL Generator → Output ZIP',
+      architecture:
+        'Angular Upload UI → Backend API → Hugging Face AI Batch Translator → CSV/SQL Generator → Output ZIP',
       githubUrl: 'https://github.com/Raman-8688',
       liveUrl: '',
-      backendFrontendSeparation: 'Angular upload/config frontend; AI-assisted backend handles file scanning and Hugging Face API orchestration.',
-      dockerK8sUsage: 'Entire tool packaged as Docker container — team runs it with a single docker-compose up command.',
-      securityAuth: 'Internal tool; secured within company network. Input validation on all uploaded ZIP contents.',
-      cicdWorkflow: 'Docker-based deployment; Git version controlled with release branches per major conversion pattern update.',
+      backendFrontendSeparation:
+        'Angular upload/config frontend; AI-assisted backend handles file scanning and Hugging Face API orchestration.',
+      dockerK8sUsage:
+        'Entire tool packaged as Docker container — team runs it with a single docker-compose up command.',
+      securityAuth:
+        'Internal tool; secured within company network. Input validation on all uploaded ZIP contents.',
+      cicdWorkflow:
+        'Docker-based deployment; Git version controlled with release branches per major conversion pattern update.',
     },
     {
       title: 'AMS — Asset Management System (Hyderabad Metro)',
-      institution: 'Client Project via Winfocus Solutions',
+      institution: 'Client Project · Live Production System',
       timeline: '2024',
-      techStack: 'Angular · Spring Boot · MSSQL · Microservices · API Gateway · Stored Procedures',
+      techStack:
+        'Angular · .NET · MSSQL · Stored Procedures · Microservices · API Gateway',
       description:
-        'Enterprise asset management system actively used by Hyderabad Metro Rail — tracks and manages station assets across locations, categories, layout groups, and group types. Built with Angular frontend, MSSQL database with stored procedures, and a Spring Boot microservices backend.',
+        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing station assets across locations, categories, layout groups and group types. Built on a .NET microservices backend with MSSQL and an Angular frontend. Contributed as Full Stack developer handling frontend screens, database layer, and production bug fixes.',
       problemSolved:
-        'Hyderabad Metro had no centralized system to track and manage physical assets across stations by location, category, and group. Manual tracking caused errors and made audits difficult.',
+        'Hyderabad Metro had no centralized system to track physical assets across stations by location and category. Manual tracking caused errors and audit failures. This system is now live in production at metro stations.',
       features: [
-        'Designed <strong>inventory screens</strong> for asset registration and filtering by location, category, layout group type, and group — screens actively used at metro stations.',
-        'Written <strong>MSSQL stored procedures</strong> for complex asset queries, batch inserts, and audit trail logging with optimized indexes and synonyms.',
-        'Built <strong>microservices architecture</strong> — Auth Service, Admin Service, Asset Register Service, and a Common Library for shared interfaces, DTOs, and utilities.',
+        'Designed and implemented <strong>inventory screens</strong> for asset registration and filtering — by location, category, layout group type, and group. Screens actively used at Hyderabad Metro stations.',
+        'Written <strong>MSSQL stored procedures</strong> for complex asset queries, batch inserts, and audit trail logging. Created optimized database <strong>indexes and synonyms</strong> for cross-schema query performance.',
+        'Delivered <strong>production bug fixes and new screen implementations</strong> based on direct client requirements — worked closely with the client system environment for testing and deployment.',
       ],
       highlights: [
-        'Live system used by Hyderabad Metro Rail',
+        '🚇 Live system used at Hyderabad Metro stations',
         'MSSQL stored procedures + indexes + synonyms',
-        'Asset filtering by location, category, group',
-        'Microservices: Auth + Admin + Asset Register',
-        'Common Library for shared DTOs and interfaces',
-        'Individual service deployment via API Gateway',
+        'Asset filtering: location, category, layout group',
+        'AssetPMWork scheduler module implementation',
+        'Production bug fixes from client requirements',
+        'Microservices: Auth + Admin + Asset Register + Common Library',
       ],
       tags: ['angular', 'microservices', 'database'],
       skills: [
         { name: 'Angular', level: 82 },
-        { name: 'Spring Boot', level: 85 },
         { name: 'MSSQL', level: 80 },
+        { name: 'Stored Procedures', level: 80 },
       ],
       accent: '#7c3aed',
-      badge: '🚇 Metro · Live Client',
-      architecture: 'Angular UI → API Gateway → [Auth Service | Admin Service | Asset Register Service] → MSSQL + Common Library',
+      badge: '🚇 Metro · Live Production',
+      architecture:
+        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (.NET) → MSSQL + Common Library',
       githubUrl: 'https://github.com/Raman-8688',
       liveUrl: '',
-      backendFrontendSeparation: 'Angular frontend with dynamic grid layouts; Spring Boot microservices expose REST APIs consumed via API Gateway.',
-      dockerK8sUsage: 'Each microservice deployed individually on VMs; manual deployment workflow with per-service configuration.',
-      securityAuth: 'Auth Service handles login and token management; role-based access enforced at API Gateway and service level.',
-      cicdWorkflow: 'Git version control; each service independently built and deployed to client environment after QA sign-off.',
+      backendFrontendSeparation:
+        'Angular frontend with dynamic inventory grid layouts; .NET microservices expose REST APIs consumed through API Gateway.',
+      dockerK8sUsage:
+        'Each microservice deployed individually on VMs — manual deployment per service with per-environment configuration files.',
+      securityAuth:
+        'Auth Service handles login and session management; role-based access enforced at API Gateway level.',
+      cicdWorkflow:
+        'Git version control; services independently built and deployed to client environment after QA verification.',
     },
     {
       title: 'Secure AI Assistant',
       institution: 'Personal Full Stack Project',
       timeline: '2025',
-      techStack: 'Angular · Spring Boot · Spring Security · JWT · Hugging Face API · PostgreSQL · BCrypt',
+      techStack:
+        'Angular · Spring Boot · Spring Security · JWT · Hugging Face API · PostgreSQL · BCrypt',
       description:
         'A production-quality full-stack AI chat application with complete user authentication lifecycle — registration, email OTP verification, JWT-protected APIs, and Hugging Face AI integration.',
       problemSolved:
@@ -436,49 +475,18 @@ export class PortfolioService {
       ],
       accent: '#ec4899',
       badge: '🔐 AI + Security',
-      architecture: 'Angular Client → HTTP Interceptor → Spring Boot API → JWT Filter → Hugging Face AI Router → PostgreSQL',
+      architecture:
+        'Angular Client → HTTP Interceptor → Spring Boot API → JWT Filter → Hugging Face AI Router → PostgreSQL',
       githubUrl: 'https://github.com/Raman-8688/secure-ai-assistant',
       liveUrl: '',
-      backendFrontendSeparation: 'Decoupled Angular SPA with Route Guards communicating to a Spring Boot REST backend via JWT-authenticated requests.',
-      dockerK8sUsage: 'Docker Compose file included — spins up Spring Boot app + PostgreSQL in a single command for local dev.',
-      securityAuth: 'Full Spring Security filter chain: email OTP → JWT generation → Bearer token validation on every protected route.',
-      cicdWorkflow: 'GitHub repository with structured frontend/backend split, docker-compose.yml, and documented README for reproducible setup.',
-    },
-    {
-      title: 'AI Support Assistant & Semantic Search',
-      institution: 'Personal Capstone & JSpiders Project',
-      timeline: '2024',
-      techStack: 'Angular · Spring Boot · Hugging Face API · PostgreSQL · RxJS WebSockets',
-      description:
-        'An AI-driven customer support chat application that uses Hugging Face AI for automated query responses, WebSocket streaming, and PostgreSQL conversation archiving.',
-      problemSolved:
-        'Support operators spent significant time digging through documentation files to resolve recurring tech inquiries. AI-powered autocomplete dramatically cuts resolution time.',
-      features: [
-        'Integrated Hugging Face Router API for streaming automated query answers.',
-        'Implemented live WebSocket notifications for message streams in the Angular frontend.',
-        'Designed PostgreSQL schemas to archive conversation streams for performance auditing.',
-      ],
-      highlights: [
-        'Reactive chat client using RxJS WebSocket streams',
-        'Contextual prompts built via dynamic Spring Boot templates',
-        'Archiving system logging request auditing records',
-        'Asynchronous notifications via active WebSockets',
-      ],
-      tags: ['angular', 'database'],
-      skills: [
-        { name: 'Angular', level: 75 },
-        { name: 'Spring Boot', level: 80 },
-        { name: 'AI Integration', level: 70 },
-      ],
-      accent: '#6db33f',
-      badge: '🤖 AI & Automation',
-      architecture: 'Angular Client ➔ WebSocket Controller ➔ Spring Boot Core ➔ Hugging Face API / DB Log',
-      githubUrl: 'https://github.com/Raman-8688/ai-support-assistant',
-      liveUrl: '',
-      backendFrontendSeparation: 'Angular SPA utilizing WebSocket connections to stream real-time chat with Spring Boot server.',
-      dockerK8sUsage: 'Spring Boot server and PostgreSQL DB packaged as containers for quick setup.',
-      securityAuth: 'OAuth2 authentication controls with security parameters validation.',
-      cicdWorkflow: 'Pipeline validating Maven compilation dependencies and executing Unit tests.',
+      backendFrontendSeparation:
+        'Decoupled Angular SPA with Route Guards communicating to a Spring Boot REST backend via JWT-authenticated requests.',
+      dockerK8sUsage:
+        'Docker Compose file included — spins up Spring Boot app + PostgreSQL in a single command for local dev.',
+      securityAuth:
+        'Full Spring Security filter chain: email OTP → JWT generation → Bearer token validation on every protected route.',
+      cicdWorkflow:
+        'GitHub repository with structured frontend/backend split, docker-compose.yml, and documented README for reproducible setup.',
     },
   ];
   // ─── Architecture Nodes ─────────────────────────────────────
