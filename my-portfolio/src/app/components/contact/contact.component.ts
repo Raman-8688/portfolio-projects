@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PortfolioService } from '../../services/Portfolio.service';
@@ -7,9 +7,9 @@ import { PortfolioService } from '../../services/Portfolio.service';
 // Free plan: https://www.emailjs.com/ — 200 emails/month, no backend needed.
 declare const emailjs: any;
 
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // ← replace after setup
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ← replace after setup
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // ← replace after setup
+const EMAILJS_SERVICE_ID = 'service_ocru37q';
+const EMAILJS_TEMPLATE_ID = 'template_k4pvtlf';
+const EMAILJS_PUBLIC_KEY = '3l5df2OSRtLUSFVOa';
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +18,7 @@ const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // ← replace after setup
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   form = { name: '', email: '', subject: '', message: '' };
   submitted = false;
   sending = false;
@@ -67,9 +67,16 @@ export class ContactComponent {
       bg: 'rgba(59,130,246,0.1)',
       color: '#3b82f6',
     },
-  ]; //https://www.linkedin.com/in/boya-ramanjaneyulu-155021258/
+  ];
 
   constructor(public ps: PortfolioService) {}
+
+  ngOnInit(): void {
+    // Initialize EmailJS with your public key
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }
 
   async onSubmit(): Promise<void> {
     this.submitted = true;
@@ -91,37 +98,20 @@ export class ContactComponent {
 
     this.sending = true;
 
-    // ── EmailJS send ─────────────────────────────────────
-    // If EmailJS is not yet configured, falls back to mailto link.
     try {
-      if (
-        typeof emailjs !== 'undefined' &&
-        EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID'
-      ) {
-        // Real EmailJS send
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          {
-            from_name: this.form.name,
-            from_email: this.form.email,
-            subject: this.form.subject || 'Portfolio Contact',
-            message: this.form.message,
-            reply_to: this.form.email,
-          },
-          EMAILJS_PUBLIC_KEY,
-        );
-      } else {
-        // Fallback: open mailto if EmailJS not configured yet
-        const body = encodeURIComponent(
-          `Name: ${this.form.name}\nEmail: ${this.form.email}\n\n${this.form.message}`,
-        );
-        window.open(
-          `mailto:ramanms8688@gmail.com?subject=${encodeURIComponent(this.form.subject || 'Portfolio Contact')}&body=${body}`,
-        );
-        // Simulate small delay for mailto
-        await new Promise((r) => setTimeout(r, 600));
-      }
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: this.form.name,
+          from_email: this.form.email,
+          subject: this.form.subject || 'Portfolio Contact',
+          message: this.form.message,
+          reply_to: this.form.email,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
 
       this.sending = false;
       this.formSuccess = true;

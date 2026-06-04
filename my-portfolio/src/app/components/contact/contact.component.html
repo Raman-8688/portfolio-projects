@@ -1,6 +1,5 @@
 <section class="contact-section section-alt" [class.dark]="ps.isDarkMode()">
   <div class="section-container">
-
     <div class="section-header" data-aos="fade-up">
       <span class="section-tag">Let's Talk</span>
       <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
@@ -14,11 +13,14 @@
         <span>Active Recruitment Status</span>
       </div>
       <h3>Available for Java Full Stack Developer Roles</h3>
-      <p>I am seeking professional MNC positions to apply my 2 years of Spring Boot and Angular production experience. Let's discuss how I can add immediate value to your software engineering team!</p>
+      <p>
+        I am seeking professional MNC positions to apply my 2 years of Spring
+        Boot and Angular production experience. Let's discuss how I can add
+        immediate value to your software engineering team!
+      </p>
     </div>
 
     <div class="contact-grid">
-
       <!-- LEFT: Info -->
       <div class="contact-info">
         <div class="contact-card" *ngFor="let item of contactItems">
@@ -27,7 +29,9 @@
           </div>
           <div>
             <div class="contact-label">{{ item.label }}</div>
-            <a [href]="item.href" class="contact-value" target="_blank">{{ item.value }}</a>
+            <a [href]="item.href" class="contact-value" target="_blank">{{
+              item.value
+            }}</a>
           </div>
         </div>
 
@@ -86,18 +90,20 @@
         </div>
 
         <button type="submit" class="submit-btn" [disabled]="sending">
-          <i [class]="sending ? 'fas fa-spinner fa-spin' : 'fas fa-paper-plane'"></i>
-          {{ sending ? 'Sending...' : 'Send Message' }}
+          <i
+            [class]="sending ? 'fas fa-spinner fa-spin' : 'fas fa-paper-plane'"
+          ></i>
+          {{ sending ? "Sending..." : "Send Message" }}
         </button>
 
         <div class="form-msg success" *ngIf="formSuccess">
-          <i class="fas fa-check-circle"></i> Message sent successfully! I'll reply soon.
+          <i class="fas fa-check-circle"></i> Message sent successfully! I'll
+          reply soon.
         </div>
         <div class="form-msg error-msg" *ngIf="formError">
           <i class="fas fa-exclamation-circle"></i> {{ formErrorMsg }}
         </div>
       </form>
-
     </div>
   </div>
 </section>
