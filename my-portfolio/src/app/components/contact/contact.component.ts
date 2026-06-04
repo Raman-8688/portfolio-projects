@@ -62,8 +62,8 @@ export class ContactComponent implements OnInit {
     {
       icon: 'fab fa-linkedin',
       label: 'LinkedIn',
-      value: 'linkedin.com/in/b-ramanjaneyulu',
-      href: 'https://linkedin.com/in/b-ramanjaneyulu-155021258',
+      value: 'linkedin.com/in/boya-ramanjaneyulu-155021258',
+      href: 'https://linkedin.com/in/boya-ramanjaneyulu-155021258',
       bg: 'rgba(59,130,246,0.1)',
       color: '#3b82f6',
     },
