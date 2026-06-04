@@ -83,12 +83,14 @@ export class ContactComponent implements OnInit {
     this.formError = false;
     this.formSuccess = false;
 
+    // Validation checks
     if (!this.form.name || !this.form.email || !this.form.message) {
       this.formErrorMsg = 'Please fill in all required fields.';
       this.formError = true;
       return;
     }
 
+    // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.form.email)) {
       this.formErrorMsg = 'Please enter a valid email address.';
@@ -99,7 +101,8 @@ export class ContactComponent implements OnInit {
     this.sending = true;
 
     try {
-      // Send email using EmailJS
+      // Send email using EmailJS (this will trigger both main email and auto-reply
+      // since auto-reply is configured in EmailJS dashboard)
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -113,11 +116,15 @@ export class ContactComponent implements OnInit {
         EMAILJS_PUBLIC_KEY,
       );
 
+      // Success - clear form and show success message
       this.sending = false;
       this.formSuccess = true;
       this.form = { name: '', email: '', subject: '', message: '' };
       this.submitted = false;
+      
+      // Hide success message after 6 seconds
       setTimeout(() => (this.formSuccess = false), 6000);
+      
     } catch (err) {
       console.error('EmailJS error:', err);
       this.sending = false;
