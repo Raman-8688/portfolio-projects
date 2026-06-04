@@ -36,6 +36,9 @@ export class GithubStatsComponent implements OnInit {
 
   contributions: { level: number; date: string }[] = [];
 
+
+  
+
   constructor(public ps: PortfolioService) {
     this.generateContributionGrid();
   }
