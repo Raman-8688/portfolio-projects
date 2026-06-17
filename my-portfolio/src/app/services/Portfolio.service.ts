@@ -32,7 +32,7 @@ export class PortfolioService {
   location = 'Kurnool, Andhra Pradesh';
   github = 'https://github.com/Raman-8688';
   linkedin = 'https://linkedin.com/in/b-ramanjaneyulu-155021258';
-  yearsExp = '2';
+  yearsExp = '1';
 
   // ─── Hero Intro (concise, powerful) ─────────────────────────
   heroTagline = 'Building enterprise-grade systems that scale.';
@@ -69,12 +69,12 @@ export class PortfolioService {
 
   // ─── About ──────────────────────────────────────────────────
   aboutIntro =
-    'I am a <strong>Java Full Stack Developer</strong> with 2+ years of hands-on experience delivering real production systems — from a <strong>live Hyderabad Metro asset management platform</strong> to a <strong>multi-tenant Pharma microservices product</strong> — using Angular, Spring Boot, and enterprise databases.';
+    'I am a <strong>Java Full Stack Developer</strong> with 1 year of hands-on experience delivering real production systems — from a <strong>live Hyderabad Metro asset management platform</strong> to a <strong>multi-tenant Pharma microservices product</strong> — using Angular, Spring Boot, and enterprise databases.';
 
   aboutPoints = [
     {
       icon: 'fas fa-train',
-      text: 'Contributed to <strong>AMS (Asset Management System)</strong> — a live client project actively used by <strong>Hyderabad Metro Rail</strong>. Built inventory screens, MSSQL stored procedures, database indexes/synonyms, and implemented new screens based on direct client requirements. Tech: <strong>Angular · .NET · MSSQL</strong>.',
+      text: 'Contributed to <strong>AMS (Asset Management System)</strong> — a live client project actively used by <strong>Hyderabad Metro Rail</strong>. Built inventory screens, MSSQL stored procedures, database indexes/synonyms, and implemented new screens based on direct client requirements. Tech: <strong>Angular · Java · Spring Boot · MSSQL</strong>.',
     },
     {
       icon: 'fas fa-capsules',
@@ -98,7 +98,7 @@ export class PortfolioService {
     {
       icon: 'fas fa-calendar-check',
       label: 'Experience',
-      value: '2 Years (Java Full Stack)',
+      value: '1 Year (Java Full Stack)',
       bg: 'rgba(124, 58, 237, 0.1)',
       color: '#8b5cf6',
     },
@@ -130,7 +130,7 @@ export class PortfolioService {
     {
       company: 'Winfocus Solutions Pvt Ltd',
       role: 'Full Stack Developer',
-      period: 'Jan 2025 – Present',
+      period: 'Jun 2025 – Present',
       location: 'Andhra Pradesh, India',
       type: 'Full Time',
       logo: 'fas fa-capsules',
@@ -183,7 +183,8 @@ export class PortfolioService {
       ],
       techUsed: [
         'Angular',
-        'NET',
+        'Java',
+        'Spring Boot',
         'MSSQL',
         'Stored Procedures',
         'API Gateway',
@@ -315,7 +316,7 @@ export class PortfolioService {
     {
       title: 'Multi-Tenant Pharma Platform with Multilanguage UI',
       institution: 'Winfocus Solutions Pvt Ltd',
-      timeline: 'Jan 2025 – Present',
+      timeline: 'Jun 2025 – Present',
       techStack:
         'Angular · Spring Boot · Microservices · PostgreSQL · Eureka · API Gateway · Spring Security · Docker · Kubernetes',
       description:
@@ -405,9 +406,9 @@ export class PortfolioService {
       institution: 'Client Project · Live Production System',
       timeline: '2024',
       techStack:
-        'Angular · .NET · MSSQL · Stored Procedures · Microservices · API Gateway',
+        'Angular · Java · Spring Boot · Microservices · MSSQL · Stored Procedures · API Gateway',
       description:
-        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing station assets across locations, categories, layout groups and group types. Built on a .NET microservices backend with MSSQL and an Angular frontend. Contributed as Full Stack developer handling frontend screens, database layer, and production bug fixes.',
+        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing station assets across locations, categories, layout groups and group types. Built on Java Spring Boot microservices with MSSQL and an Angular frontend. Contributed as Full Stack developer handling frontend screens, database layer, and production bug fixes.',
       problemSolved:
         'Hyderabad Metro had no centralized system to track physical assets across stations by location and category. Manual tracking caused errors and audit failures. This system is now live in production at metro stations.',
       features: [
@@ -432,17 +433,67 @@ export class PortfolioService {
       accent: '#7c3aed',
       badge: '🚇 Metro · Live Production',
       architecture:
-        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (.NET) → MSSQL + Common Library',
+        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (Spring Boot) → MSSQL + Common Library',
       githubUrl: 'https://github.com/Raman-8688',
       liveUrl: '',
       backendFrontendSeparation:
-        'Angular frontend with dynamic inventory grid layouts; .NET microservices expose REST APIs consumed through API Gateway.',
+        'Angular frontend with dynamic inventory grid layouts; Java Spring Boot microservices expose REST APIs consumed through API Gateway.',
       dockerK8sUsage:
         'Each microservice deployed individually on VMs — manual deployment per service with per-environment configuration files.',
       securityAuth:
         'Auth Service handles login and session management; role-based access enforced at API Gateway level.',
       cicdWorkflow:
         'Git version control; services independently built and deployed to client environment after QA verification.',
+    },
+    {
+      title: 'Enterprise Order Management System',
+      institution: 'Personal Project · Microservices & Kafka',
+      timeline: '2025',
+      techStack:
+        'Java · Spring Boot · Angular · Apache Kafka · Eureka · API Gateway · Config Server · Feign · Resilience4j · PostgreSQL · Docker · Kubernetes · JWT',
+      description:
+        'Production-level distributed order management platform built on a full enterprise microservices stack. Separate services for Auth, Users, Products, Inventory, Orders, Payments, Notifications, and Invoices — communicating via Kafka async events and Feign sync calls, with Saga pattern for distributed transaction management.',
+      problemSolved:
+        'A monolithic order system cannot independently scale payment processing, inventory, or notifications. This architecture isolates each domain with its own database, uses Kafka for event-driven decoupling, and implements the Saga pattern to handle distributed transactions safely across services.',
+      features: [
+        '<strong>8 independent microservices</strong> — Auth, Users, Products, Inventory, Orders, Payments, Notifications, Invoices — each with its own PostgreSQL database (database-per-service pattern).',
+        '<strong>Apache Kafka</strong> for async event streaming (order placed → inventory reserved → payment processed → invoice generated → notification sent).',
+        '<strong>Feign clients + Resilience4j</strong> for synchronous inter-service calls with circuit breaker, retry, and fallback handling to prevent cascade failures.',
+        '<strong>Saga pattern</strong> for distributed transaction management — compensating transactions ensure data consistency across services without 2PC locks.',
+        '<strong>Spring Cloud Gateway</strong> with JWT validation; <strong>Eureka Server</strong> for service discovery; <strong>Config Server</strong> for centralized configuration management.',
+        '<strong>Angular frontend</strong> with real-time order tracking dashboard, product browsing, and order management consuming APIs through the Gateway.',
+        '<strong>Docker + Kubernetes</strong> — all services containerized, K8s manifests prepared for deployment, scaling, and rolling updates.',
+      ],
+      highlights: [
+        '8 microservices each with own PostgreSQL DB',
+        'Kafka event-driven order processing pipeline',
+        'Saga pattern for distributed transactions',
+        'Feign + Resilience4j circuit breaker & fallback',
+        'Eureka service discovery + Config Server',
+        'Spring Cloud Gateway with JWT auth filter',
+        'Angular frontend order tracking dashboard',
+        'Docker + Kubernetes deployment ready',
+      ],
+      tags: ['angular', 'microservices', 'database'],
+      skills: [
+        { name: 'Apache Kafka', level: 82 },
+        { name: 'Spring Boot', level: 88 },
+        { name: 'Microservices', level: 87 },
+      ],
+      accent: '#f59e0b',
+      badge: '⚡ Kafka · Saga · Enterprise',
+      architecture:
+        'Angular UI → Spring Cloud Gateway (JWT) → Eureka → [Auth | Users | Products | Inventory | Orders | Payments | Notifications | Invoices] → Kafka + Feign → PostgreSQL (per service) | Config Server',
+      githubUrl: 'https://github.com/Raman-8688/enterprise-order-management-system',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Angular SPA communicates only through the API Gateway. All 8 backend services are isolated behind the Gateway with JWT-authenticated routes.',
+      dockerK8sUsage:
+        'All services Dockerized with multi-stage builds. Kubernetes manifests prepared for Deployments, Services, ConfigMaps, and HPA for auto-scaling.',
+      securityAuth:
+        '<strong>Spring Cloud Gateway JWT filter</strong> validates every request. Auth Service issues JWT; downstream services trust gateway-forwarded claims with role-based access per service.',
+      cicdWorkflow:
+        'GitHub repository with per-service module structure. Docker Compose for full local stack (Kafka + Zookeeper + all 8 services + DBs). Kubernetes manifests for production.',
     },
     {
       title: 'Secure AI Assistant',
