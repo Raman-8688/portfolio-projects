@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TiltCard } from './TiltCard';
 import { portfolioData } from '../data/portfolioData';
 import { sounds } from '../utils/audio';
-import { Cpu, Server, Database, Cloud } from 'lucide-react';
+import { Cpu, Server, Database, Cloud, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -20,7 +20,7 @@ export const Skills = () => {
         <div className="section-header">
           <span className="section-tag">Technical Competencies</span>
           <h2 className="section-title">Full Stack <span className="accent-text">Skills Matrix</span></h2>
-          <p className="section-sub">Mastery across modern Java microservice ecosystems, frontends, and cloud databases.</p>
+          <p className="section-sub">Production expertise across modern Java microservice ecosystems, frontends, and cloud databases.</p>
           <div className="title-line"></div>
         </div>
 
@@ -40,7 +40,7 @@ export const Skills = () => {
           ))}
         </div>
 
-        {/* Skill Groups Grid */}
+        {/* Skill Groups Grid - Clean Glass Technology Pills (No Percentage Bars/Lines) */}
         <div className="skills-group-grid">
           {filteredSkills.map((group, groupIdx) => (
             <TiltCard key={groupIdx} className="skill-group-card glass-card">
@@ -51,22 +51,19 @@ export const Skills = () => {
                 <h3>{group.category}</h3>
               </div>
 
-              <div className="skill-items-list">
+              <div className="skill-items-grid">
                 {group.items.map((skill, skillIdx) => (
-                  <div key={skillIdx} className="skill-item">
-                    <div className="skill-meta">
+                  <div key={skillIdx} className="skill-pill-card">
+                    <div className="pill-top">
+                      <CheckCircle2 size={16} style={{ color: group.color }} className="pill-check" />
                       <span className="skill-name">{skill.name}</span>
-                      <span className="skill-tag">{skill.tag}</span>
                     </div>
 
-                    <div className="skill-progress-bar">
-                      <div
-                        className="skill-progress-fill"
-                        style={{
-                          width: `${skill.level}%`,
-                          background: `linear-gradient(90deg, ${group.color}, #a855f7)`
-                        }}
-                      />
+                    <div className="pill-meta">
+                      <span className="skill-tag-sub">{skill.tag}</span>
+                      <span className="skill-badge-level" style={{ background: `${group.color}20`, color: group.color }}>
+                        {skill.badge}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -105,7 +102,7 @@ export const Skills = () => {
 
         .skills-group-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
           gap: 28px;
         }
 
@@ -117,7 +114,9 @@ export const Skills = () => {
           display: flex;
           align-items: center;
           gap: 14px;
-          margin-bottom: 28px;
+          margin-bottom: 24px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid var(--border-color);
         }
 
         .group-icon {
@@ -136,42 +135,63 @@ export const Skills = () => {
           font-weight: 800;
         }
 
-        .skill-items-list {
+        .skill-items-grid {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 12px;
         }
 
-        .skill-meta {
+        .skill-pill-card {
+          background: color-mix(in srgb, var(--card-bg) 80%, transparent);
+          border: 1px solid var(--border-color);
+          border-radius: 14px;
+          padding: 12px 16px;
+          transition: border-color 0.25s, transform 0.25s, background 0.25s;
+        }
+
+        .skill-pill-card:hover {
+          border-color: var(--theme-color);
+          transform: translateX(4px);
+          background: color-mix(in srgb, var(--theme-color) 8%, transparent);
+        }
+
+        .pill-top {
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          margin-bottom: 6px;
+          gap: 10px;
+          margin-bottom: 4px;
+        }
+
+        .pill-check {
+          flex-shrink: 0;
         }
 
         .skill-name {
-          font-size: 14px;
-          font-weight: 700;
+          font-size: 14.5px;
+          font-weight: 800;
           color: var(--text-primary);
         }
 
-        .skill-tag {
-          font-size: 11px;
-          font-weight: 600;
+        .pill-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-left: 26px;
+        }
+
+        .skill-tag-sub {
+          font-size: 12px;
           color: var(--text-secondary);
+          font-weight: 500;
         }
 
-        .skill-progress-bar {
-          height: 6px;
-          background: color-mix(in srgb, var(--text-secondary) 15%, transparent);
-          border-radius: 4px;
-          overflow: hidden;
-        }
-
-        .skill-progress-fill {
-          height: 100%;
-          border-radius: 4px;
-          transition: width 1s ease-out;
+        .skill-badge-level {
+          font-size: 10.5px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          padding: 2px 8px;
+          border-radius: 8px;
         }
       `}</style>
     </section>
