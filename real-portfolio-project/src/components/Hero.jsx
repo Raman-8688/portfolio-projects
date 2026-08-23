@@ -13,7 +13,9 @@ import {
   ChevronDown,
   Sparkles,
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  MapPin,
+  Briefcase
 } from 'lucide-react';
 
 export const Hero = ({ onNavigate, onOpenMncModal, onOpenTerminal, onOpenResumeModal }) => {
@@ -21,14 +23,19 @@ export const Hero = ({ onNavigate, onOpenMncModal, onOpenTerminal, onOpenResumeM
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const titles = portfolioData.personal.titles;
+  const titles = [
+    'PostgreSQL Multitenancy & AI Developer',
+    'Java Full Stack Developer',
+    'Microservices Architecture Specialist',
+    'Angular 19 + Spring Boot 3 Engineer'
+  ];
 
   useEffect(() => {
     const fullText = titles[titleIndex];
     let speed = isDeleting ? 40 : 80;
 
     if (!isDeleting && currentText === fullText) {
-      speed = 2200; // Pause at end
+      speed = 2200;
     } else if (isDeleting && currentText === '') {
       setIsDeleting(false);
       setTitleIndex((prev) => (prev + 1) % titles.length);
@@ -50,314 +57,334 @@ export const Hero = ({ onNavigate, onOpenMncModal, onOpenTerminal, onOpenResumeM
 
   return (
     <section id="home" className="hero-section">
-      <div className="hero-glow orb-1"></div>
-      <div className="hero-glow orb-2"></div>
+      {/* Large Encapsulated Main Glass Card Container matching Screenshot */}
+      <div className="hero-main-card glass-card">
+        <div className="hero-grid-inner">
+          {/* Left Column - Main Intro & Actions */}
+          <div className="hero-left-content">
+            {/* Green Pill Badge */}
+            <div className="pill-badge-green">
+              <Sparkles size={13} className="icon-green-sparkle" />
+              <span>Available for Enterprise MNC Opportunities</span>
+            </div>
 
-      <div className="section-container hero-container">
-        {/* Left Column - Intro & Actions */}
-        <div className="hero-content">
-          <div className="hero-badge">
-            <Sparkles size={14} className="icon-sparkle" />
-            <span>Available for Enterprise MNC Opportunities</span>
+            {/* Main Heading */}
+            <h1 className="hero-name-heading">
+              Hi, I'm <br />
+              <span className="gradient-text-blue-pink">{portfolioData.personal.name}</span>
+            </h1>
+
+            {/* Typewriter Title */}
+            <div className="typewriter-container">
+              <span className="tw-text-blue">{currentText}</span>
+              <span className="tw-cursor-blink">|</span>
+            </div>
+
+            {/* Paragraph Description matching Screenshot */}
+            <p className="hero-description-text">
+              Full Stack Engineer specializing in <strong>Microservices Architecture</strong>, <strong>Spring Boot 3.x</strong>, <strong>Angular 19</strong>, <strong>PostgreSQL Multitenancy</strong>, and <strong>AI Integration</strong> — delivering real production software for enterprise clients.
+            </p>
+
+            {/* Button Actions Grid matching Screenshot */}
+            <div className="hero-button-actions">
+              <div className="btn-row-top">
+                <button 
+                  className="btn-purple-gradient" 
+                  onClick={() => {
+                    sounds.playClick();
+                    onNavigate('projects');
+                  }}
+                >
+                  <FolderGit2 size={18} />
+                  <span>Explore Live Projects</span>
+                  <ArrowRight size={16} />
+                </button>
+
+                <button 
+                  className="btn-secondary btn-dark-glass" 
+                  onClick={() => {
+                    sounds.playClick();
+                    onOpenMncModal();
+                  }}
+                >
+                  <BookOpenCheck size={18} className="icon-purple-light" />
+                  <span>MNC Interview Q&A</span>
+                </button>
+              </div>
+
+              <div className="btn-row-bottom">
+                <button 
+                  className="btn-secondary btn-dark-glass" 
+                  onClick={() => {
+                    sounds.playClick();
+                    onOpenTerminal();
+                  }}
+                >
+                  <Terminal size={18} />
+                  <span>DevOps Terminal</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Social Icons & Location Footer Bar matching Screenshot */}
+            <div className="hero-footer-socials">
+              <a 
+                href={portfolioData.personal.github} 
+                target="_blank" 
+                rel="noreferrer"
+                className="social-round-btn"
+                title="GitHub Profile"
+              >
+                <Github size={16} />
+              </a>
+              <a 
+                href={portfolioData.personal.linkedin} 
+                target="_blank" 
+                rel="noreferrer"
+                className="social-round-btn"
+                title="LinkedIn Profile"
+              >
+                <Linkedin size={16} />
+              </a>
+              <button 
+                className="social-round-btn"
+                onClick={() => {
+                  sounds.playClick();
+                  onOpenResumeModal();
+                }}
+                title="View ATS Resume"
+              >
+                <FileText size={16} />
+              </button>
+              <span className="footer-pipe-line"></span>
+              <span className="location-text">📍 Kurnool, Andhra Pradesh, India</span>
+            </div>
           </div>
 
-          <h1 className="hero-name">
-            Hi, I'm <br />
-            <span className="gradient-text">{portfolioData.personal.name}</span>
-          </h1>
-
-          <div className="typewriter-box">
-            <span className="tw-text">{currentText}</span>
-            <span className="tw-cursor">|</span>
-          </div>
-
-          <p 
-            className="hero-sub" 
-            dangerouslySetInnerHTML={{ __html: portfolioData.personal.heroSub }} 
-          />
-
-          {/* MNC Action Buttons */}
-          <div className="hero-actions">
-            <button 
-              className="btn-primary" 
-              onClick={() => {
-                sounds.playClick();
-                onNavigate('projects');
-              }}
-            >
-              <FolderGit2 size={18} />
-              <span>Explore Live Projects</span>
-              <ArrowRight size={16} />
-            </button>
-
-            <button 
-              className="btn-secondary btn-highlight" 
-              onClick={() => {
-                sounds.playClick();
-                onOpenMncModal();
-              }}
-            >
-              <BookOpenCheck size={18} className="icon-purple" />
-              <span>MNC Interview Q&A</span>
-            </button>
-
-            <button 
-              className="btn-secondary" 
-              onClick={() => {
-                sounds.playClick();
-                onOpenTerminal();
-              }}
-            >
-              <Terminal size={18} />
-              <span>DevOps Terminal</span>
-            </button>
-          </div>
-
-          {/* Social Links */}
-          <div className="social-links-bar">
-            <a 
-              href={portfolioData.personal.github} 
-              target="_blank" 
-              rel="noreferrer"
-              className="social-icon-btn"
-              title="GitHub Profile"
-            >
-              <Github size={18} />
-            </a>
-            <a 
-              href={portfolioData.personal.linkedin} 
-              target="_blank" 
-              rel="noreferrer"
-              className="social-icon-btn"
-              title="LinkedIn Profile"
-            >
-              <Linkedin size={18} />
-            </a>
-            <button 
-              className="social-icon-btn"
-              onClick={() => {
-                sounds.playClick();
-                onOpenResumeModal();
-              }}
-              title="View ATS Resume"
-            >
-              <FileText size={18} />
-            </button>
-            <span className="social-line"></span>
-            <span className="location-tag">📍 {portfolioData.personal.location}</span>
-          </div>
-        </div>
-
-        {/* Right Column - 3D Tilt Profile Showcase */}
-        <div className="hero-visual">
-          <TiltCard className="profile-tilt-card">
-            <div className="profile-card-inner">
-              <div className="profile-image-wrap">
+          {/* Right Column - Profile Card matching Screenshot */}
+          <div className="hero-right-visual">
+            <TiltCard className="profile-inner-card glass-card">
+              <div className="profile-img-box">
                 <img 
                   src={profileImg} 
                   alt={portfolioData.personal.name}
-                  className="profile-img" 
+                  className="profile-avatar-img" 
                 />
-                <div className="profile-overlay-gradient"></div>
+                <div className="profile-img-shade"></div>
               </div>
 
-              <div className="profile-card-info">
-                <div className="profile-role-badge">
-                  <ShieldCheck size={16} />
+              <div className="profile-info-box">
+                <div className="badge-experience-green">
+                  <ShieldCheck size={14} />
                   <span>1 Year Production Experience</span>
                 </div>
-                <h3>{portfolioData.personal.name}</h3>
-                <p>Full Stack Engineer @ Winfocus Solutions</p>
-                <div className="tech-pills">
-                  <span>Spring Boot 3</span>
-                  <span>Angular 19</span>
-                  <span>PostgreSQL</span>
-                  <span>Docker</span>
+
+                <h3 className="profile-user-name">{portfolioData.personal.name}</h3>
+                <p className="profile-user-role">Full Stack Engineer @ WinFocus Solutions</p>
+
+                <div className="tech-badge-pills">
+                  <span className="pill-item">Spring Boot 3</span>
+                  <span className="pill-item">Angular 19</span>
+                  <span className="pill-item">PostgreSQL</span>
+                  <span className="pill-item">Docker</span>
                 </div>
               </div>
-            </div>
-          </TiltCard>
+            </TiltCard>
+          </div>
         </div>
       </div>
 
-      {/* Scroll Hint */}
+      {/* Bottom Center Scroll Hint matching Screenshot */}
       <div 
-        className="scroll-hint-btn" 
+        className="scroll-down-indicator" 
         onClick={() => {
           sounds.playClick();
           onNavigate('about');
         }}
       >
-        <ChevronDown size={22} className="bounce" />
+        <ChevronDown size={20} className="bounce-arrow" />
         <span>Scroll to Explore</span>
       </div>
 
       <style>{`
         .hero-section {
           min-height: 100vh;
-          padding-top: 130px;
-          padding-bottom: 80px;
+          padding-top: 110px;
+          padding-bottom: 60px;
           display: flex;
           flex-direction: column;
+          align-items: center;
           justify-content: center;
           position: relative;
+          z-index: 2; /* Foreground section */
         }
 
-        .hero-glow {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(140px);
-          pointer-events: none;
-          z-index: 0;
-        }
-        .orb-1 {
-          width: 450px;
-          height: 450px;
-          top: 10%;
-          left: -5%;
-          background: rgba(59, 130, 246, 0.18);
-        }
-        .orb-2 {
-          width: 400px;
-          height: 400px;
-          bottom: 10%;
-          right: -5%;
-          background: rgba(139, 92, 246, 0.15);
+        /* Large Encapsulated Main Glass Card Container (Z-Index 5: Above Orbs) */
+        .hero-main-card {
+          max-width: 1200px;
+          width: 100%;
+          margin: 0 24px;
+          padding: 48px;
+          position: relative;
+          z-index: 5;
+          background: rgba(10, 15, 29, 0.88);
+          backdrop-filter: blur(36px);
+          -webkit-backdrop-filter: blur(36px);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 28px;
+          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        .hero-container {
+        .hero-grid-inner {
           display: grid;
-          grid-template-columns: 1.2fr 0.8fr;
+          grid-template-columns: 1.25fr 0.75fr;
           gap: 48px;
           align-items: center;
         }
 
-        .hero-badge {
+        .pill-badge-green {
           display: inline-flex;
           align-items: center;
           gap: 8px;
           padding: 6px 16px;
-          border-radius: 30px;
-          background: rgba(59, 130, 246, 0.1);
-          border: 1px solid rgba(59, 130, 246, 0.25);
-          color: var(--theme-color);
+          border-radius: 20px;
+          background: rgba(16, 185, 129, 0.12);
+          border: 1px solid rgba(16, 185, 129, 0.3);
+          color: #10b981;
           font-size: 12px;
           font-weight: 700;
           margin-bottom: 20px;
         }
 
-        .icon-sparkle {
-          color: #ec4899;
-          animation: spin 6s linear infinite;
+        .icon-green-sparkle {
+          color: #10b981;
         }
 
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-
-        .hero-name {
+        .hero-name-heading {
           font-family: var(--font-display);
-          font-size: 52px;
+          font-size: 54px;
           font-weight: 900;
           line-height: 1.1;
-          margin-bottom: 16px;
+          margin-bottom: 14px;
+          color: #ffffff;
         }
 
-        .typewriter-box {
+        .typewriter-container {
           font-family: var(--font-mono);
           font-size: 20px;
           font-weight: 700;
-          color: var(--theme-color);
+          color: #38bdf8;
           margin-bottom: 20px;
           min-height: 32px;
         }
 
-        .tw-cursor {
-          animation: blink 0.8s infinite;
+        .tw-cursor-blink {
+          animation: blinkCursor 0.8s infinite;
           margin-left: 4px;
+          color: #ec4899;
         }
 
-        @keyframes blink {
+        @keyframes blinkCursor {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
 
-        .hero-sub {
-          font-size: 16px;
+        .hero-description-text {
+          font-size: 15px;
           color: var(--text-secondary);
           line-height: 1.7;
           margin-bottom: 32px;
+          max-width: 620px;
         }
 
-        .hero-actions {
+        .hero-button-actions {
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: column;
           gap: 14px;
           margin-bottom: 36px;
         }
 
-        .btn-highlight {
-          border-color: rgba(139, 92, 246, 0.4);
-          color: #a78bfa;
+        .btn-row-top {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 14px;
         }
 
-        .icon-purple {
-          color: #a78bfa;
+        .btn-row-bottom {
+          display: flex;
         }
 
-        .social-links-bar {
+        .btn-dark-glass {
+          background: rgba(15, 23, 42, 0.7);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: #ffffff;
+        }
+
+        .btn-dark-glass:hover {
+          border-color: #38bdf8;
+          color: #38bdf8;
+        }
+
+        .icon-purple-light {
+          color: #c084fc;
+        }
+
+        .hero-footer-socials {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 14px;
         }
 
-        .social-icon-btn {
-          width: 40px;
-          height: 40px;
+        .social-round-btn {
+          width: 38px;
+          height: 38px;
           border-radius: 50%;
-          background: color-mix(in srgb, var(--card-bg) 80%, transparent);
-          border: 1px solid var(--border-color);
+          background: rgba(15, 23, 42, 0.7);
+          border: 1px solid rgba(255, 255, 255, 0.12);
           color: var(--text-secondary);
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: transform 0.2s, color 0.2s, border-color 0.2s;
+          transition: all 0.25s ease;
         }
 
-        .social-icon-btn:hover {
+        .social-round-btn:hover {
           transform: translateY(-3px);
-          color: var(--theme-color);
-          border-color: var(--theme-color);
+          color: #38bdf8;
+          border-color: #38bdf8;
+          box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
         }
 
-        .social-line {
-          width: 30px;
+        .footer-pipe-line {
+          width: 24px;
           height: 1px;
-          background: var(--border-color);
+          background: rgba(255, 255, 255, 0.15);
         }
 
-        .location-tag {
+        .location-text {
           font-size: 13px;
           color: var(--text-secondary);
           font-weight: 500;
         }
 
-        .profile-card-inner {
-          background: var(--card-bg);
-          border: 1px solid var(--border-color);
-          border-radius: 24px;
+        /* Right Profile Card */
+        .profile-inner-card {
+          padding: 0;
           overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          background: rgba(15, 23, 42, 0.85);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 24px;
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
         }
 
-        .profile-image-wrap {
+        .profile-img-box {
           position: relative;
           height: 320px;
           overflow: hidden;
+          background: #0f172a;
         }
 
-        .profile-img {
+        .profile-avatar-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -365,21 +392,21 @@ export const Hero = ({ onNavigate, onOpenMncModal, onOpenTerminal, onOpenResumeM
           transition: transform 0.5s ease;
         }
 
-        .profile-card-inner:hover .profile-img {
+        .profile-inner-card:hover .profile-avatar-img {
           transform: scale(1.05);
         }
 
-        .profile-overlay-gradient {
+        .profile-img-shade {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, var(--card-bg), transparent 60%);
+          background: linear-gradient(to top, rgba(15, 23, 42, 1), transparent 60%);
         }
 
-        .profile-card-info {
+        .profile-info-box {
           padding: 24px;
         }
 
-        .profile-role-badge {
+        .badge-experience-green {
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -392,36 +419,38 @@ export const Hero = ({ onNavigate, onOpenMncModal, onOpenTerminal, onOpenResumeM
           margin-bottom: 12px;
         }
 
-        .profile-card-info h3 {
+        .profile-user-name {
           font-family: var(--font-display);
           font-size: 20px;
           font-weight: 800;
+          color: #ffffff;
           margin-bottom: 4px;
         }
 
-        .profile-card-info p {
+        .profile-user-role {
           font-size: 13px;
           color: var(--text-secondary);
           margin-bottom: 16px;
         }
 
-        .tech-pills {
+        .tech-badge-pills {
           display: flex;
           flex-wrap: wrap;
           gap: 6px;
         }
 
-        .tech-pills span {
+        .pill-item {
           font-size: 11px;
-          font-weight: 600;
+          font-weight: 700;
           padding: 4px 10px;
           border-radius: 8px;
-          background: color-mix(in srgb, var(--theme-color) 12%, transparent);
-          color: var(--theme-color);
+          background: rgba(56, 189, 248, 0.12);
+          color: #38bdf8;
+          border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        .scroll-hint-btn {
-          margin: 40px auto 0;
+        .scroll-down-indicator {
+          margin-top: 36px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -433,25 +462,28 @@ export const Hero = ({ onNavigate, onOpenMncModal, onOpenTerminal, onOpenResumeM
           transition: color 0.2s;
         }
 
-        .scroll-hint-btn:hover {
-          color: var(--theme-color);
+        .scroll-down-indicator:hover {
+          color: #38bdf8;
         }
 
-        .bounce {
-          animation: bounce 2s infinite;
+        .bounce-arrow {
+          animation: bounceArrow 2s infinite;
         }
 
-        @keyframes bounce {
+        @keyframes bounceArrow {
           0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
           40% { transform: translateY(-8px); }
           60% { transform: translateY(-4px); }
         }
 
         @media (max-width: 992px) {
-          .hero-container {
+          .hero-main-card {
+            padding: 28px;
+          }
+          .hero-grid-inner {
             grid-template-columns: 1fr;
           }
-          .hero-name {
+          .hero-name-heading {
             font-size: 40px;
           }
         }
