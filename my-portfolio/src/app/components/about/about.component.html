@@ -1,44 +1,75 @@
-<section class="about-section">
+<section id="about" class="section-wrapper section-alt">
   <div class="section-container">
-
+    <!-- Header -->
     <div class="section-header" data-aos="fade-up">
-      <span class="section-tag">Who I Am</span>
-      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <span class="section-tag">Executive Profile</span>
+      <h2 class="section-title">About <span class="accent-text">My Engineering Journey</span></h2>
+      <p class="section-sub">1 Year of Production Full Stack Experience delivering high-availability client solutions.</p>
       <div class="title-line"></div>
     </div>
 
-    <div class="about-grid">
-      <!-- Left: key points -->
-      <div class="about-text">
-        <p class="about-para" [innerHTML]="ps.aboutIntro"></p>
-        <div class="about-point glass-card" *ngFor="let pt of ps.aboutPoints; let i = index" [style.animation-delay]="(i*0.1)+'s'">
-          <div class="pt-icon"><i [class]="pt.icon"></i></div>
-          <p [innerHTML]="pt.text"></p>
+    <!-- Counter Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card glass-card" *ngFor="let item of ps.achievements">
+        <div class="stat-icon-wrap" [style.color]="item.color" [style.background]="item.color + '15'">
+          <i [class]="item.icon"></i>
+        </div>
+        <div class="stat-value">{{ item.value }}</div>
+        <div class="stat-label">{{ item.label }}</div>
+      </div>
+    </div>
+
+    <!-- About Details Grid -->
+    <div class="about-main-grid">
+      <!-- Left: Bio & Enterprise Points -->
+      <div class="about-bio-box glass-card">
+        <h3 class="bio-title">Full Stack Developer & Systems Engineer</h3>
+        <p class="bio-intro" [innerHTML]="ps.aboutIntro"></p>
+
+        <div class="points-list">
+          <div class="point-item" *ngFor="let pt of ps.aboutPoints">
+            <div class="point-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="point-content">
+              <h4 class="point-title">{{ pt.title }}</h4>
+              <p class="point-text">{{ pt.text }}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Right: info cards -->
-      <div class="about-cards">
+      <!-- Right: Info Cards Column -->
+      <div class="info-cards-column">
         <div class="info-card glass-card" *ngFor="let card of ps.infoCards">
-          <div class="info-icon" [style.background]="card.bg">
-            <i [class]="card.icon" [style.color]="card.color"></i>
+          <div class="info-card-header">
+            <div class="info-icon" [style.color]="card.color" [style.background]="card.color + '15'">
+              <i [class]="card.icon"></i>
+            </div>
+            <span class="info-label">{{ card.label }}</span>
           </div>
-          <div class="info-content">
-            <div class="info-label">{{ card.label }}</div>
-            <div class="info-value">{{ card.value }}</div>
+          <div class="info-val">{{ card.value }}</div>
+        </div>
+
+        <div class="scholarship-banner glass-card">
+          <div class="banner-badge">
+            <i class="fas fa-award icon-gold"></i>
+            <div>
+              <h4>JSpiders Exam Scholarship Awardee</h4>
+              <p>Top percentile scorer in Java Full Stack evaluation in Bangalore.</p>
+            </div>
           </div>
         </div>
-        
+
         <div class="action-buttons">
           <a href="assets/resume.pdf" download class="primary-button">
-            <i class="fas fa-file-download"></i> Download Resume
+            <i class="fas fa-file-download"></i> Download ATS Resume
           </a>
           <button class="secondary-button" (click)="ps.navigateTo('experience')">
-            <i class="fas fa-briefcase"></i> View Experience
+            <i class="fas fa-briefcase"></i> View Experience Timeline
           </button>
         </div>
       </div>
     </div>
-
   </div>
 </section>

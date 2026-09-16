@@ -38,15 +38,15 @@ export class ContactComponent implements OnInit {
     {
       icon: 'fas fa-phone-alt',
       label: 'Phone',
-      value: '8688505451',
-      href: 'tel:8688505451',
+      value: '+91 8688505451',
+      href: 'tel:+918688505451',
       bg: 'rgba(16,185,129,0.1)',
       color: '#10b981',
     },
     {
       icon: 'fas fa-map-marker-alt',
       label: 'Location',
-      value: 'Kurnool, Andhra Pradesh',
+      value: 'Kurnool, Andhra Pradesh, India',
       href: '#',
       bg: 'rgba(245,158,11,0.1)',
       color: '#f59e0b',

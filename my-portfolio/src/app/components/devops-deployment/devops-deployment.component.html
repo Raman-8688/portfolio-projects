@@ -3,13 +3,72 @@
   
   <div class="section-container">
     <div class="section-header" data-aos="fade-up">
-      <span class="section-tag">Infrastructure Automation</span>
-      <h2 class="section-title">DevOps & <span class="accent">Deployment</span></h2>
-      <p class="section-sub">Zero-downtime microservices packaging, service routing, and cloud orchestration</p>
+      <span class="section-tag">DevOps & Interactive CLI</span>
+      <h2 class="section-title">Interactive <span class="accent">DevOps Terminal Simulator</span></h2>
+      <p class="section-sub">Type Linux & CLI commands or tap the quick pills below to inspect live microservice topologies and cluster status.</p>
       <div class="title-line"></div>
     </div>
 
-    <div class="devops-dashboard-grid">
+    <!-- TERMINAL WINDOW SIMULATOR -->
+    <div class="terminal-window glass-card" data-aos="fade-up">
+      <!-- Top Title Bar -->
+      <div class="terminal-topbar">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="terminal-title">bash - raman&#64;devos-production:~ (bash v5.2)</div>
+        <div class="terminal-quick-help">Type "help" or tap buttons below</div>
+      </div>
+
+      <!-- Quick Command Chips -->
+      <div class="quick-commands-bar">
+        <span class="quick-cmd-label"><i class="fas fa-bolt"></i> Quick Run:</span>
+        <button 
+          *ngFor="let cmd of quickCommands" 
+          class="cmd-chip" 
+          (click)="runQuickCommand(cmd)"
+        >
+          {{ cmd }}
+        </button>
+      </div>
+
+      <!-- Console Body -->
+      <div class="terminal-body">
+        <div 
+          *ngFor="let item of history" 
+          class="terminal-line" 
+          [class.line-sys]="item.type === 'sys'"
+          [class.line-user]="item.type === 'user'"
+          [class.line-out]="item.type === 'out'"
+          [class.line-err]="item.type === 'err'"
+        >
+          {{ item.text }}
+        </div>
+
+        <!-- Command Input Form -->
+        <form (ngSubmit)="handleCommand()" class="terminal-form">
+          <span class="prompt-symbol">raman&#64;devos:~$</span>
+          <input
+            type="text"
+            class="terminal-input"
+            [(ngModel)]="inputVal"
+            name="terminalInput"
+            placeholder="type a command e.g. help, skills, curl /health..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button type="submit" class="terminal-submit-btn" title="Run command">
+            <i class="fas fa-level-down-alt fa-rotate-90"></i>
+          </button>
+        </form>
+        <div #terminalEnd></div>
+      </div>
+    </div>
+
+    <!-- PIPELINE RUNNER & K8S STATUS ROW -->
+    <div class="devops-dashboard-grid" data-aos="fade-up">
       
       <!-- LEFT: Pipeline Runner -->
       <div class="glass-panel pipeline-card">
@@ -19,7 +78,7 @@
             <span class="panel-dot yellow"></span>
             <span class="panel-dot green"></span>
           </div>
-          <span class="terminal-title"><i class="fab fa-github"></i> github-actions-workflow.yml</span>
+          <span class="panel-card-title"><i class="fab fa-github"></i> github-actions-workflow.yml</span>
           <button class="run-btn" (click)="triggerPipeline()"><i class="fas fa-play"></i> Run Build</button>
         </div>
 
@@ -97,7 +156,6 @@
             <span><i class="fas fa-lock"></i> SSL Secured</span>
           </div>
         </div>
-
       </div>
 
     </div>

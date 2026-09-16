@@ -1,0 +1,59 @@
+<div class="modal-overlay" (click)="close()">
+  <div class="modal-content mnc-modal-box glass-card" (click)="$event.stopPropagation()">
+    <button class="modal-close-btn" (click)="close()" aria-label="Close modal">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Modal Header -->
+    <div class="mnc-modal-header">
+      <div class="mnc-icon-badge">
+        <i class="fas fa-book-reader"></i>
+      </div>
+      <div>
+        <h2>MNC Technical Interview Cheat Sheet</h2>
+        <p>System Architecture Decisions, Multitenancy Routing, MSSQL Tuning & Microservices Resilience</p>
+      </div>
+    </div>
+
+    <!-- Search & Categories Bar -->
+    <div class="mnc-filter-bar">
+      <div class="mnc-search-box">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          placeholder="Search interview questions and architectures..."
+          [(ngModel)]="searchTerm"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="mnc-cat-pills">
+        <button
+          *ngFor="let cat of categories"
+          class="cat-pill"
+          [class.active]="activeCategory === cat"
+          (click)="setCategory(cat)"
+        >
+          {{ cat }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Q&A List -->
+    <div class="mnc-qna-list">
+      <div *ngIf="filteredQnA.length === 0" class="empty-search">
+        <i class="fas fa-search-minus"></i>
+        <span>No interview questions match "{{ searchTerm }}".</span>
+      </div>
+
+      <div *ngFor="let item of filteredQnA" class="qna-card">
+        <div class="qna-cat-badge">{{ item.category }}</div>
+        <h3 class="qna-question">
+          <i class="fas fa-chevron-right q-icon"></i>
+          {{ item.question }}
+        </h3>
+        <div class="qna-answer" [innerHTML]="item.answer"></div>
+      </div>
+    </div>
+  </div>
+</div>

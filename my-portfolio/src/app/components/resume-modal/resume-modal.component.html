@@ -1,0 +1,100 @@
+<div class="modal-overlay" (click)="close()">
+  <div class="modal-content resume-modal-box glass-card" (click)="$event.stopPropagation()">
+    <button class="modal-close-btn no-print" (click)="close()" aria-label="Close modal">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Action Controls Bar -->
+    <div class="resume-actions-bar no-print">
+      <div class="resume-modal-title">
+        <i class="fas fa-file-alt icon-purple"></i>
+        <span>MNC ATS Resume Preview (1-Page Formatted)</span>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-secondary" (click)="handleCopySummary()">
+          <i class="fas" [class.fa-check]="copiedSummary" [class.fa-copy]="!copiedSummary"></i>
+          <span>{{ copiedSummary ? 'Copied' : 'Copy Summary' }}</span>
+        </button>
+
+        <a
+          [href]="ps.resumeUrl"
+          download="Ramanjaneyulu_Boya_Resume.pdf"
+          class="btn-secondary btn-download-pdf"
+        >
+          <i class="fas fa-download"></i>
+          <span>Download PDF</span>
+        </a>
+
+        <button class="btn-primary" (click)="handlePrint()">
+          <i class="fas fa-print"></i>
+          <span>Print 1-Page PDF</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Modal Resume View (ATS Clean Sheet) -->
+    <div class="resume-scroll-container">
+      <div class="ats-paper" id="printable-resume" *ngIf="resume">
+        <!-- Paper Header -->
+        <div class="paper-header">
+          <h1 class="paper-name">{{ ps.name }}</h1>
+          <div class="paper-subtitle">Java Full Stack & Microservices Developer | 1 Year Production Exp</div>
+          <div class="paper-contact-line">
+            <span>{{ ps.email }}</span> • 
+            <span>{{ ps.phone }}</span> • 
+            <span>{{ ps.location }}</span> • 
+            <span>github.com/Raman-8688</span> • 
+            <span>linkedin.com/in/b-ramanjaneyulu-155021258</span>
+          </div>
+        </div>
+
+        <div class="paper-divider"></div>
+
+        <!-- Professional Summary -->
+        <div class="paper-section">
+          <h2 class="section-head">PROFESSIONAL SUMMARY</h2>
+          <p class="summary-text">{{ resume.summary }}</p>
+        </div>
+
+        <!-- Core Technical Skills -->
+        <div class="paper-section">
+          <h2 class="section-head">TECHNICAL SKILLS MATRIX</h2>
+          <div class="skills-grid-ats">
+            <div *ngFor="let sk of resume.skillsCategorized" class="skill-cat-row">
+              <span class="sk-cat-name">{{ sk.category }}:</span>
+              <span class="sk-cat-items">{{ sk.items }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Production Experience -->
+        <div class="paper-section">
+          <h2 class="section-head">PRODUCTION EXPERIENCE</h2>
+          <div *ngFor="let exp of resume.experience" class="exp-block">
+            <div class="exp-head-row">
+              <div>
+                <span class="exp-title-text">{{ exp.role }}</span> — <span class="exp-company-text">{{ exp.company }}</span>
+              </div>
+              <div class="exp-right-meta">
+                <span class="exp-period-text">{{ exp.period }}</span> | <span class="exp-loc-text">{{ exp.location }}</span>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li *ngFor="let b of exp.bullets" [innerHTML]="b"></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div class="paper-section">
+          <h2 class="section-head">EDUCATION & CERTIFICATIONS</h2>
+          <div class="edu-block">
+            <p><strong>Education:</strong> {{ resume.education }}</p>
+            <p><strong>Certifications:</strong> {{ resume.certifications }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

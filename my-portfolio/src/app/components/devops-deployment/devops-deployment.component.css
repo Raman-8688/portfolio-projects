@@ -19,7 +19,7 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 .section-tag {
   display: inline-block;
@@ -58,33 +58,178 @@
   margin: 0 auto;
 }
 
-/* DASHBOARD GRID */
+/* ==========================================================================
+   TERMINAL WINDOW
+   ========================================================================== */
+.terminal-window {
+  max-width: 960px;
+  margin: 0 auto 48px;
+  padding: 0;
+  overflow: hidden;
+  background: #090d16;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
+}
+
+.terminal-topbar {
+  background: #0f172a;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.terminal-title {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.terminal-quick-help {
+  font-size: 11.5px;
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.quick-commands-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quick-cmd-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 4px;
+}
+
+.cmd-chip {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cmd-chip:hover {
+  background: color-mix(in srgb, var(--theme-color) 20%, transparent);
+  border-color: var(--theme-color);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.terminal-body {
+  padding: 24px;
+  font-family: monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+
+.line-sys { color: #38bdf8; }
+.line-user { color: #f1f5f9; font-weight: 700; }
+.line-out { color: #a78bfa; }
+.line-err { color: #f87171; }
+
+.terminal-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.prompt-symbol {
+  color: #10b981;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.terminal-input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.terminal-submit-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.terminal-submit-btn:hover {
+  color: var(--theme-color);
+}
+
+/* ==========================================================================
+   PIPELINE & K8S DASHBOARD GRID
+   ========================================================================== */
 .devops-dashboard-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 30px;
-  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .glass-panel {
-  padding: 30px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--card-bg) 85%, transparent);
+  border: 1px solid var(--border-color);
 }
 
-.glass-panel:hover {
-  transform: none; /* Static dashboards */
-}
-
-/* PANEL TOP */
 .panel-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 16px;
-  margin-bottom: 4px;
+  padding-bottom: 14px;
 }
 
 .dot-group {
@@ -102,9 +247,9 @@
 .panel-dot.yellow { background: #f59e0b; }
 .panel-dot.green { background: #10b981; }
 
-.terminal-title {
+.panel-card-title {
   font-family: monospace;
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--text-secondary);
 }
 
@@ -148,7 +293,7 @@
 .pipeline-flow {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   position: relative;
 }
 
@@ -159,7 +304,6 @@
   transition: all 0.3s ease;
 }
 
-/* line between steps */
 .pipeline-step:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -167,7 +311,7 @@
   background: var(--border-color);
   top: 36px;
   left: 17px;
-  bottom: -22px;
+  bottom: -20px;
   transition: background 0.3s ease;
 }
 
@@ -217,7 +361,7 @@
 }
 
 .step-name {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -236,17 +380,11 @@
 .status-pill.running {
   background: rgba(245, 158, 11, 0.15);
   color: #f59e0b;
-  animation: slowBlink 1.5s infinite;
 }
 
 .status-pill.success {
   background: rgba(16, 185, 129, 0.15);
   color: #10b981;
-}
-
-@keyframes slowBlink {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
 }
 
 .step-desc {
@@ -255,11 +393,11 @@
   line-height: 1.5;
 }
 
-/* KUBERNETES CARD */
+/* K8S METRICS & PODS */
 .k8s-metrics-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
   text-align: center;
 }
 
@@ -267,7 +405,7 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -275,13 +413,13 @@
 
 .metric-val {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .metric-label {
-  font-size: 10px;
+  font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--text-secondary);
@@ -291,27 +429,27 @@
 .pods-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .pod-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid var(--border-color);
 }
 
 .pod-status-icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .pod-details {
@@ -324,13 +462,13 @@
 
 .pod-name {
   font-family: monospace;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-primary);
   font-weight: bold;
 }
 
 .pod-uptime {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--text-secondary);
 }
 
@@ -347,16 +485,10 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  animation: pulseLight 1s infinite alternate;
-}
-
-@keyframes pulseLight {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
 }
 
 .status-text {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 700;
   color: #10b981;
   text-transform: uppercase;
@@ -373,13 +505,6 @@
   border-radius: 50%;
   background: var(--theme-color);
   box-shadow: 0 0 10px var(--theme-color);
-  animation: dotGlow 1.8s infinite ease-in-out;
-}
-
-@keyframes dotGlow {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.8); opacity: 0.5; }
 }
 
 .node-count {
@@ -391,14 +516,14 @@
 .infra-highlights {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   border-top: 1px solid var(--border-color);
-  padding-top: 16px;
+  padding-top: 14px;
 }
 
 .infra-highlights h4 {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-primary);
   font-weight: 700;
 }
@@ -406,14 +531,14 @@
 .infra-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .infra-pills span {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.02);
-  padding: 4px 10px;
+  padding: 4px 8px;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -425,7 +550,6 @@
   color: var(--theme-color);
 }
 
-/* RESPONSIVE */
 @media (max-width: 992px) {
   .devops-dashboard-grid {
     grid-template-columns: 1fr;
@@ -434,6 +558,6 @@
 
 @media (max-width: 768px) {
   .devops-section {
-    padding: 80px 24px;
+    padding: 80px 20px;
   }
 }

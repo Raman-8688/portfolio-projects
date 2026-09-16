@@ -31,4 +31,8 @@
   </main>
 
   <app-footer></app-footer>
+  
+  <!-- Global Modals -->
+  <app-mnc-modal *ngIf="ps.mncModalOpen()"></app-mnc-modal>
+  <app-resume-modal *ngIf="ps.resumeModalOpen()"></app-resume-modal>
 </div>

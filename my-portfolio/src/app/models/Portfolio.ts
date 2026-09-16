@@ -22,6 +22,8 @@ export interface Project {
   skills: { name: string; level: number }[];
   accent: string;
   badge?: string;
+  category?: string;
+  subtitle?: string;
   image?: string;
   problemSolved?: string;
   features?: string[];
@@ -42,6 +44,7 @@ export interface Experience {
   type: string;
   logo: string;
   color: string;
+  badge?: string;
   description: string;
   achievements: string[];
   techUsed: string[];
@@ -72,3 +75,53 @@ export interface ArchitectureNode {
   techStack: string[];
   responsibilities: string[];
 }
+
+export interface AboutPoint {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+export interface SkillItem {
+  name: string;
+  tag: string;
+  badge: string;
+}
+
+export interface SkillCategoryGroup {
+  category: string;
+  icon: string;
+  color: string;
+  items: SkillItem[];
+}
+
+export interface ArchitectureNodeDetail {
+  id: string;
+  title: string;
+  sub: string;
+  category: string;
+  color: string;
+  details: string;
+}
+
+export interface MncQnA {
+  id: string;
+  category: string;
+  question: string;
+  answer: string;
+}
+
+export interface AtsResume {
+  summary: string;
+  skillsCategorized: { category: string; items: string }[];
+  experience: {
+    company: string;
+    role: string;
+    period: string;
+    location: string;
+    bullets: string[];
+  }[];
+  education: string;
+  certifications: string;
+}
+

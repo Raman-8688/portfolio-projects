@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
@@ -13,6 +12,8 @@ import { GithubStatsComponent } from './components/github-stats/github-stats.com
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SettingsPanelComponent } from './components/settings-panel/settings-panel.component';
+import { MncModalComponent } from './components/mnc-modal/mnc-modal.component';
+import { ResumeModalComponent } from './components/resume-modal/resume-modal.component';
 import { PortfolioService } from './services/Portfolio.service';
 import { Section } from './models/Portfolio';
 
@@ -21,7 +22,6 @@ import { Section } from './models/Portfolio';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     NavbarComponent,
     HeroComponent,
     AboutComponent,
@@ -34,6 +34,8 @@ import { Section } from './models/Portfolio';
     ContactComponent,
     FooterComponent,
     SettingsPanelComponent,
+    MncModalComponent,
+    ResumeModalComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

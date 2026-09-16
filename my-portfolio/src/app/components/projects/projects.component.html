@@ -1,111 +1,192 @@
 <section class="projects-section">
   <div class="section-container">
     <div class="section-header" [class.visible]="headerVisible">
-      <span class="section-tag">Systems Catalog</span>
-      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
-      <p class="section-sub">Production systems and professional prototypes built with enterprise-level patterns</p>
+      <span class="section-tag">Featured Portfolio</span>
+      <h2 class="section-title">Production & <span class="accent">GitHub Projects</span></h2>
+      <p class="section-sub">Live client infrastructure, multi-tenant SaaS platforms, and enterprise microservices.</p>
       <div class="title-line"></div>
     </div>
 
-    <!-- FILTER BAR -->
-    <div class="filter-bar" [class.visible]="headerVisible">
-      <button *ngFor="let f of filters" class="filter-btn" [class.active]="activeFilter === f.id" (click)="setFilter(f.id)">
-        <i [class]="f.icon"></i> {{ f.label }}
+    <!-- CATEGORY FILTER TABS -->
+    <div class="project-tabs" [class.visible]="headerVisible">
+      <button 
+        *ngFor="let cat of categories" 
+        class="project-tab" 
+        [class.active]="activeFilter === cat" 
+        (click)="setFilter(cat)"
+      >
+        {{ cat }}
       </button>
     </div>
 
-    <!-- GRID LAYOUT -->
+    <!-- PROJECTS GRID -->
     <div class="projects-grid">
       <div 
         *ngFor="let proj of filteredProjects; let i = index" 
-        class="proj-card glass-card" data-aos="fade-up"
+        class="proj-card glass-card" 
+        data-aos="fade-up"
         [class.visible]="cardsVisible[i]"
-        [style.--c]="proj.accent"
       >
-        <!-- Top Gradient bar -->
-        <div class="card-glow-bar" [style.background]="'linear-gradient(90deg, ' + proj.accent + ', #8b5cf6)'"></div>
-        
-        <!-- Header -->
-        <div class="card-header">
-          <div class="badge-row">
-            <span class="timeline-tag"><i class="fas fa-calendar-alt"></i> {{ proj.timeline }}</span>
-            <span class="badge" [style.background]="proj.accent + '18'" [style.color]="proj.accent">{{ proj.badge }}</span>
-          </div>
-          <h3 class="proj-title">{{ proj.title }}</h3>
-          <span class="institution-name"><i class="fas fa-building"></i> {{ proj.institution }}</span>
-        </div>
-
-        <div class="card-body">
-          <p class="proj-desc" [innerHTML]="proj.description"></p>
-
-          <!-- Problem Solved Section -->
-          <div class="detail-section problem-box">
-            <span class="label"><i class="fas fa-exclamation-triangle"></i> Problem Solved</span>
-            <p class="val" [innerHTML]="proj.problemSolved"></p>
-          </div>
-
-          <!-- Architecture Summary Section -->
-          <div class="detail-section arch-box" *ngIf="proj.architecture">
-            <span class="label"><i class="fas fa-sitemap"></i> System Architecture</span>
-            <div class="val arch-pipeline">{{ proj.architecture }}</div>
-          </div>
-
-          <!-- Key Implementations (if any) -->
-          <div class="detail-section features-box" *ngIf="proj.features && proj.features.length > 0">
-            <span class="label"><i class="fas fa-list-ul"></i> Key Implementations</span>
-            <ul class="features-list">
-              <li *ngFor="let feature of proj.features" [innerHTML]="feature"></li>
-            </ul>
-          </div>
-
-          <!-- Engineering Specs Grid -->
-          <div class="specs-grid-title">Engineering Specifications</div>
-          <div class="specs-grid">
-            <div class="spec-item" *ngIf="proj.backendFrontendSeparation">
-              <span class="spec-label"><i class="fas fa-arrows-alt-h"></i> Stack Boundary</span>
-              <span class="spec-value" [innerHTML]="proj.backendFrontendSeparation"></span>
-            </div>
-            <div class="spec-item" *ngIf="proj.dockerK8sUsage">
-              <span class="spec-label"><i class="fab fa-docker"></i> Containerization</span>
-              <span class="spec-value" [innerHTML]="proj.dockerK8sUsage"></span>
-            </div>
-            <div class="spec-item" *ngIf="proj.securityAuth">
-              <span class="spec-label"><i class="fas fa-shield-alt"></i> Security & Auth</span>
-              <span class="spec-value" [innerHTML]="proj.securityAuth"></span>
-            </div>
-            <div class="spec-item" *ngIf="proj.cicdWorkflow">
-              <span class="spec-label"><i class="fas fa-sync-alt"></i> CI/CD Pipeline</span>
-              <span class="spec-value" [innerHTML]="proj.cicdWorkflow"></span>
-            </div>
-          </div>
-
-          <!-- Tech stack pills -->
-          <div class="tech-pills-row">
-            <span *ngFor="let tech of proj.techStack.split(' · ')" class="tech-pill">{{ tech }}</span>
+        <!-- Project Preview Image -->
+        <div class="project-img-container" *ngIf="proj.image">
+          <img [src]="proj.image" [alt]="proj.title" class="project-cover-img" loading="lazy" />
+          <div class="project-badge-overlay" [style.background]="proj.accent">
+            {{ proj.badge }}
           </div>
         </div>
 
-        <!-- Action Links -->
-        <div class="card-footer">
-          <a [href]="proj.githubUrl" target="_blank" class="primary-button" *ngIf="proj.githubUrl">
-            <i class="fab fa-github"></i> Repository
-          </a>
-          <span class="secondary-button disabled-btn" *ngIf="!proj.githubUrl">
-            <i class="fab fa-github"></i> Private Source
-          </span>
-          
-          <a [href]="proj.liveUrl" target="_blank" class="primary-button" *ngIf="proj.liveUrl && proj.liveUrl !== ''">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-          <span class="secondary-button disabled-btn" *ngIf="!proj.liveUrl || proj.liveUrl === ''">
-            <i class="fas fa-lock"></i> Corporate Internal
-          </span>
-        </div>
+        <div class="project-body">
+          <span class="project-category">{{ proj.category }}</span>
+          <h3 class="project-title">{{ proj.title }}</h3>
+          <p class="project-subtitle">{{ proj.institution }} · {{ proj.timeline }}</p>
 
-        <!-- Glass overlay spotlight effect -->
-        <div class="card-spotlight"></div>
+          <!-- Key Highlights with Checkmark Icons (3 items) -->
+          <div class="project-highlights" *ngIf="proj.highlights && proj.highlights.length > 0">
+            <div class="hl-item" *ngFor="let hl of proj.highlights.slice(0, 3)">
+              <i class="fas fa-check-circle" [style.color]="proj.accent"></i>
+              <span [innerHTML]="hl"></span>
+            </div>
+          </div>
+
+          <!-- Project Card Footer -->
+          <div class="project-card-footer">
+            <div class="proj-links-row">
+              <a 
+                *ngIf="proj.liveUrl && proj.liveUrl !== ''"
+                [href]="proj.liveUrl" 
+                target="_blank" 
+                rel="noreferrer" 
+                class="proj-btn btn-live"
+                title="Open Live Application"
+              >
+                <i class="fas fa-globe"></i>
+                <span>Live Demo</span>
+              </a>
+
+              <a 
+                *ngIf="proj.githubUrl && proj.githubUrl !== ''"
+                [href]="proj.githubUrl" 
+                target="_blank" 
+                rel="noreferrer" 
+                class="proj-btn btn-github"
+                title="View GitHub Repository"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+
+            <button 
+              class="btn-deep-dive" 
+              [style.background]="'linear-gradient(135deg, ' + proj.accent + ', #8b5cf6)'"
+              (click)="openModal(proj)"
+            >
+              <i class="fas fa-code"></i>
+              <span>Deep-Dive & Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
+  <!-- DEEP-DIVE PROJECT DETAIL MODAL -->
+  <div class="modal-overlay" *ngIf="selectedProject" (click)="closeModal()">
+    <div class="modal-content project-modal-box glass-card" (click)="$event.stopPropagation()">
+      <button class="modal-close-btn" (click)="closeModal()" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="proj-modal-header">
+        <div class="proj-modal-badge" [style.background]="selectedProject.accent">
+          {{ selectedProject.badge }}
+        </div>
+        <h2>{{ selectedProject.title }}</h2>
+        <p class="proj-modal-institution">
+          <i class="fas fa-building"></i> {{ selectedProject.institution }} · <i class="fas fa-calendar-alt"></i> {{ selectedProject.timeline }}
+        </p>
+      </div>
+
+      <!-- Description -->
+      <div class="modal-text-block">
+        <p class="proj-modal-desc" [innerHTML]="selectedProject.description"></p>
+      </div>
+
+      <!-- Problem Solved -->
+      <div class="tech-specs-box glass-card" *ngIf="selectedProject.problemSolved">
+        <h3><i class="fas fa-exclamation-triangle"></i> Problem Solved</h3>
+        <p class="problem-text" [innerHTML]="selectedProject.problemSolved"></p>
+      </div>
+
+      <!-- Architectural & Engineering Specs -->
+      <div class="tech-specs-box glass-card">
+        <h3><i class="fas fa-layer-group"></i> Architectural & Engineering Specifications</h3>
+        <div class="specs-grid">
+          <div class="spec-row" *ngIf="selectedProject.architecture">
+            <span class="spec-key">TOPOLOGY:</span>
+            <span class="spec-val font-mono">{{ selectedProject.architecture }}</span>
+          </div>
+          <div class="spec-row" *ngIf="selectedProject.backendFrontendSeparation">
+            <span class="spec-key">STACK BOUNDARY:</span>
+            <span class="spec-val" [innerHTML]="selectedProject.backendFrontendSeparation"></span>
+          </div>
+          <div class="spec-row" *ngIf="selectedProject.dockerK8sUsage">
+            <span class="spec-key">CONTAINERIZATION:</span>
+            <span class="spec-val" [innerHTML]="selectedProject.dockerK8sUsage"></span>
+          </div>
+          <div class="spec-row" *ngIf="selectedProject.securityAuth">
+            <span class="spec-key">SECURITY & AUTH:</span>
+            <span class="spec-val" [innerHTML]="selectedProject.securityAuth"></span>
+          </div>
+          <div class="spec-row" *ngIf="selectedProject.cicdWorkflow">
+            <span class="spec-key">CI/CD PIPELINE:</span>
+            <span class="spec-val" [innerHTML]="selectedProject.cicdWorkflow"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Features / Highlights -->
+      <div class="proj-features-section" *ngIf="selectedProject.highlights && selectedProject.highlights.length > 0">
+        <h3>Key System Achievements</h3>
+        <div class="proj-features-list">
+          <div class="feature-item" *ngFor="let hl of selectedProject.highlights">
+            <i class="fas fa-check-circle" [style.color]="selectedProject.accent"></i>
+            <span [innerHTML]="hl"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack Pills -->
+      <div class="modal-tech-stack">
+        <span *ngFor="let tech of selectedProject.techStack.split(' · ')" class="tech-pill">{{ tech }}</span>
+      </div>
+
+      <!-- Modal Footer Action Buttons -->
+      <div class="modal-footer-actions">
+        <a 
+          *ngIf="selectedProject.liveUrl && selectedProject.liveUrl !== ''" 
+          [href]="selectedProject.liveUrl" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="modal-btn btn-live"
+        >
+          <i class="fas fa-globe"></i> Live Application
+        </a>
+        <a 
+          *ngIf="selectedProject.githubUrl && selectedProject.githubUrl !== ''" 
+          [href]="selectedProject.githubUrl" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="modal-btn btn-github"
+        >
+          <i class="fab fa-github"></i> View GitHub Repo
+        </a>
+        <button class="modal-btn btn-close-modal" (click)="closeModal()">
+          Close Window
+        </button>
+      </div>
+    </div>
   </div>
 </section>

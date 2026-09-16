@@ -1,21 +1,32 @@
 <section class="git-section section-alt" [class.dark]="ps.isDarkMode()">
   <div class="git-orb"></div>
   <div class="section-container">
-
     <div class="section-header" data-aos="fade-up">
       <span class="section-tag">Open Source Presence</span>
-      <h2 class="section-title">Developer <span class="accent">Activity</span></h2>
-      <p class="section-sub">Real-time open source statistics and core repository highlights</p>
+      <h2 class="section-title">
+        Developer <span class="accent">Activity</span>
+      </h2>
+      <p class="section-sub">
+        Real-time open source statistics and core repository highlights
+      </p>
       <div class="title-line"></div>
     </div>
 
     <div class="git-dashboard">
-
       <!-- Profile Card -->
-      <div class="glass-card profile-card" *ngIf="profile" data-aos="fade-right" data-aos-delay="100">
+      <div
+        class="glass-card profile-card"
+        *ngIf="profile"
+        data-aos="fade-right"
+        data-aos-delay="100"
+      >
         <div class="profile-header">
           <div class="avatar-wrap">
-            <img [src]="profile.avatar_url" alt="GitHub Avatar" class="avatar-img" />
+            <img
+              [src]="profile.avatar_url"
+              alt="GitHub Avatar"
+              class="avatar-img"
+            />
           </div>
           <div class="user-meta">
             <h3 class="git-name">Ramanjaneyulu Boya</h3>
@@ -35,7 +46,7 @@
             <span class="lbl">Followers</span>
           </div>
           <div class="stat-box">
-            <span class="num">200+</span>
+            <span class="num">700+</span>
             <span class="lbl">Commits</span>
           </div>
         </div>
@@ -46,11 +57,16 @@
       </div>
 
       <!-- Activity Card main important one  -->
-      <div class="glass-card activity-card" data-aos="fade-left" data-aos-delay="200">
+      <div
+        class="glass-card activity-card"
+        data-aos="fade-left"
+        data-aos-delay="200"
+      >
         <div class="card-title-row">
           <h4><i class="fas fa-chart-bar"></i> Contribution Activity</h4>
           <span class="sync-status" [class.live]="!error">
-            <span class="sync-dot"></span> {{ error ? 'Offline Mode' : 'Live Syncing' }}
+            <span class="sync-dot"></span>
+            {{ error ? "Offline Mode" : "Live Syncing" }}
           </span>
         </div>
 
@@ -60,8 +76,8 @@
               *ngFor="let item of contributions"
               class="grid-tile"
               [attr.data-level]="item.level"
-              [title]="'Date: ' + item.date">
-            </div>
+              [title]="'Date: ' + item.date"
+            ></div>
           </div>
         </div>
 
@@ -78,13 +94,20 @@
         </div>
 
         <div class="highlights-footer">
-          <div class="highlight-pill"><i class="fas fa-history"></i> Daily commits</div>
-          <div class="highlight-pill"><i class="fas fa-code"></i> Java &amp; TypeScript</div>
-          <div class="highlight-pill"><i class="fas fa-code-branch"></i> Feature branch workflow</div>
-          <div class="highlight-pill"><i class="fas fa-robot"></i> AI projects</div>
+          <div class="highlight-pill">
+            <i class="fas fa-history"></i> Daily commits
+          </div>
+          <div class="highlight-pill">
+            <i class="fas fa-code"></i> Java &amp; TypeScript
+          </div>
+          <div class="highlight-pill">
+            <i class="fas fa-code-branch"></i> Feature branch workflow
+          </div>
+          <div class="highlight-pill">
+            <i class="fas fa-robot"></i> AI projects
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

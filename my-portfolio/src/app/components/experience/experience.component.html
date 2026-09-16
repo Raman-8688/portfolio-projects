@@ -1,73 +1,61 @@
-<section class="exp-section">
+<section id="experience" class="section-wrapper section-alt">
   <div class="section-container">
+    <!-- Header -->
     <div class="section-header" data-aos="fade-up">
-      <span class="section-tag">My Journey</span>
-      <h2 class="section-title">Work <span class="accent">Experience</span></h2>
+      <span class="section-tag">Career History</span>
+      <h2 class="section-title">Production <span class="accent-text">Experience Timeline</span></h2>
+      <p class="section-sub">Real-world track record building live systems for clients and SaaS products.</p>
       <div class="title-line"></div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-track"></div>
+    <!-- Timeline List -->
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
 
-      <div
-        class="timeline-item"
-        *ngFor="let exp of ps.experiences; let i = index"
-        [class.right]="i % 2 !== 0"
-        [class.visible]="itemsVisible[i]"
-        [style.--accent]="exp.color"
-        [style.transition-delay]="i * 0.1 + 's'"
-      >
-        <div
-          class="timeline-dot"
-          [style.background]="exp.color"
-          [style.box-shadow]="'0 0 20px ' + exp.color + '33'"
-        >
-          <i [class]="exp.logo"></i>
+      <div class="timeline-item" *ngFor="let exp of ps.experiences; let i = index">
+        <div class="timeline-dot-wrap">
+          <div class="timeline-dot" [style.background]="exp.color">
+            <i [class]="exp.logo || 'fas fa-briefcase'" style="color: #ffffff"></i>
+          </div>
         </div>
 
-        <div class="exp-card glass-card" data-aos="fade-up" [style.--accent]="exp.color">
-          <div class="card-accent" [style.background]="exp.color"></div>
+        <div class="timeline-content glass-card">
+          <div class="exp-badge-bar">
+            <span
+              class="exp-badge"
+              [style.background]="exp.color + '15'"
+              [style.color]="exp.color"
+              [style.border-color]="exp.color + '30'"
+            >
+              {{ exp.badge || exp.type }}
+            </span>
+            <div class="exp-period">
+              <i class="fas fa-calendar-alt"></i>
+              <span>{{ exp.period }}</span>
+            </div>
+          </div>
 
-          <div class="exp-header">
-            <div class="exp-company-wrap">
-              <div
-                class="exp-logo"
-                [style.background]="exp.color + '12'"
-                [style.color]="exp.color"
-              >
-                <i [class]="exp.logo"></i>
-              </div>
-              <div>
-                <h3 class="exp-company">{{ exp.company }}</h3>
-                <div class="exp-role">{{ exp.role }}</div>
-              </div>
-            </div>
-            <div class="exp-meta">
-              <span class="exp-period"
-                ><i class="fas fa-calendar-alt"></i> {{ exp.period }}</span
-              >
-              <span
-                class="exp-type"
-                [style.background]="exp.color + '12'"
-                [style.color]="exp.color"
-                >{{ exp.type }}</span
-              >
-            </div>
+          <h3 class="exp-company">{{ exp.company }}</h3>
+          <div class="exp-role-row">
+            <span class="exp-role">{{ exp.role }}</span>
+            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> {{ exp.location }}</span>
           </div>
 
           <p class="exp-desc">{{ exp.description }}</p>
 
-          <ul class="exp-achievements">
-            <li *ngFor="let item of exp.achievements" [innerHTML]="item"></li>
-          </ul>
+          <div class="exp-achievements">
+            <div class="achievement-bullet" *ngFor="let ach of exp.achievements">
+              <i class="fas fa-check-circle bullet-icon" [style.color]="exp.color"></i>
+              <span [innerHTML]="ach"></span>
+            </div>
+          </div>
 
-          <div class="tech-tags">
-            <span class="tech-tag" *ngFor="let tech of exp.techUsed">{{
-              tech
-            }}</span>
+          <div class="exp-tech-tags">
+            <span class="tech-tag" *ngFor="let t of exp.techUsed">{{ t }}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+

@@ -1,67 +1,106 @@
-<section class="hero" (mousemove)="onMouseMove($event)">
-  <div class="hero-grid"></div>
+<section class="hero-section" (mousemove)="onMouseMove($event)">
+  <div class="hero-grid-bg"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <div class="social-sidebar">
-    <a
-      *ngFor="let link of ps.socialLinks"
-      [href]="link.url"
-      [title]="link.label"
-      target="_blank"
-      class="social-link"
-    >
-      <i [class]="link.icon"></i>
-    </a>
-    <div class="social-line"></div>
-  </div>
+  <!-- Large Encapsulated Main Glass Card Container -->
+  <div class="hero-main-card glass-card">
+    <div class="hero-grid-inner">
+      <!-- Left Column - Main Intro & Actions -->
+      <div class="hero-left-content">
+        <!-- Green Pill Badge -->
+        <div class="pill-badge-green">
+          <i class="fas fa-sparkles icon-green-sparkle"></i>
+          <span>Available for Enterprise MNC Opportunities</span>
+        </div>
 
-  <div class="section-container hero-inner">
-    <!-- LEFT -->
-    <div class="hero-left">
-      <h1 class="hero-name animate-1">
-        Hi, I'm<br />
-        <span class="gradient-text">{{ ps.name }}</span>
-      </h1>
+        <!-- Main Heading -->
+        <h1 class="hero-name-heading">
+          Hi, I'm <br />
+          <span class="gradient-text-blue-pink">{{ ps.name }}</span>
+        </h1>
 
-      <div class="hero-title animate-2">
-        <span class="tw-text" [style.color]="ps.themeColor()">{{
-          tw.displayText()
-        }}</span
-        ><span class="cursor" [class.on]="tw.showCursor()">|</span>
+        <!-- Typewriter Title -->
+        <div class="typewriter-container">
+          <span class="tw-text-blue">{{ tw.displayText() }}</span>
+          <span class="tw-cursor-blink" [class.on]="tw.showCursor()">|</span>
+        </div>
+
+        <!-- Paragraph Description -->
+        <p class="hero-description-text" [innerHTML]="ps.heroSub"></p>
+
+        <!-- Button Actions Grid -->
+        <div class="hero-button-actions">
+          <div class="btn-row-top">
+            <button class="btn-purple-gradient" (click)="ps.navigateTo('projects')">
+              <i class="fas fa-folder-open"></i>
+              <span>Explore Live Projects</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <button class="btn-secondary btn-dark-glass" (click)="ps.openMncModal()">
+              <i class="fas fa-book-reader icon-purple-light"></i>
+              <span>MNC Interview Q&A</span>
+            </button>
+          </div>
+
+          <div class="btn-row-bottom">
+            <button class="btn-secondary btn-dark-glass" (click)="ps.navigateTo('devops')">
+              <i class="fas fa-terminal"></i>
+              <span>DevOps Terminal</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Social Icons & Location Footer Bar -->
+        <div class="hero-footer-socials">
+          <a [href]="ps.github" target="_blank" rel="noreferrer" class="social-round-btn" title="GitHub Profile">
+            <i class="fab fa-github"></i>
+          </a>
+          <a [href]="ps.linkedin" target="_blank" rel="noreferrer" class="social-round-btn" title="LinkedIn Profile">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <button class="social-round-btn" (click)="ps.openResumeModal()" title="View ATS Resume">
+            <i class="fas fa-file-alt"></i>
+          </button>
+          <span class="footer-pipe-line"></span>
+          <span class="location-text"><i class="fas fa-map-marker-alt"></i> {{ ps.location }}</span>
+        </div>
       </div>
 
-      <p class="hero-sub animate-3" [innerHTML]="ps.heroSub"></p>
+      <!-- Right Column - Profile Card -->
+      <div class="hero-right-visual">
+        <div class="profile-inner-card glass-card">
+          <div class="profile-img-box">
+            <img src="assets/profile.png" [alt]="ps.name" class="profile-avatar-img" />
+            <div class="profile-img-shade"></div>
+          </div>
 
-      <div class="hero-ctas animate-4">
-        <button class="primary-button" (click)="ps.navigateTo('projects')">
-          <i class="fas fa-project-diagram"></i> View Projects
-        </button>
-        <a class="secondary-button" href="assets/resume.pdf" download>
-          <i class="fas fa-download"></i> Resume
-        </a>
-        <a class="secondary-button" [href]="ps.github" target="_blank">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a class="secondary-button" [href]="ps.linkedin" target="_blank">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-      </div>
-    </div>
+          <div class="profile-info-box">
+            <div class="badge-experience-green">
+              <i class="fas fa-shield-alt"></i>
+              <span>1 Year Production Experience</span>
+            </div>
 
-    <!-- RIGHT -->
-    <div class="hero-right animate-img">
-      <div class="profile-wrap" data-aos="fade-left" data-aos-delay="200">
-        <div class="profile-glow"></div>
-        <div class="profile-img-wrap">
-          <img src="assets/profile.png" alt="Ramanjaneyulu Boya" />
+            <h3 class="profile-user-name">{{ ps.name }}</h3>
+            <p class="profile-user-role">Full Stack Engineer &#64; Winfocus Solutions</p>
+
+            <div class="tech-badge-pills">
+              <span class="pill-item">Spring Boot 3</span>
+              <span class="pill-item">Angular 19</span>
+              <span class="pill-item">PostgreSQL</span>
+              <span class="pill-item">Docker</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="scroll-hint" (click)="ps.navigateTo('about')">
-    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-    <span>Scroll Down</span>
+  <!-- Bottom Center Scroll Hint -->
+  <div class="scroll-down-indicator" (click)="ps.navigateTo('about')">
+    <i class="fas fa-chevron-down bounce-arrow"></i>
+    <span>Scroll to Explore</span>
   </div>
 </section>
+

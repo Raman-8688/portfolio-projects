@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PortfolioService } from '../../services/Portfolio.service';
+import { ArchitectureNodeDetail } from '../../models/Portfolio';
 
 @Component({
   selector: 'app-architecture-showcase',
@@ -9,96 +11,63 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./architecture-showcase.component.css']
 })
 export class ArchitectureShowcaseComponent {
-  selectedNodeIndex: number | null = null;
+  selectedNode = 0;
 
-  architectureNodes = [
+  nodes: ArchitectureNodeDetail[] = [
     {
+      id: 'angular-ui',
       title: 'Angular UI',
-      type: 'FRONTEND',
+      sub: 'Client App',
+      category: 'FRONTEND',
       color: '#dd0031',
-      icon: 'fab fa-angular',
-      purpose: 'Single-page application delivering responsive user interface with real-time updates and state management.',
-      techStack: ['Angular 17', 'TypeScript', 'RxJS', 'NgRx', 'Tailwind CSS'],
-      responsibilities: [
-        '<strong>Client-side rendering</strong> — Optimized SPA with lazy loading',
-        '<strong>State management</strong> — NgRx for predictable state',
-        '<strong>Real-time updates</strong> — WebSocket integration for live data',
-        '<strong>Progressive Web App</strong> — Offline capability and installable'
-      ]
+      details:
+        'Built with Angular 19 Standalone Components, Signal State Management, Dynamic Multilanguage Pipes, and Reactive Forms. Intercepts HTTP requests to inject JWT Auth Headers and Tenant Context headers.'
     },
     {
+      id: 'api-gateway',
       title: 'API Gateway',
-      type: 'ROUTING',
-      color: '#a78bfa',
-      icon: 'fas fa-route',
-      purpose: 'Single entry point for all client requests, handling authentication, routing, and cross-cutting concerns.',
-      techStack: ['Spring Cloud Gateway', 'Netty', 'JWT', 'Resilience4j', 'Spring Security'],
-      responsibilities: [
-        '<strong>JWT validation</strong> — Token authentication and authorization',
-        '<strong>Request routing</strong> — Dynamic service discovery with Eureka',
-        '<strong>Rate limiting</strong> — Protect downstream services from abuse',
-        '<strong>Circuit breaker</strong> — Fallback strategies for service failures'
-      ]
+      sub: 'Spring Cloud Gateway',
+      category: 'ROUTING',
+      color: '#8b5cf6',
+      details:
+        'Centralized edge gateway performing CORS configuration, Global Exception Handling, JWT token validation, rate limiting, and dynamic load-balanced request forwarding to microservice instances.'
     },
     {
+      id: 'microservices',
       title: 'Microservices',
-      type: 'BACKEND',
-      color: '#6db33f',
-      icon: 'fas fa-microservices',
-      purpose: 'Domain-driven microservices handling business logic, each with independent deployment and scaling.',
-      techStack: ['Spring Boot 3', 'Spring Cloud', 'Eureka Client', 'RabbitMQ', 'MongoDB', 'Redis'],
-      responsibilities: [
-        '<strong>Business logic</strong> — Domain-driven design per service',
-        '<strong>Service discovery</strong> — Register with Eureka server',
-        '<strong>Event-driven</strong> — Async communication via RabbitMQ',
-        '<strong>Caching strategy</strong> — Redis for high-performance queries'
-      ]
+      sub: 'Spring Boot + Eureka',
+      category: 'BACKEND',
+      color: '#10b981',
+      details:
+        'Decoupled Spring Boot microservices (Auth, Employee, Department, Notification, Order, Inventory) incorporating Spring Data JPA, Spring Security RBAC, NVIDIA AI integration, and Eureka discovery.'
     },
     {
+      id: 'postgres-db',
       title: 'PostgreSQL',
-      type: 'DATA LAYER',
-      color: '#336791',
-      icon: 'fas fa-database',
-      purpose: 'Primary relational database with multi-tenant architecture and ACID compliance.',
-      techStack: ['PostgreSQL 15', 'Hibernate', 'Flyway', 'PgBouncer', 'TimescaleDB'],
-      responsibilities: [
-        '<strong>Multi-tenant schema</strong> — Row-level security per tenant',
-        '<strong>Migration management</strong> — Version-controlled with Flyway',
-        '<strong>Connection pooling</strong> — PgBouncer for efficient connections',
-        '<strong>Time-series data</strong> — TimescaleDB for metrics and analytics'
-      ]
+      sub: 'Multi-tenant Schema',
+      category: 'DATA LAYER',
+      color: '#3b82f6',
+      details:
+        'PostgreSQL dynamic Schema-per-Tenant isolation for Winfocus Pharma SaaS, alongside MSSQL enterprise databases equipped with Stored Procedures, Non-Clustered Indexes, and Synonyms for Hyderabad Metro AMS.'
     },
     {
+      id: 'docker-k8s',
       title: 'Docker / K8s',
-      type: 'CONTAINERS',
-      color: '#326ce5',
-      icon: 'fab fa-docker',
-      purpose: 'Containerization and orchestration for consistent deployment across environments.',
-      techStack: ['Docker', 'Kubernetes', 'Helm', 'Istio', 'Prometheus', 'Grafana'],
-      responsibilities: [
-        '<strong>Container orchestration</strong> — Auto-scaling and self-healing',
-        '<strong>Service mesh</strong> — Istio for traffic management and security',
-        '<strong>Observability</strong> — Prometheus metrics and Grafana dashboards',
-        '<strong>Rolling updates</strong> — Zero-downtime deployments'
-      ]
-    },
-    {
-      title: 'GitHub Actions',
-      type: 'CI/CD',
-      color: '#f05032',
-      icon: 'fab fa-github',
-      purpose: 'Automated pipeline for build, test, and deployment with quality gates.',
-      techStack: ['GitHub Actions', 'SonarQube', 'Docker Hub', 'AKS', 'Snyk'],
-      responsibilities: [
-        '<strong>Automated testing</strong> — Unit, integration, and E2E tests',
-        '<strong>Security scanning</strong> — Snyk vulnerability detection',
-        '<strong>Build & push</strong> — Multi-stage Docker builds',
-        '<strong>Deployment</strong> — Helm charts to AKS cluster'
-      ]
+      sub: 'Orchestration',
+      category: 'CONTAINERS',
+      color: '#0284c7',
+      details:
+        'Containerized Docker microservice images orchestrated across Kubernetes pods with rolling updates, environment secret injection, and automated health checks.'
     }
   ];
 
-  selectNode(index: number) {
-    this.selectedNodeIndex = this.selectedNodeIndex === index ? null : index;
+  get activeNode(): ArchitectureNodeDetail {
+    return this.nodes[this.selectedNode];
   }
-}
+
+  selectNode(idx: number): void {
+    this.selectedNode = idx;
+  }
+
+  constructor(public ps: PortfolioService) {}
+}

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Project } from '../../models/Portfolio';
 import { PortfolioService } from '../../services/Portfolio.service';
 
-
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -12,33 +11,20 @@ import { PortfolioService } from '../../services/Portfolio.service';
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
-  activeFilter = 'all';
+  activeFilter = 'All';
   filteredProjects: Project[] = [];
+  selectedProject: Project | null = null;
   headerVisible = false;
   cardsVisible: boolean[] = [];
   private observer!: IntersectionObserver;
 
-  filters = [
-    { id: 'all', label: 'All', icon: 'fas fa-th' },
-    {
-      id: 'microservices',
-      label: 'Microservices',
-      icon: 'fas fa-network-wired',
-    },
-    { id: 'angular', label: 'Angular', icon: 'fab fa-angular' },
-    { id: 'cloud', label: 'Cloud/DevOps', icon: 'fas fa-cloud' },
-    { id: 'database', label: 'Database', icon: 'fas fa-database' },
+  categories = [
+    'All',
+    'Live Client Projects',
+    'Full-Stack Microservices',
+    'Live Deployed & PWA',
+    'AI & Deployed Apps',
   ];
-
-  // Different animation styles per card position
-  animClasses = ['slide-up', 'slide-left', 'slide-right', 'zoom-in', 'flip-in'];
-  getAnimClass(i: number): string {
-    return this.animClasses[i % this.animClasses.length];
-  }
-
-  isVisible(arr: any[], i: number): boolean {
-    return arr.length > i;
-  }
 
   constructor(public ps: PortfolioService) {}
 
@@ -50,19 +36,36 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.observer) this.observer.disconnect();
+    document.body.style.overflow = '';
   }
 
-  setFilter(filter: string): void {
-    this.activeFilter = filter;
+  setFilter(category: string): void {
+    this.activeFilter = category;
     this.cardsVisible = [];
     setTimeout(() => {
-      this.filteredProjects =
-        filter === 'all'
-          ? this.ps.projects
-          : this.ps.projects.filter((p) => p.tags.includes(filter));
+      if (category === 'All') {
+        this.filteredProjects = this.ps.projects;
+      } else {
+        this.filteredProjects = this.ps.projects.filter(
+          (p) =>
+            p.category === category ||
+            (category === 'Live Client Projects' &&
+              (p.category?.includes('Client') || p.category?.includes('Production')))
+        );
+      }
       this.cardsVisible = new Array(this.filteredProjects.length).fill(false);
       setTimeout(() => this.setupObserver(), 100);
-    }, 200);
+    }, 150);
+  }
+
+  openModal(project: Project): void {
+    this.selectedProject = project;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal(): void {
+    this.selectedProject = null;
+    document.body.style.overflow = '';
   }
 
   private setupObserver(): void {
@@ -78,7 +81,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     const header = document.querySelector('.projects-section .section-header');
