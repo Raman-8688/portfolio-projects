@@ -55,6 +55,7 @@ export class PortfolioService {
   linkedin = 'https://linkedin.com/in/b-ramanjaneyulu-155021258';
   yearsExp = '1';
   resumeUrl = 'assets/resume.pdf';
+  profileImage = 'assets/profile.png?v=2';
 
   // ─── Hero Intro (concise, powerful) ─────────────────────────
   heroTagline = 'Building enterprise applications with Java, Spring Boot, Microservices, Angular and SQL.';
