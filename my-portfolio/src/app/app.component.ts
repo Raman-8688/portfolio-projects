@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SettingsPanelComponent } from './components/settings-panel/settings-panel.component';
 import { MncModalComponent } from './components/mnc-modal/mnc-modal.component';
 import { ResumeModalComponent } from './components/resume-modal/resume-modal.component';
+import { ParticleCanvasComponent } from './components/particle-canvas/particle-canvas.component';
 import { PortfolioService } from './services/Portfolio.service';
 import { Section } from './models/Portfolio';
 
@@ -36,6 +37,7 @@ import { Section } from './models/Portfolio';
     SettingsPanelComponent,
     MncModalComponent,
     ResumeModalComponent,
+    ParticleCanvasComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

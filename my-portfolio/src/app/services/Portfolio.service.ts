@@ -57,9 +57,9 @@ export class PortfolioService {
   resumeUrl = 'assets/resume.pdf';
 
   // ─── Hero Intro (concise, powerful) ─────────────────────────
-  heroTagline = 'Building enterprise-grade systems that scale.';
+  heroTagline = 'Building enterprise applications with Java, Spring Boot, Microservices, Angular and SQL.';
   heroSub =
-    'Full Stack Developer specializing in <strong>Microservices Architecture</strong>, <strong>Spring Boot 3.x</strong>, <strong>Angular 19</strong>, and <strong>Enterprise Relational Databases</strong> — delivering production software for enterprise clients.';
+    'Java Full Stack Developer with hands-on enterprise experience building and maintaining applications using <strong>Java 17</strong>, <strong>Spring Boot 3.x</strong>, <strong>REST APIs</strong>, <strong>Microservices</strong>, <strong>Angular 19</strong>, and <strong>relational databases (PostgreSQL & MSSQL)</strong> — delivering clean backend services and production reliability.';
 
   // ─── Stats / Achievements counters ──────────────────────────
   achievements: Achievement[] = [
@@ -91,28 +91,28 @@ export class PortfolioService {
 
   // ─── About ──────────────────────────────────────────────────
   aboutIntro =
-    'I am a <strong>Java Full Stack & Microservices Developer</strong> with 1 year of hands-on production experience engineering enterprise systems. My expertise ranges from deploying <strong>live asset tracking for Hyderabad Metro Rail</strong> to constructing <strong>dynamic schema-per-tenant SaaS platforms</strong> and <strong>AI-integrated microservices</strong>.';
+    'I’m a <strong>Java Full Stack Developer</strong> with hands-on experience building, enhancing, and maintaining enterprise applications using <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>REST APIs</strong>, <strong>Microservices</strong>, <strong>Angular</strong>, and <strong>relational databases</strong>.<br><br>My experience includes working on real-world enterprise applications (including the <strong>Hyderabad Metro Rail Asset Management System</strong>), investigating and resolving production defects, optimizing database stored procedures, and developing clean backend services. I also build independent distributed systems to strengthen expertise in <strong>Apache Kafka</strong>, <strong>Docker</strong>, and <strong>event-driven architectures</strong>.';
 
   aboutPoints: AboutPoint[] = [
     {
       icon: 'fas fa-train',
       title: 'Hyderabad Metro Asset Management System (AMS)',
-      text: 'Engineered inventory tracking screens, MSSQL stored procedures, database indexes & synonyms, and decoupled microservices for high-volume transit infrastructure assets.',
+      text: 'Delivered station inventory tracking screens, high-performance MSSQL stored procedures, database indexes & synonyms, and resolved production bug tickets for live transit infrastructure.',
     },
     {
-      icon: 'fas fa-capsules',
-      title: 'Multi-Tenant Pharma SaaS Platform',
-      text: 'Built PostgreSQL dynamic schema-per-tenant isolation using custom Hibernate resolvers, Spring Cloud Gateway, and Eureka Discovery Server.',
+      icon: 'fas fa-server',
+      title: 'Enterprise Microservices & REST APIs',
+      text: 'Developed and maintained Java 17 / Spring Boot 3 backend services with Spring Cloud Gateway routing, Eureka service discovery, and role-based access control.',
     },
     {
-      icon: 'fas fa-book-open',
-      title: 'MemoryVerse Interactive PWA Platform',
-      text: 'Engineered a full-stack Progressive Web App with interactive Leaflet geo-tagging, multimedia timeline storytelling, and offline-first IndexedDB caching deployed live.',
+      icon: 'fas fa-database',
+      title: 'Multi-Tenant Database Architecture',
+      text: 'Implemented dynamic schema-per-tenant PostgreSQL database routing, ensuring strict organizational data isolation across multi-tenant SaaS environments.',
     },
     {
-      icon: 'fas fa-shield-halved',
-      title: 'Secure AI Assistant (Deployed Live Monolith)',
-      text: 'Built and deployed a full-stack Security & AI assistant featuring Angular 19, Spring Boot, Spring Security, JWT, Google & GitHub OAuth2 login, voice input, and real-time AI streaming.',
+      icon: 'fas fa-laptop-code',
+      title: 'Modern Angular & Full-Stack PWA',
+      text: 'Engineered responsive interfaces in Angular 19 using standalone components, reactive signals, and Progressive Web App (PWA) offline capabilities (MemoryVerse).',
     },
   ];
 
@@ -151,7 +151,7 @@ export class PortfolioService {
   experiences: Experience[] = [
     {
       company: 'Winfocus Solutions Pvt Ltd',
-      role: 'Full Stack Developer',
+      role: 'Java Full Stack Developer',
       period: 'Jun 2025 – Present',
       location: 'Andhra Pradesh, India',
       type: 'Full Time',
@@ -159,31 +159,31 @@ export class PortfolioService {
       logo: 'fas fa-briefcase',
       color: '#00bcd4',
       description:
-        "Lead developer on production multi-tenant Pharma SaaS platform and internal AI translation developer tooling.",
+        "Developing and maintaining multi-tenant enterprise software and backend microservices using Java 17, Spring Boot 3, PostgreSQL, and Angular 19.",
       achievements: [
-        'Built <strong>Multi-Tenant Pharma Management Platform</strong> — separate Spring Boot microservices (Inventory, Billing, User Management, Reports) with PostgreSQL dynamic schema-per-tenant isolation.',
-        'Implemented <strong>Dynamic Multilanguage UI</strong> in Angular 19 — all labels, table headers, form inputs, and buttons switch dynamically at runtime based on DB tenant language settings.',
-        'Engineered <strong>Multilanguage Converter Tool</strong> — accepts Angular ZIP files, parses HTML/TS templates, integrates Hugging Face AI for batch translation, and outputs CSV + SQL INSERT statements.',
-        'Configured <strong>Spring Cloud API Gateway + Eureka Server + Spring Security JWT</strong> for centralized routing and granular role-based access control (RBAC).',
-        'Deployed containerized applications using <strong>Docker & Kubernetes</strong> on enterprise VMs.',
+        'Developed and maintained <strong>Java 17 & Spring Boot 3 application components</strong> (Inventory, Billing, User Management) communicating via REST APIs.',
+        'Implemented <strong>PostgreSQL dynamic schema-per-tenant isolation</strong> using custom DataSource routing to ensure organizational data boundaries.',
+        'Built responsive <strong>Angular 19 user interface screens</strong> with reactive forms, data tables, and database-driven multilanguage labels.',
+        'Investigated and resolved <strong>production defect tickets</strong>, API latency bottlenecks, and customer-reported issues.',
+        'Configured <strong>Spring Cloud API Gateway</strong> with JWT filter chains for centralized routing and role-based access control (RBAC).',
+        'Containerized services using <strong>Docker</strong> with automated continuous deployment across Linux VMs.',
       ],
       techUsed: [
-        'Angular 19',
         'Java 17',
         'Spring Boot 3',
         'Microservices',
+        'Angular 19',
         'PostgreSQL',
-        'Eureka',
+        'REST APIs',
         'Spring Cloud Gateway',
-        'Spring Security',
+        'Spring Security JWT',
         'Docker',
-        'Kubernetes',
         'Git',
       ],
     },
     {
       company: 'AMS — Asset Management System (Hyderabad Metro Rail)',
-      role: 'Full Stack Developer',
+      role: 'Java Full Stack Developer',
       period: '2024',
       location: 'Hyderabad, India',
       type: 'Live Client Project',
@@ -191,18 +191,18 @@ export class PortfolioService {
       logo: 'fas fa-train',
       color: '#8b5cf6',
       description:
-        'Enterprise transit asset tracking platform deployed live across Hyderabad Metro Rail stations and operational hubs.',
+        'Enterprise transit asset tracking platform deployed live across Hyderabad Metro Rail stations and operational maintenance hubs.',
       achievements: [
-        'Developed interactive <strong>Angular Inventory Screens</strong> for station asset tracking across locations, categories, layout group types, and sub-groups.',
+        'Contributed to the <strong>Hyderabad Metro Asset Management System</strong> — developed station inventory tracking and layout management screens.',
         'Authored high-performance <strong>MSSQL Stored Procedures</strong> for complex batch queries, location audits, and historical logging.',
-        'Created database <strong>Indexes & Synonyms</strong> to optimize cross-schema query execution speed by over 45%.',
-        'Built decoupled microservices (Auth Service, Admin Service, Asset Register Service) connected via Spring API Gateway and a shared Common DTO Library.',
-        'Interfaced directly with client stakeholders to roll out production bug fixes and feature screens.',
+        'Created database <strong>Indexes & Synonyms</strong> optimizing query execution speed by over 45% across large transit asset tables.',
+        'Investigated and resolved <strong>application bugs and layout enhancements</strong> based directly on client stakeholder requirements.',
+        'Integrated Angular frontend screens with decoupled Spring Boot backend services via API Gateway.',
       ],
       techUsed: [
-        'Angular',
         'Java',
         'Spring Boot',
+        'Angular',
         'MSSQL',
         'Stored Procedures',
         'Indexes & Synonyms',
@@ -243,7 +243,7 @@ export class PortfolioService {
   // ─── Skills Matrix (Category Groups & Pills) ──────────────
   skillsMatrix: SkillCategoryGroup[] = [
     {
-      category: 'Backend & Microservices',
+      category: 'Backend & Microservices (Core)',
       icon: 'fas fa-server',
       color: '#6db33f',
       items: [
@@ -252,6 +252,7 @@ export class PortfolioService {
         { name: 'Microservices Mesh', tag: 'Eureka & Gateway', badge: 'Enterprise' },
         { name: 'Spring Security & JWT', tag: 'OAuth2 & RBAC', badge: 'Security' },
         { name: 'Spring Data JPA / Hibernate', tag: 'ORM & Querying', badge: 'Core' },
+        { name: 'Apache Kafka', tag: 'Event-Driven & Saga', badge: 'Messaging' },
       ],
     },
     {
@@ -262,31 +263,31 @@ export class PortfolioService {
         { name: 'Angular 19 / 18', tag: 'Standalone & Signals', badge: 'Production' },
         { name: 'TypeScript & JavaScript', tag: 'ES6+ & Async', badge: 'Expert' },
         { name: 'RxJS & Reactive Forms', tag: 'State Management', badge: 'Advanced' },
-        { name: 'HTML5 / Modern CSS3', tag: 'Glassmorphism & Flex', badge: 'UI/UX' },
-        { name: 'React.js', tag: 'Hooks & Components', badge: 'Modern' },
+        { name: 'HTML5 & Modern CSS3', tag: 'Glassmorphism & Flex', badge: 'UI/UX' },
+        { name: 'PWA & Service Workers', tag: 'Offline Caching', badge: 'Mobile' },
       ],
     },
     {
-      category: 'Databases & Multitenancy',
+      category: 'Databases & SQL Tuning',
       icon: 'fas fa-database',
       color: '#4169E1',
       items: [
         { name: 'PostgreSQL (Multitenancy)', tag: 'Schema-per-Tenant', badge: 'Enterprise' },
-        { name: 'MSSQL Enterprise', tag: 'Stored Procs & Synonyms', badge: 'Production' },
-        { name: 'MySQL Database', tag: 'Indexing & Tuning', badge: 'Advanced' },
-        { name: 'SQL Query Optimization', tag: 'Execution Plans', badge: 'Tuning' },
+        { name: 'MSSQL Server', tag: 'Stored Procs & Synonyms', badge: 'Production' },
+        { name: 'MySQL Database', tag: 'Relational Modeling', badge: 'Advanced' },
+        { name: 'SQL Query Optimization', tag: 'Indexes & Execution Plans', badge: 'Tuning' },
       ],
     },
     {
-      category: 'DevOps, Cloud & AI',
+      category: 'DevOps & Tooling',
       icon: 'fas fa-cloud-upload-alt',
       color: '#2496ED',
       items: [
-        { name: 'Docker Containerization', tag: 'Dockerfiles & Compose', badge: 'DevOps' },
-        { name: 'Kubernetes (K8s)', tag: 'Pods & Services', badge: 'Cloud' },
-        { name: 'NVIDIA AI & Hugging Face', tag: 'AI Models Integration', badge: 'AI/ML' },
-        { name: 'Git & SVN Version Control', tag: 'Branching & Merging', badge: 'Workflow' },
-        { name: 'Linux / Bash Scripting', tag: 'CLI & Automation', badge: 'System' },
+        { name: 'Docker Containerization', tag: 'Dockerfiles & Compose', badge: 'Hands-on' },
+        { name: 'Git & GitHub Workflows', tag: 'CI/CD & Version Control', badge: 'Hands-on' },
+        { name: 'Linux / Bash Scripting', tag: 'CLI & Automation', badge: 'Hands-on' },
+        { name: 'Kubernetes (K8s)', tag: 'Pods & Services', badge: 'Working Knowl.' },
+        { name: 'AWS Cloud Basics', tag: 'EC2 & S3', badge: 'Learning' },
       ],
     },
   ];
@@ -431,144 +432,6 @@ export class PortfolioService {
         'Automated GitHub CI/CD continuous deployment pipeline directly connected to Vercel.',
     },
     {
-      title: 'Multi-Tenant Pharma Platform with Multilanguage UI',
-      institution: 'Winfocus Solutions Pvt Ltd',
-      timeline: 'Jun 2025 – Present',
-      category: 'Live Production SaaS',
-      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
-      techStack:
-        'Angular 19 · Spring Boot 3 · Microservices · PostgreSQL · Eureka · API Gateway · Spring Security · Docker · Kubernetes',
-      description:
-        'Production-grade multi-tenant Pharma Management System with full microservices architecture and dynamic multilanguage UI — labels, placeholders, button names all switchable per user preference from the database.',
-      problemSolved:
-        'A single-schema monolith could not serve multiple pharmacy organizations securely. Additionally, the product needed to support multiple languages without code changes — labels needed to be database-driven and user-switchable.',
-      features: [
-        'Built separate <strong>Spring Boot microservices</strong> for Inventory, Billing, Users, and Reporting — each independently deployable with its own schema.',
-        'Implemented <strong>multi-tenant schema routing</strong> — each organization login resolves to its own private PostgreSQL schema dynamically via DataSource routing.',
-        'Built <strong>multilanguage dynamic UI</strong> — all Angular labels, field names, placeholders stored in DB; user selects preferred language and the UI re-renders with zero page reload.',
-      ],
-      highlights: [
-        'Multi-tenant schema-per-org architecture',
-        'Dynamic DB-driven multilanguage UI labels',
-        'Eureka + API Gateway for service discovery',
-        'Spring Security JWT with role-based access',
-        'Docker + Kubernetes deployment',
-        'Angular lazy-loaded modules + interceptors',
-      ],
-      tags: ['angular', 'microservices', 'database'],
-      skills: [
-        { name: 'Spring Boot', level: 88 },
-        { name: 'Angular', level: 85 },
-        { name: 'Microservices', level: 84 },
-      ],
-      accent: '#00bcd4',
-      badge: '💊 Pharma · Live',
-      architecture:
-        'Angular SPA → API Gateway → [Inventory | Billing | User | Report] Services → PostgreSQL (schema-per-tenant)',
-      githubUrl: 'https://github.com/Raman-8688',
-      liveUrl: '',
-      backendFrontendSeparation:
-        'Decoupled Angular SPA with module-level lazy loading communicating to isolated Spring Boot services via API Gateway.',
-      dockerK8sUsage:
-        'All microservices containerized; Kubernetes manages rolling deployments, pod autoscaling, ConfigMaps, and Secrets.',
-      securityAuth:
-        'Spring Security stateless JWT filter chain with role-based method-level authorization across all services.',
-      cicdWorkflow:
-        'Git + SVN version control; Docker image builds with manual K8s rollout per service.',
-    },
-    {
-      title: 'AMS — Asset Management System (Hyderabad Metro)',
-      institution: 'Client Project · Live Production System',
-      timeline: '2024',
-      category: 'Live Client Projects',
-      image: 'assets/projects_images/metro_1.jpg',
-      techStack:
-        'Angular · Java · Spring Boot · Microservices · MSSQL · Stored Procedures · API Gateway',
-      description:
-        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing station assets across locations, categories, layout groups and group types. Built on Java Spring Boot microservices with MSSQL and an Angular frontend. Contributed as Full Stack developer handling frontend screens, database layer, and production bug fixes.',
-      problemSolved:
-        'Hyderabad Metro had no centralized system to track physical assets across stations by location and category. Manual tracking caused errors and audit failures. This system is now live in production at metro stations.',
-      features: [
-        'Designed and implemented <strong>inventory screens</strong> for asset registration and filtering — by location, category, layout group type, and group. Screens actively used at Hyderabad Metro stations.',
-        'Written <strong>MSSQL stored procedures</strong> for complex asset queries, batch inserts, and audit trail logging. Created optimized database <strong>indexes and synonyms</strong> for cross-schema query performance.',
-        'Delivered <strong>production bug fixes and new screen implementations</strong> based on direct client requirements — worked closely with the client system environment for testing and deployment.',
-      ],
-      highlights: [
-        '🚇 Live system used at Hyderabad Metro stations',
-        'MSSQL stored procedures + indexes + synonyms (45% speedup)',
-        'Asset filtering: location, category, layout group',
-        'AssetPMWork scheduler module implementation',
-        'Production bug fixes from client requirements',
-        'Microservices: Auth + Admin + Asset Register + Common Library',
-      ],
-      tags: ['angular', 'microservices', 'database'],
-      skills: [
-        { name: 'Angular', level: 82 },
-        { name: 'MSSQL', level: 80 },
-        { name: 'Stored Procedures', level: 80 },
-      ],
-      accent: '#7c3aed',
-      badge: '🚇 Metro · Live Production',
-      architecture:
-        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (Spring Boot) → MSSQL + Common Library',
-      githubUrl: 'https://github.com/Raman-8688',
-      liveUrl: '',
-      backendFrontendSeparation:
-        'Angular frontend with dynamic inventory grid layouts; Java Spring Boot microservices expose REST APIs consumed through API Gateway.',
-      dockerK8sUsage:
-        'Each microservice deployed individually on VMs — manual deployment per service with per-environment configuration files.',
-      securityAuth:
-        'Auth Service handles login and session management; role-based access enforced at API Gateway level.',
-      cicdWorkflow:
-        'Git version control; services independently built and deployed to client environment after QA verification.',
-    },
-    {
-      title: 'NexusCore ERP Work Hub (Nexus 360)',
-      institution: 'Full-Stack Microservices Project',
-      timeline: '2025',
-      category: 'Full-Stack Microservices',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      techStack:
-        'Java 17 · Spring Boot 3 · Angular 19 · Eureka · Spring Cloud Gateway · PostgreSQL · MySQL · Docker',
-      description:
-        'Enterprise ERP microservices ecosystem featuring decoupled Auth, Employee, Department, and Notification services with unified dashboard analytics.',
-      problemSolved:
-        'Monolithic ERP systems cause bottleneck deployments and inter-department data entanglement. NexusCore decouples core business units into autonomous microservices with unified gateway routing and central discovery.',
-      features: [
-        'Built <strong>decoupled microservices</strong>: Auth Service, Employee Service, Department Service, and Notification Service.',
-        'Configured <strong>Spring Cloud API Gateway</strong> with global exception handling, route filtering, and JWT token validation.',
-        'Unified <strong>Angular 19 dashboard</strong> with real-time employee activity and department analytics.',
-        'Designed database schemas with relational constraints across PostgreSQL and MySQL connectors.',
-      ],
-      highlights: [
-        'Autonomous microservices mesh (Auth, Employee, Dept, Notification)',
-        'Spring Cloud API Gateway centralized routing',
-        'Netflix Eureka dynamic service registration & discovery',
-        'Angular 19 responsive dashboard with state signals',
-        'PostgreSQL & MySQL multi-database connectors',
-      ],
-      tags: ['angular', 'microservices', 'database'],
-      skills: [
-        { name: 'Microservices', level: 86 },
-        { name: 'Spring Boot 3', level: 88 },
-        { name: 'Angular 19', level: 84 },
-      ],
-      accent: '#8b5cf6',
-      badge: '🏢 Enterprise ERP',
-      architecture:
-        'Angular 19 UI → Spring Cloud Gateway → Eureka Server → [Auth | Employee | Department | Notification] Services → PostgreSQL / MySQL',
-      githubUrl: 'https://github.com/Raman-8688/NexusCore-ERP-Work-Hub',
-      liveUrl: '',
-      backendFrontendSeparation:
-        'Angular SPA interacts only via API Gateway; all microservice instances remain private behind the gateway perimeter.',
-      dockerK8sUsage:
-        'All microservice modules packaged as Docker containers with multi-stage build optimization.',
-      securityAuth:
-        'Spring Security stateless JWT authentication enforced at Gateway and validated across internal services.',
-      cicdWorkflow:
-        'GitHub repository with modular Maven multi-module configuration and Docker build automation.',
-    },
-    {
       title: 'Enterprise Order Management System',
       institution: 'Personal Project · Microservices & Kafka',
       timeline: '2025',
@@ -621,6 +484,52 @@ export class PortfolioService {
         'GitHub repository with per-service module structure. Docker Compose for full local stack (Kafka + Zookeeper + all 8 services + DBs). Kubernetes manifests for production.',
     },
     {
+      title: 'AMS — Asset Management System (Hyderabad Metro)',
+      institution: 'Client Project · Live Production System',
+      timeline: '2024',
+      category: 'Live Client Projects',
+      image: 'assets/projects_images/metro_1.jpg',
+      techStack:
+        'Angular · Java · Spring Boot · Microservices · MSSQL · Stored Procedures · API Gateway',
+      description:
+        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing station assets across locations, categories, layout groups and group types. Built on Java Spring Boot microservices with MSSQL and an Angular frontend. Contributed as Full Stack developer handling frontend screens, database layer, and production bug fixes.',
+      problemSolved:
+        'Hyderabad Metro had no centralized system to track physical assets across stations by location and category. Manual tracking caused errors and audit failures. This system is now live in production at metro stations.',
+      features: [
+        'Designed and implemented <strong>inventory screens</strong> for asset registration and filtering — by location, category, layout group type, and group. Screens actively used at Hyderabad Metro stations.',
+        'Written <strong>MSSQL stored procedures</strong> for complex asset queries, batch inserts, and audit trail logging. Created optimized database <strong>indexes and synonyms</strong> for cross-schema query performance.',
+        'Delivered <strong>production bug fixes and new screen implementations</strong> based on direct client requirements — worked closely with the client system environment for testing and deployment.',
+      ],
+      highlights: [
+        '🚇 Live system used at Hyderabad Metro stations',
+        'MSSQL stored procedures + indexes + synonyms (45% speedup)',
+        'Asset filtering: location, category, layout group',
+        'AssetPMWork scheduler module implementation',
+        'Production bug fixes from client requirements',
+        'Microservices: Auth + Admin + Asset Register + Common Library',
+      ],
+      tags: ['angular', 'microservices', 'database'],
+      skills: [
+        { name: 'Angular', level: 82 },
+        { name: 'MSSQL', level: 80 },
+        { name: 'Stored Procedures', level: 80 },
+      ],
+      accent: '#7c3aed',
+      badge: '🚇 Metro · Live Production',
+      architecture:
+        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (Spring Boot) → MSSQL + Common Library',
+      githubUrl: 'https://github.com/Raman-8688',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Angular frontend with dynamic inventory grid layouts; Java Spring Boot microservices expose REST APIs consumed through API Gateway.',
+      dockerK8sUsage:
+        'Each microservice deployed individually on VMs — manual deployment per service with per-environment configuration files.',
+      securityAuth:
+        'Auth Service handles login and session management; role-based access enforced at API Gateway level.',
+      cicdWorkflow:
+        'Git version control; services independently built and deployed to client environment after QA verification.',
+    },
+    {
       title: 'Secure AI Assistant',
       institution: 'Full Stack Deployed Project · Live on Vercel',
       timeline: '2025',
@@ -666,6 +575,98 @@ export class PortfolioService {
         'Full Spring Security filter chain: OAuth2 (Google/GitHub), email OTP verification, and JWT Bearer tokens on protected routes.',
       cicdWorkflow:
         'Automated GitHub-triggered builds and production deployment pipelines.',
+    },
+    {
+      title: 'Multi-Tenant Pharma Platform with Multilanguage UI',
+      institution: 'Winfocus Solutions Pvt Ltd',
+      timeline: 'Jun 2025 – Present',
+      category: 'Live Production SaaS',
+      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      techStack:
+        'Angular 19 · Spring Boot 3 · Microservices · PostgreSQL · Eureka · API Gateway · Spring Security · Docker · Kubernetes',
+      description:
+        'Production-grade multi-tenant Pharma Management System with full microservices architecture and dynamic multilanguage UI — labels, placeholders, button names all switchable per user preference from the database.',
+      problemSolved:
+        'A single-schema monolith could not serve multiple pharmacy organizations securely. Additionally, the product needed to support multiple languages without code changes — labels needed to be database-driven and user-switchable.',
+      features: [
+        'Built separate <strong>Spring Boot microservices</strong> for Inventory, Billing, Users, and Reporting — each independently deployable with its own schema.',
+        'Implemented <strong>multi-tenant schema routing</strong> — each organization login resolves to its own private PostgreSQL schema dynamically via DataSource routing.',
+        'Built <strong>multilanguage dynamic UI</strong> — all Angular labels, field names, placeholders stored in DB; user selects preferred language and the UI re-renders with zero page reload.',
+      ],
+      highlights: [
+        'Multi-tenant schema-per-org architecture',
+        'Dynamic DB-driven multilanguage UI labels',
+        'Eureka + API Gateway for service discovery',
+        'Spring Security JWT with role-based access',
+        'Docker + Kubernetes deployment',
+        'Angular lazy-loaded modules + interceptors',
+      ],
+      tags: ['angular', 'microservices', 'database'],
+      skills: [
+        { name: 'Spring Boot', level: 88 },
+        { name: 'Angular', level: 85 },
+        { name: 'Microservices', level: 84 },
+      ],
+      accent: '#00bcd4',
+      badge: '💊 Pharma · Live',
+      architecture:
+        'Angular SPA → API Gateway → [Inventory | Billing | User | Report] Services → PostgreSQL (schema-per-tenant)',
+      githubUrl: 'https://github.com/Raman-8688',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Decoupled Angular SPA with module-level lazy loading communicating to isolated Spring Boot services via API Gateway.',
+      dockerK8sUsage:
+        'All microservices containerized; Kubernetes manages rolling deployments, pod autoscaling, ConfigMaps, and Secrets.',
+      securityAuth:
+        'Spring Security stateless JWT filter chain with role-based method-level authorization across all services.',
+      cicdWorkflow:
+        'Git + SVN version control; Docker image builds with manual K8s rollout per service.',
+    },
+    {
+      title: 'NexusCore ERP Work Hub (Nexus 360)',
+      institution: 'Full-Stack Microservices Project',
+      timeline: '2025',
+      category: 'Full-Stack Microservices',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+      techStack:
+        'Java 17 · Spring Boot 3 · Angular 19 · Eureka · Spring Cloud Gateway · PostgreSQL · MySQL · Docker',
+      description:
+        'Enterprise ERP microservices ecosystem featuring decoupled Auth, Employee, Department, and Notification services with unified dashboard analytics.',
+      problemSolved:
+        'Monolithic ERP systems cause bottleneck deployments and inter-department data entanglement. NexusCore decouples core business units into autonomous microservices with unified gateway routing and central discovery.',
+      features: [
+        'Built <strong>decoupled microservices</strong>: Auth Service, Employee Service, Department Service, and Notification Service.',
+        'Configured <strong>Spring Cloud API Gateway</strong> with global exception handling, route filtering, and JWT token validation.',
+        'Unified <strong>Angular 19 dashboard</strong> with real-time employee activity and department analytics.',
+        'Designed database schemas with relational constraints across PostgreSQL and MySQL connectors.',
+      ],
+      highlights: [
+        'Autonomous microservices mesh (Auth, Employee, Dept, Notification)',
+        'Spring Cloud API Gateway centralized routing',
+        'Netflix Eureka dynamic service registration & discovery',
+        'Angular 19 responsive dashboard with state signals',
+        'PostgreSQL & MySQL multi-database connectors',
+      ],
+      tags: ['angular', 'microservices', 'database'],
+      skills: [
+        { name: 'Microservices', level: 86 },
+        { name: 'Spring Boot 3', level: 88 },
+        { name: 'Angular 19', level: 84 },
+      ],
+      accent: '#8b5cf6',
+      badge: '🏢 Enterprise ERP',
+      architecture:
+        'Angular 19 UI → Spring Cloud Gateway → Eureka Server → [Auth | Employee | Department | Notification] Services → PostgreSQL / MySQL',
+      githubUrl: 'https://github.com/Raman-8688/NexusCore-ERP-Work-Hub',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Angular SPA interacts only via API Gateway; all microservice instances remain private behind the gateway perimeter.',
+      dockerK8sUsage:
+        'All microservice modules packaged as Docker containers with multi-stage build optimization.',
+      securityAuth:
+        'Spring Security stateless JWT authentication enforced at Gateway and validated across internal services.',
+      cicdWorkflow:
+        'GitHub repository with modular Maven multi-module configuration and Docker build automation.',
     },
     {
       title: 'Multilanguage Dynamic Converter Tool',
