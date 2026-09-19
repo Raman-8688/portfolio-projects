@@ -435,4 +435,27 @@
   .hero-main-card {
     padding: 28px;
   }
-}
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  .hero-main-card {
+    margin: 0;
+    padding: 24px 16px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .hero-name-heading {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+}
+

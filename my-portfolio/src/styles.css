@@ -226,3 +226,43 @@ img { max-width:100%; display:block; }
   [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ── Section Scroll Margin for Sticky Navbar ───────────────── */
+section[id], [id^="about"], [id^="skills"], [id^="experience"],
+[id^="architecture"], [id^="projects"], [id^="devops"],
+[id^="github"], [id^="contact"] {
+  scroll-margin-top: 72px;
+}
+
+/* ── Tablet (768px - 1023px): Milder Reset (~32px per side total) ── */
+@media (max-width: 1023px) and (min-width: 768px) {
+  :root {
+    --section-padding: 80px 16px;
+  }
+  .section-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 36px 16px;
+    box-sizing: border-box;
+  }
+}
+
+/* ── Mobile (<= 767px): Spacing <= 16px per side (Cards >= 328px at 360px) ── */
+@media (max-width: 767px) {
+  :root {
+    --section-padding: 60px 0;
+  }
+  .section-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+  .section-title {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+}
+

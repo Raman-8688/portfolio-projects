@@ -163,4 +163,5 @@
 
 /* Responsive */
 @media (max-width: 992px) { .git-dashboard { grid-template-columns:1fr; } }
-@media (max-width: 768px) { .git-section { padding: 80px 24px; } }
+@media (max-width: 1023px) and (min-width: 768px) { .git-section { padding: 80px 16px; } }
+@media (max-width: 767px) { .git-section { padding: 60px 0; } }
