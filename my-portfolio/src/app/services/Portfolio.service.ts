@@ -53,7 +53,7 @@ export class PortfolioService {
   location = 'Kurnool, Andhra Pradesh, India';
   github = 'https://github.com/Raman-8688';
   linkedin = 'https://linkedin.com/in/b-ramanjaneyulu-155021258';
-  yearsExp = '1';
+  yearsExp = '1+';
   resumeUrl = 'assets/resume.pdf';
   profileImage = 'assets/profile.png?v=2';
 
@@ -121,7 +121,7 @@ export class PortfolioService {
     {
       icon: 'fas fa-briefcase',
       label: 'Experience',
-      value: '1 Year (Java Full Stack)',
+      value: '1+ Years (Java Full Stack)',
       bg: 'rgba(139, 92, 246, 0.12)',
       color: '#8b5cf6',
     },
@@ -154,7 +154,7 @@ export class PortfolioService {
       company: 'Winfocus Solutions Pvt Ltd',
       role: 'Java Full Stack Developer',
       period: 'Jun 2025 – Present',
-      location: 'Andhra Pradesh, India',
+      location: 'Secunderabad, Telangana, India',
       type: 'Full Time',
       badge: 'Current Role',
       logo: 'fas fa-briefcase',
@@ -801,7 +801,7 @@ export class PortfolioService {
 
   // ─── ATS Formatted Resume Data ──────────────────────────────
   atsResume: AtsResume = {
-    summary: 'Java Full Stack & Microservices Developer with 1 year of hands-on production experience engineering enterprise systems for live client environments (Hyderabad Metro Rail Asset Management System) and multi-tenant SaaS platforms (Winfocus Solutions). Specializing in Java 17, Spring Boot 3, Microservices Mesh (Netflix Eureka, Spring Cloud Gateway), Angular 19, PostgreSQL multitenancy schema routing, and MSSQL database performance tuning.',
+    summary: 'Java Full Stack & Microservices Developer with 1+ years of hands-on production experience engineering enterprise systems for live client environments (Hyderabad Metro Rail Asset Management System) and multi-tenant SaaS platforms (Winfocus Solutions). Specializing in Java 17, Spring Boot 3, Microservices Mesh (Netflix Eureka, Spring Cloud Gateway), Angular 19, PostgreSQL multitenancy schema routing, and MSSQL database performance tuning.',
     skillsCategorized: [
       { category: 'Backend & Microservices', items: 'Java 17/21, Spring Boot 3.x, REST APIs, Netflix Eureka, Spring Cloud API Gateway, Spring Security, JWT, OAuth2, Spring Data JPA, Hibernate' },
       { category: 'Frontend Development', items: 'Angular 19/18, TypeScript, RxJS, Signals, Reactive Forms, Dynamic Multilanguage Pipes, HTML5, Modern CSS3, SCSS, React.js' },
@@ -813,7 +813,7 @@ export class PortfolioService {
         company: 'Winfocus Solutions Pvt Ltd',
         role: 'Full Stack Developer',
         period: 'Jun 2025 – Present',
-        location: 'Andhra Pradesh, India',
+        location: 'Secunderabad, Telangana, India',
         bullets: [
           'Engineered multi-tenant Pharma SaaS microservices platform using Spring Boot 3 and PostgreSQL dynamic schema-per-tenant data isolation.',
           'Developed dynamic database-driven multilanguage UI in Angular 19 — button labels, form fields, and placeholders switch switchable per user locale at runtime.',

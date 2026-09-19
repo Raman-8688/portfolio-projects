@@ -102,13 +102,24 @@ export class AppComponent implements OnInit, AfterViewInit {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.02, rootMargin: '60px 0px 60px 0px' },
     );
 
-    setTimeout(() => {
+    const observeElements = () => {
       document
-        .querySelectorAll('[data-aos]')
+        .querySelectorAll('[data-aos]:not(.aos-visible)')
         .forEach((el) => animObserver.observe(el));
-    }, 300);
+    };
+
+    setTimeout(observeElements, 150);
+    setTimeout(observeElements, 600);
+    setTimeout(observeElements, 1500);
+
+    // Fallback safeguard: after 2.5s ensure all elements are visible
+    setTimeout(() => {
+      document.querySelectorAll('[data-aos]:not(.aos-visible)').forEach((el) => {
+        el.classList.add('aos-visible');
+      });
+    }, 2500);
   }
 }

@@ -1,6 +1,6 @@
 /* ============================================================
    GLOBAL STYLES — Ramanjaneyulu Boya Portfolio
-   MNC-Level · Dark/Light · Scroll Animations · 9/10 Design
+   Enterprise-Grade · Dark/Light · Scroll Animations
    ============================================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
@@ -252,6 +252,12 @@ section[id], [id^="about"], [id^="skills"], [id^="experience"],
   :root {
     --section-padding: 60px 0;
   }
+  /* On mobile, ensure animated elements are immediately visible and never clipped or left blank */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
   .section-container {
     width: 100%;
     max-width: 100%;
@@ -263,6 +269,39 @@ section[id], [id^="about"], [id^="skills"], [id^="experience"],
   }
   .section-title {
     font-size: clamp(28px, 8vw, 38px);
+  }
+
+  /* Interactive elements touch targets (>= 44px) */
+  button,
+  .primary-button,
+  .secondary-button,
+  .btn-purple-gradient,
+  .btn-resume-primary,
+  .btn-dark-glass,
+  .social-round-btn,
+  .proj-btn,
+  .modal-btn,
+  .btn-deep-dive,
+  .skill-tab,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  /* Form inputs minimum 16px to prevent mobile browser auto-zoom */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Prevent horizontal transform overflows from pre-scroll animations on mobile */
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: translateY(24px);
   }
 }
 

@@ -326,4 +326,11 @@
   .availability-banner {
     padding: 20px 16px;
   }
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+  .submit-btn {
+    min-height: 44px;
+  }
 }

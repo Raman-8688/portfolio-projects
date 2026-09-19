@@ -104,7 +104,7 @@ export class DevopsDeploymentComponent implements AfterViewChecked {
   • curl /health  : Test microservice cluster health endpoint
   • docker-compose: Simulate container deployment pipeline
   • export-resume : Open ATS 1-Page Printable Resume modal
-  • mnc-prep      : Open MNC Technical Interview Cheat Sheet modal
+  • mnc-prep      : Open Technical Interview Cheat Sheet modal
   • clear         : Clear terminal console output`
         });
         break;
@@ -182,7 +182,7 @@ DevOps   : Docker, Kubernetes, Linux/Bash, SVN, Git, Vercel`
 
       case 'mnc-prep':
         this.ps.openMncModal();
-        this.history.push({ type: 'out', text: 'Opening MNC Technical Interview Cheat Sheet Modal...' });
+        this.history.push({ type: 'out', text: 'Opening Technical Interview Cheat Sheet Modal...' });
         break;
 
       case 'clear':

@@ -566,4 +566,25 @@
   .devops-section {
     padding: 60px 0;
   }
+  .terminal-form {
+    min-width: 0;
+    width: 100%;
+  }
+  .terminal-input {
+    font-size: 16px;
+    min-width: 0;
+    width: 0;
+  }
+  .terminal-submit-btn {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .glass-panel {
+    padding: 20px 16px;
+    min-width: 0;
+  }
 }

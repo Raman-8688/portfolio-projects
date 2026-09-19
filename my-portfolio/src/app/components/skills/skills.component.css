@@ -383,27 +383,40 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
-  .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* RESPONSIVE */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .skills-group-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
   }
 }
 
-@media (max-width: 768px) {
-  .skills-section {
-    padding: 80px 24px;
+@media (max-width: 767px) {
+  .skills-group-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
-  .categories-grid {
-    grid-template-columns: 1fr;
+  .skill-group-card {
+    padding: 20px 14px;
+    border-radius: 16px;
   }
-  .build-callout {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
+  .skill-tabs {
+    gap: 8px;
+    margin-bottom: 24px;
   }
-  .callout-tags {
-    max-width: 100%;
-    justify-content: flex-start;
+  .skill-tab {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  .skill-pill-card {
+    padding: 10px 12px;
+  }
+  .pill-meta {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-left: 0;
+  }
+  .skill-name {
+    word-break: break-word;
   }
 }

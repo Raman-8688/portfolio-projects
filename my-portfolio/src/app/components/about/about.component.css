@@ -330,3 +330,37 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 767px) {
+  .about-bio-box {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  .bio-title {
+    font-size: 19px;
+    word-break: break-word;
+  }
+  .stat-card {
+    padding: 16px 10px;
+    border-radius: 16px;
+    min-width: 0;
+  }
+  .stat-value {
+    font-size: 26px;
+  }
+  .stat-label {
+    font-size: 11.5px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .point-item {
+    padding: 14px 12px;
+  }
+  .info-card {
+    padding: 16px 14px;
+  }
+}
+

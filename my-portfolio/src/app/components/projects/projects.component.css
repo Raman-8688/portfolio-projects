@@ -535,11 +535,40 @@
   .projects-section {
     padding: 60px 0;
   }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .proj-card {
+    width: 100%;
+    min-width: 0;
+  }
+  .project-body {
+    padding: 20px 16px;
+  }
+  .proj-title {
+    font-size: 19px;
+    word-break: break-word;
+  }
+  .project-badge-overlay {
+    flex-wrap: wrap;
+  }
+  .proj-links-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .proj-btn {
+    min-height: 44px;
+  }
+  .btn-deep-dive {
+    min-height: 44px;
+  }
   .spec-row {
     grid-template-columns: 1fr;
     gap: 4px;
   }
   .project-modal-box {
-    padding: 24px;
+    padding: 20px 16px;
+    max-height: 90vh;
   }
 }
