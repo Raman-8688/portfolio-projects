@@ -56,6 +56,31 @@
   margin: 0 auto;
 }
 
+/* SVG Line & Node Flowing Animations */
+.arch-line {
+  stroke-dasharray: 6 4;
+  animation: lineDashFlow 1.2s linear infinite;
+}
+
+@keyframes lineDashFlow {
+  from {
+    stroke-dashoffset: 20;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-node {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.svg-node:hover,
+.svg-node.selected {
+  transform: translateY(-4px) scale(1.02);
+  filter: drop-shadow(0 6px 16px rgba(255, 219, 112, 0.4));
+}
+
 /* FLOWCHART SCHEMATIC */
 .flowchart-container {
   display: flex;
@@ -66,7 +91,7 @@
   padding: 40px;
 }
 .flowchart-container:hover {
-  transform: none; /* Disable lift on entire container */
+  transform: none;
 }
 
 .flow-card {
@@ -152,7 +177,7 @@
   padding: 0;
 }
 .insights-panel:hover {
-  transform: none; /* Static details card */
+  transform: none;
 }
 .panel-accent {
   height: 4px;

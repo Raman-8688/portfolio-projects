@@ -21,85 +21,85 @@ export class PortfolioService {
 
   readonly navItems: NavItem[] = NAV_ITEMS;
 
-  // ─── Personal Profile (Source of Truth) ─────────────────────
-  name = 'Aditya V.';
-  shortName = 'Adi';
+  // ─── Personal Profile (Source of Truth from Resume) ─────────
+  name = 'Adi Sekhara Reddy Hanumanthu';
+  shortName = 'Adi Sekhara Reddy';
   titles = [
-    'Principal Software Engineer',
-    'Senior Microservices Architect',
-    'Java & Angular Technical Lead',
-    'Enterprise Solutions Architect',
+    'Senior Java Full Stack Developer',
+    'Microservices & Spring Boot Architect',
+    'Payment Gateway Specialist (PhonePe UPI)',
+    'Enterprise ERP & Angular Engineer',
   ];
-  email = 'aditya.dev.lead@gmail.com';
-  phone = '+91 98765 43210';
-  location = 'Hyderabad, Telangana, India';
+  email = 'adireddy.h@gmail.com';
+  phone = '+91 91823 70938';
+  location = 'Hyderabad, India';
   github = '';
-  linkedin = 'https://linkedin.com/in/aditya-software-lead';
+  linkedin = 'https://linkedin.com/in/adisekharareddy';
   yearsExp = '10+ Years';
-  currentEmployer = 'Global MNC Enterprise Solutions';
+  currentEmployer = 'My Hub Technologies Ltd';
 
-  heroTagline = 'Architecting high-scale enterprise microservices, omni-channel platforms & cloud systems.';
+  heroTagline = 'Building scalable enterprise applications, microservices, digital payments & ERP systems.';
   heroSub =
-    'Senior Software Engineer & Tech Lead with <strong>10+ years of experience</strong> delivering mission-critical enterprise platforms — from <strong>PhonePe POS E-Commerce integrations</strong> and <strong>Transportation TMS Logistics</strong> to <strong>Indian Railways ERP</strong> and <strong>Real-Time Video Shopping</strong>.';
+    'Full Stack Java Developer with <strong>10+ years of experience</strong> building scalable enterprise applications using Java, Spring Boot, Microservices, Angular, REST APIs, and SQL — experienced in E-commerce, Retail, ERP, Warehouse Management, Transportation platforms, and Digital Payment integrations including PhonePe.';
 
   socialLinks: SocialLink[] = [
-    { icon: 'fab fa-linkedin', url: 'https://linkedin.com/in/aditya-software-lead', label: 'LinkedIn' },
-    { icon: 'fas fa-envelope', url: 'mailto:aditya.dev.lead@gmail.com', label: 'Email' },
-    { icon: 'fas fa-phone-alt', url: 'tel:+919876543210', label: 'Phone' },
+    { icon: 'fab fa-linkedin', url: 'https://linkedin.com/in/adisekharareddy', label: 'LinkedIn' },
+    { icon: 'fas fa-envelope', url: 'mailto:adireddy.h@gmail.com', label: 'Email' },
+    { icon: 'fas fa-phone-alt', url: 'tel:+919182370938', label: 'Phone' },
   ];
 
   // ─── Key Achievements Counters ──────────────────────────────
   achievements: Achievement[] = [
     {
-      icon: 'fas fa-shield-alt',
+      icon: 'fas fa-award',
       value: '10+ Yrs',
       label: 'Senior Enterprise Experience',
       color: '#7c3aed',
     },
     {
-      icon: 'fas fa-shopping-cart',
-      value: '50K+',
-      label: 'Daily POS Transactions',
+      icon: 'fas fa-credit-card',
+      value: 'PhonePe',
+      label: 'UPI Payment & WhatsApp APIs',
       color: '#00bcd4',
     },
     {
-      icon: 'fas fa-truck-monster',
-      value: 'Cloud',
-      label: 'TMS & Logistics Engine',
+      icon: 'fas fa-tachometer-alt',
+      value: '60%',
+      label: 'Performance Optimization',
       color: '#059669',
     },
     {
       icon: 'fas fa-train',
-      value: 'ERP',
-      label: 'Indian Railways OFBiz System',
+      value: 'Railways',
+      label: 'OFBiz ERP & Stock Automation',
       color: '#ffdb70',
     },
   ];
 
   // ─── About Profile Data ──────────────────────────────────────
   aboutIntro =
-    'I am a <strong>Principal Software Engineer & Technical Lead</strong> with over <strong>10 years of hands-on experience</strong> architecting, building, and operating high-throughput production systems for Tier-1 enterprises. My expertise spans cloud-native Spring Boot microservices, Angular SPAs, omni-channel retail POS systems, and real-time streaming architectures.';
+    'I am a <strong>Senior Java Full Stack Developer</strong> with over <strong>10 years of experience</strong> in building scalable enterprise applications using Java, Spring Boot, Microservices, Angular, REST APIs, and SQL. I specialize in E-commerce, Retail, ERP, Warehouse Management, Transportation platforms, and digital payment integrations including <strong>PhonePe UPI</strong>.';
 
   aboutPoints = [
     {
       icon: 'fas fa-store',
-      text: 'Led the architecture for <strong>Enterprise E-Commerce & PhonePe POS Integration</strong> — engineered Spring Boot microservices and Angular interfaces processing <strong>50k+ daily live transactions</strong> with zero downtime.',
+      text: 'Developed <strong>Full-Stack E-Commerce & Retail POS Systems</strong> — built Spring Boot microservices and Angular admin dashboards with multi-role authentication, order management, and delivery tracking.',
     },
     {
-      icon: 'fas fa-truck',
-      text: 'Architected <strong>Transportation Fleet Logistics & TMS</strong> — built real-time GPS telemetry pipelines, automated route optimization algorithms, driver dispatching, and multi-tenant billing.',
+      icon: 'fas fa-credit-card',
+      text: 'Integrated <strong>PhonePe UPI Payment & WhatsApp APIs</strong> for secure payments, automated transaction processing, and customer notifications, reducing support load by 40%.',
     },
     {
-      icon: 'fas fa-train',
-      text: 'Spearheaded <strong>Indian Railways Apache OFBiz ERP Customization</strong> — scaled inventory tracking, procurement workflows, and maintenance schedules across regional railway zones on MSSQL & Spring.',
+      icon: 'fas fa-cogs',
+      text: 'Customized <strong>Apache OFBiz ERP Components</strong> for warehouse, purchase, HR, and product workflows, maintaining enterprise systems supporting 200+ concurrent users.',
     },
     {
       icon: 'fas fa-video',
-      text: 'Developed <strong>Agora Real-Time Video Shopping App</strong> — integrated Agora WebRTC SDK and WebSockets with Angular 19 for interactive live commerce streaming.',
+      text: 'Integrated <strong>Agora WebRTC Video SDK</strong> for real-time video calling and live streaming between customers and retailers.',
     },
     {
-      icon: 'fas fa-cubes',
-      text: 'Expert in <strong>Microservices & Cloud Infrastructure</strong> — Kafka event streaming, Spring Cloud Gateway, Redis, Docker, Kubernetes pod autoscaling, and resilient CI/CD pipelines.',
+      icon: 'fas fa-chart-line',
+      text: 'Boosted overall application performance by <strong>60%</strong> through comprehensive SQL, database indexing, REST API, and Angular frontend optimizations.',
     },
   ];
 
@@ -107,110 +107,90 @@ export class PortfolioService {
     {
       icon: 'fas fa-briefcase',
       label: 'Experience Level',
-      value: '10+ Years (Senior MNC Lead)',
+      value: '10+ Years (Senior Developer)',
       bg: 'rgba(124, 58, 237, 0.1)',
       color: '#8b5cf6',
     },
     {
-      icon: 'fas fa-building',
-      label: 'Domain Expertise',
-      value: 'E-Commerce, Logistics, ERP & Video AI',
+      icon: 'fas fa-graduation-cap',
+      label: 'Education',
+      value: 'JNTU Anantapur (B.E. Computer Science)',
       bg: 'rgba(59, 130, 246, 0.1)',
       color: '#3b82f6',
     },
     {
-      icon: 'fas fa-award',
-      label: 'Architecture',
-      value: 'Microservices & Event Streaming',
+      icon: 'fas fa-building',
+      label: 'Current Company',
+      value: 'My Hub Technologies Ltd (Senior Java Dev)',
       bg: 'rgba(16, 185, 129, 0.1)',
       color: '#10b981',
     },
     {
-      icon: 'fas fa-layer-group',
-      label: 'Production Systems',
-      value: '4 Enterprise Platform Deployments',
+      icon: 'fas fa-laptop-code',
+      label: 'Core Stack',
+      value: 'Java, Spring Boot, Angular, Microservices',
       bg: 'rgba(255, 219, 112, 0.1)',
       color: '#ffdb70',
     },
   ];
 
-  // ─── Experience Timeline ─────────────────────────────────────
+  // ─── Experience Timeline (Exact Resume Data) ────────────────
   experiences: Experience[] = [
     {
-      company: 'Enterprise Software Solutions MNC',
-      role: 'Principal Software Engineer & Technical Lead',
-      period: '2021 – Present',
+      company: 'My Hub Technologies Ltd',
+      role: 'Senior Java Developer',
+      period: 'May 2023 – Present',
       location: 'Hyderabad, India',
       type: 'Full Time',
-      logo: 'fas fa-user-tie',
+      logo: 'fas fa-building',
       color: '#00bcd4',
       description:
-        'Heading end-to-end technical architecture, microservices design, and frontend engineering across high-impact enterprise clients.',
+        'Leading end-to-end full-stack development of enterprise E-commerce, Retail, and Transportation platforms using Java Spring Boot, Microservices, and Angular.',
       achievements: [
-        'Architected <strong>Enterprise E-Commerce & PhonePe POS Integration</strong> handling 50,000+ daily transactions across retail outlets',
-        'Designed <strong>Transportation Fleet Logistics & TMS</strong> with real-time GPS tracking and dynamic routing engines',
-        'Engineered <strong>Agora Real-Time Video Shopping App</strong> using WebRTC SDK and Angular 19 for live interactive shopping',
-        'Mentored cross-functional team of 12+ developers and implemented automated CI/CD pipelines using Jenkins, Docker, and Kubernetes',
+        'Built full-stack applications using <strong>Spring Boot, Microservices, and Angular</strong> with multi-role authentication and admin dashboards',
+        'Developed scalable <strong>RESTful APIs</strong> for product/vendor onboarding, order management, delivery tracking, transportation, and POS systems',
+        'Integrated <strong>PhonePe UPI payment and WhatsApp APIs</strong> for secure payments, transaction processing, and automated notifications (reduced support load by 40%)',
+        'Improved overall application performance by <strong>60%</strong> through SQL, database query tuning, API caching, and Angular frontend optimization',
       ],
       techUsed: [
-        'Java 21',
-        'Spring Boot 3',
-        'Angular 19',
+        'Java',
+        'Spring Boot',
+        'Spring Security',
         'Microservices',
-        'Kafka',
+        'Angular',
+        'TypeScript',
         'PostgreSQL',
-        'Redis',
-        'Docker',
-        'Kubernetes',
+        'PhonePe UPI API',
         'AWS',
+        'Jenkins',
       ],
     },
     {
-      company: 'Global Technology Systems',
-      role: 'Senior Microservices & Full Stack Developer',
-      period: '2017 – 2021',
+      company: 'Winfocus Solutions Pvt. Ltd.',
+      role: 'Software Engineer',
+      period: 'Sep 2016 – Apr 2023',
       location: 'Hyderabad, India',
       type: 'Full Time',
       logo: 'fas fa-laptop-code',
       color: '#7c3aed',
       description:
-        'Delivered large-scale ERP solutions and cloud migration projects for enterprise public sector and corporate clients.',
+        'Delivered enterprise modules for ERP and HR systems using Java Spring Boot and Angular, customizing Apache OFBiz for warehouse and procurement workflows.',
       achievements: [
-        'Led Indian Railways <strong>Apache OFBiz ERP Customization</strong> — built inventory modules and MSSQL stored procedures',
-        'Migrated monolithic backend systems to <strong>Spring Cloud Microservices</strong> architecture with API Gateway and Eureka',
-        'Optimized SQL queries and database indexes, reducing report generation times by 65%',
+        'Developed end-to-end enterprise modules using <strong>Spring Boot backend and Angular frontend</strong> for ERP and HR systems',
+        'Customized <strong>Apache OFBiz ERP components</strong> for warehouse, purchase, HR, and product workflows',
+        'Built responsive Angular UI components with HTML5, CSS3, ensuring seamless user interactions across browsers',
+        'Maintained ERP systems supporting <strong>200+ concurrent users</strong> with continuous enhancements and zero-downtime releases',
       ],
       techUsed: [
         'Java',
         'Spring Boot',
-        'Angular',
         'Apache OFBiz',
-        'MSSQL',
-        'Spring Cloud Gateway',
-        'Eureka',
-      ],
-    },
-    {
-      company: 'Enterprise Solutions Corp',
-      role: 'Software Engineer',
-      period: '2014 – 2017',
-      location: 'Bangalore, India',
-      type: 'Full Time',
-      logo: 'fas fa-code',
-      color: '#059669',
-      description:
-        'Developed core web applications and RESTful APIs for inventory and business workflow platforms.',
-      achievements: [
-        'Developed core web applications using Java Spring MVC and Angular JS/Angular 2+',
-        'Implemented secure REST APIs with OAuth2 authentication',
-      ],
-      techUsed: [
-        'Java',
-        'Spring Framework',
-        'REST APIs',
-        'MySQL',
-        'JavaScript',
-        'HTML5/CSS3',
+        'OpenTaps',
+        'MyBatis',
+        'Angular',
+        'Oracle',
+        'PostgreSQL',
+        'RESTful APIs',
       ],
     },
   ];
@@ -218,36 +198,36 @@ export class PortfolioService {
   // ─── Skill Categories ───────────────────────────────────────
   skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend Development',
-      icon: 'fas fa-laptop-code',
-      color: '#00bcd4',
-      skills: [
-        { name: 'Angular 19', percentage: 95 },
-        { name: 'TypeScript', percentage: 92 },
-        { name: 'HTML5 / CSS3 / SCSS', percentage: 95 },
-        { name: 'RxJS & Signals', percentage: 90 },
-      ],
-    },
-    {
       title: 'Backend Engineering',
       icon: 'fas fa-server',
       color: '#7c3aed',
       skills: [
-        { name: 'Java 17 / 21', percentage: 95 },
-        { name: 'Spring Boot 3', percentage: 94 },
-        { name: 'Microservices Architecture', percentage: 95 },
-        { name: 'REST APIs & WebSockets', percentage: 92 },
+        { name: 'Java & Spring Boot', percentage: 95 },
+        { name: 'Microservices Architecture', percentage: 92 },
+        { name: 'Spring Security & JPA/Hibernate', percentage: 90 },
+        { name: 'RESTful Web Services & APIs', percentage: 94 },
       ],
     },
     {
-      title: 'Microservices & Integration',
-      icon: 'fas fa-network-wired',
+      title: 'Frontend Development',
+      icon: 'fas fa-laptop-code',
+      color: '#00bcd4',
+      skills: [
+        { name: 'Angular & TypeScript', percentage: 92 },
+        { name: 'HTML5, CSS3 & JavaScript', percentage: 94 },
+        { name: 'Responsive Web Design', percentage: 92 },
+        { name: 'Cross-Browser Compatibility', percentage: 90 },
+      ],
+    },
+    {
+      title: 'ERP & Digital Payments',
+      icon: 'fas fa-credit-card',
       color: '#ffdb70',
       skills: [
-        { name: 'Apache Kafka Event Streaming', percentage: 90 },
-        { name: 'Spring Cloud Gateway & Eureka', percentage: 92 },
-        { name: 'PhonePe POS & Payment SDKs', percentage: 90 },
-        { name: 'Agora WebRTC SDK', percentage: 88 },
+        { name: 'PhonePe UPI Payment Integration', percentage: 95 },
+        { name: 'Apache OFBiz & OpenTaps ERP', percentage: 90 },
+        { name: 'Agora WebRTC Video Calling', percentage: 88 },
+        { name: 'WhatsApp API Integration', percentage: 88 },
       ],
     },
     {
@@ -255,10 +235,10 @@ export class PortfolioService {
       icon: 'fas fa-database',
       color: '#059669',
       skills: [
-        { name: 'PostgreSQL Multi-Tenancy', percentage: 94 },
-        { name: 'MSSQL / Stored Procedures', percentage: 90 },
-        { name: 'Redis In-Memory Cache', percentage: 88 },
-        { name: 'Query Optimization & Indexing', percentage: 92 },
+        { name: 'PostgreSQL', percentage: 92 },
+        { name: 'Oracle Database', percentage: 88 },
+        { name: 'SQL Query Optimization', percentage: 94 },
+        { name: 'Database Design & Indexing', percentage: 90 },
       ],
     },
     {
@@ -266,10 +246,10 @@ export class PortfolioService {
       icon: 'fas fa-cloud',
       color: '#f59e0b',
       skills: [
-        { name: 'Docker & Containerization', percentage: 90 },
-        { name: 'Kubernetes Pod Scaling', percentage: 88 },
-        { name: 'CI/CD Pipelines (Jenkins/GitLab)', percentage: 88 },
-        { name: 'AWS Cloud Services', percentage: 85 },
+        { name: 'AWS (EC2, S3)', percentage: 86 },
+        { name: 'Git & Version Control', percentage: 90 },
+        { name: 'Maven & Jenkins CI/CD', percentage: 88 },
+        { name: 'Tomcat & Postman', percentage: 92 },
       ],
     },
   ];
@@ -278,175 +258,175 @@ export class PortfolioService {
   projects: Project[] = [
     {
       title: 'Enterprise E-Commerce & PhonePe POS Integration',
-      institution: 'Retail MNC Enterprise System',
-      timeline: '2023 - Present',
+      institution: 'My Hub Technologies Ltd',
+      timeline: 'May 2023 – Present',
       techStack:
-        'Angular 19 · Spring Boot · Microservices · PostgreSQL · PhonePe POS SDK · Redis · Kafka · Docker',
+        'Angular · Spring Boot · Microservices · PostgreSQL · PhonePe UPI API · WhatsApp API · AWS',
       description:
-        'High-availability omni-channel retail backend with Spring Boot microservices, Angular frontend, and PhonePe payment terminal integration processing over 50,000 daily transactions.',
+        'Scalable enterprise application featuring multi-role authentication, product/vendor onboarding, order management, delivery tracking, and PhonePe UPI payment gateway integration.',
       problemSolved:
-        'Legacy POS terminals suffered from transaction latency and inventory mismatches during peak sales. Integrated a real-time event pipeline and automated payment verification.',
+        'Manual order reconciliation and payment verification caused customer drop-offs and high support inquiries. Integrated PhonePe UPI and automated WhatsApp notifications, reducing support load by 40%.',
       features: [
-        'Built <strong>real-time POS terminal sync</strong> with PhonePe hardware terminals for instant payment reconciliation.',
-        'Engineered <strong>multi-store inventory microservice</strong> with Redis caching for instant stock updates.',
-        'Developed <strong>Angular cashier dashboard</strong> with responsive offline-first fallback capability.',
+        'Built <strong>PhonePe UPI payment gateway integration</strong> for instant digital payment processing and automatic reconciliation.',
+        'Engineered <strong>multi-role authentication admin dashboards</strong> for customers, vendors, drivers, and admins.',
+        'Integrated <strong>WhatsApp APIs</strong> for automated instant order updates and delivery notifications.',
       ],
       highlights: [
-        '50k+ daily transactions with 99.99% uptime',
-        'PhonePe POS hardware SDK integration',
-        'Redis caching for sub-millisecond stock checks',
-        'Kafka event streaming for order events',
+        'PhonePe UPI payment integration',
+        'Automated WhatsApp notification engine',
+        '60% performance improvement across APIs & DB',
+        'Multi-role admin dashboards for retail & POS',
       ],
       tags: ['microservices', 'angular', 'database'],
       skills: [
         { name: 'Spring Boot', level: 95 },
-        { name: 'Angular 19', level: 92 },
-        { name: 'PhonePe POS', level: 90 },
+        { name: 'Angular', level: 92 },
+        { name: 'PhonePe UPI', level: 92 },
       ],
       accent: '#00bcd4',
-      badge: '🛍️ Retail POS · Production',
+      badge: '💳 PhonePe UPI · Production',
       image: 'assets/project-phonepe-pos.jpg',
       architecture:
-        'Angular POS UI → API Gateway → [Inventory | Payment | Order] Microservices → PhonePe Gateway → PostgreSQL',
+        'Angular SPA → Spring Gateway → [Order | Inventory | Payment] Microservices → PhonePe API → PostgreSQL',
       githubUrl: '',
       liveUrl: '',
       backendFrontendSeparation:
-        'Decoupled Angular 19 SPA communicating to Spring Boot microservices mesh via REST & WebSockets.',
+        'Decoupled Angular UI communicating with Spring Boot REST microservices.',
       dockerK8sUsage:
-        'Containerized with Docker; managed via Kubernetes cluster with auto-scaling during high-traffic events.',
+        'Deployed on AWS cloud infrastructure with Jenkins CI/CD pipelines.',
       securityAuth:
-        'PCI-DSS compliant security flow with OAuth2/JWT token verification.',
+        'Spring Security JWT with multi-role access control.',
       cicdWorkflow:
-        'Automated CI/CD via Jenkins & Docker registry.',
+        'Automated build & release management via Maven & Jenkins.',
     },
     {
-      title: 'Transportation Fleet Logistics & TMS',
-      institution: 'Logistics Enterprise System',
-      timeline: '2022 - 2023',
+      title: 'Transportation & Fleet Logistics Platform',
+      institution: 'My Hub Technologies Ltd',
+      timeline: '2023 – Present',
       techStack:
-        'Angular 19 · Spring Boot · Microservices · PostgreSQL · GPS Telemetry · WebSockets · Docker · AWS',
+        'Angular · Spring Boot · Microservices · PostgreSQL · REST APIs · AWS EC2/S3',
       description:
-        'Cloud-native transportation & fleet management software with real-time GPS telemetry tracking, automated route optimization, driver dispatching, and multi-tenant billing.',
+        'Scalable transportation & delivery tracking platform featuring driver workflows, route tracking, vendor onboarding, and automated logistics dispatches.',
       problemSolved:
-        'Manual fleet tracking caused delivery delays and high fuel costs. Built an automated telemetry engine that calculates optimal routes and tracks vehicles live on map view.',
+        'Inefficient manual dispatching led to high transit delays. Developed real-time RESTful telemetry services for driver dispatching and delivery tracking.',
       features: [
-        'Implemented <strong>live WebSocket telemetry stream</strong> tracking 1,000+ active fleet vehicles.',
-        'Engineered <strong>automated route optimization algorithms</strong> reducing fuel consumption by 18%.',
-        'Built <strong>multi-tenant freight billing engine</strong> supporting customizable rate cards per client.',
+        'Developed <strong>responsive Angular UI components</strong> for driver, vendor, customer, and admin workflows.',
+        'Engineered <strong>scalable RESTful APIs</strong> for delivery tracking and vehicle route assignments.',
+        'Optimized database queries, cutting transit status update latencies by 60%.',
       ],
       highlights: [
-        'Real-time GPS tracking for 1,000+ fleet vehicles',
-        'Automated route optimization engine',
-        'Multi-tenant billing & invoice generation',
-        'Responsive map-based Angular dashboard',
+        'Real-time delivery tracking & route dispatching',
+        'Cross-browser responsive Angular UI',
+        'Multi-role driver & vendor portal',
+        'AWS cloud deployment',
       ],
       tags: ['angular', 'microservices'],
       skills: [
         { name: 'Spring Boot', level: 92 },
-        { name: 'Angular 19', level: 90 },
-        { name: 'WebSockets', level: 88 },
+        { name: 'Angular', level: 90 },
+        { name: 'REST APIs', level: 94 },
       ],
       accent: '#059669',
       badge: '🚛 Logistics · Enterprise',
       image: 'assets/project-fleet-logistics.jpg',
       architecture:
-        'Angular Telemetry UI → WebSockets Gateway → [GPS Streamer | Route Engine | Billing] Services → PostgreSQL',
+        'Angular UI → API Gateway → [Logistics | Driver | Tracking] Microservices → PostgreSQL',
       githubUrl: '',
       liveUrl: '',
       backendFrontendSeparation:
-        'Angular frontend with Leaflet/OpenStreetMap rendering driven by Spring Boot WebSocket streams.',
+        'Decoupled Angular UI with dynamic maps & dispatch control panels.',
       dockerK8sUsage:
-        'Deploys as containerized microservices on AWS EKS.',
+        'Hosted on AWS EC2 & S3 storage.',
       securityAuth:
-        'Role-based access for Dispatchers, Drivers, and Admin Managers.',
+        'Role-based security filters for drivers and dispatch managers.',
       cicdWorkflow:
-        'GitLab CI pipeline deploying to Kubernetes.',
+        'Git version control & Jenkins deployment pipelines.',
     },
     {
-      title: 'Indian Railways OFBiz ERP Customization',
-      institution: 'Railway Enterprise Client',
-      timeline: '2021 - 2022',
+      title: 'Apache OFBiz ERP & Railway Stock Automation',
+      institution: 'Winfocus Solutions Pvt. Ltd.',
+      timeline: 'Sep 2016 – Apr 2023',
       techStack:
-        'Apache OFBiz · Java · Spring Boot · MSSQL · Stored Procedures · Angular · REST APIs',
+        'Apache OFBiz · OpenTaps · Java · Spring Boot · Oracle · PostgreSQL · MyBatis',
       description:
-        'Large-scale ERP customization for railway inventory, procurement, asset tracking, and maintenance schedules built on Apache OFBiz, Java Spring, and MSSQL.',
+        'Enterprise ERP customization for warehouse, purchase, HR, and product workflows — including automated stock and purchase workflows for South Central & Southern Railways.',
       problemSolved:
-        'Legacy paper-based railway maintenance led to delays. Digitized asset maintenance records and automated procurement workflows across railway zones.',
+        'Manual stock tracking caused inventory discrepancies across railway zones. Automated stock procurement and warehouse workflows for 200+ concurrent users.',
       features: [
-        'Customized <strong>Apache OFBiz ERP modules</strong> for railway inventory & asset tracking.',
-        'Authored <strong>MSSQL stored procedures</strong> for complex audit logs and batch inventory reconciliation.',
-        'Designed <strong>Angular management portal</strong> for station engineers and procurement officers.',
+        'Customized <strong>Apache OFBiz ERP components</strong> for warehouse, procurement, HR, and product workflows.',
+        'Automated <strong>stock & purchase workflows</strong> for South Central & Southern Railways.',
+        'Built documented <strong>RESTful APIs</strong> supporting mobile and web application integrations.',
       ],
       highlights: [
-        'Digitized maintenance workflows for railway zones',
-        'MSSQL stored procedures & query optimization',
-        'Apache OFBiz framework extension',
-        'High-security enterprise audit logging',
+        'Automated Railway stock & purchase workflows',
+        'Apache OFBiz & OpenTaps customization',
+        '200+ concurrent active enterprise users',
+        'Oracle & PostgreSQL query optimization',
       ],
       tags: ['angular', 'microservices', 'database'],
       skills: [
-        { name: 'Java / OFBiz', level: 90 },
-        { name: 'MSSQL', level: 92 },
-        { name: 'Angular', level: 88 },
+        { name: 'Java / OFBiz', level: 92 },
+        { name: 'Oracle / SQL', level: 90 },
+        { name: 'Spring Boot', level: 88 },
       ],
       accent: '#7c3aed',
-      badge: '🚆 Railways · Enterprise',
+      badge: '🚆 Railways ERP · Production',
       image: 'assets/project-railways-ofbiz.jpg',
       architecture:
-        'Angular UI → Spring API Layer → Apache OFBiz Core Engine → MSSQL Stored Procedures',
+        'Angular Web Portal → Spring API Layer → Apache OFBiz Core Engine → Oracle/PostgreSQL',
       githubUrl: '',
       liveUrl: '',
       backendFrontendSeparation:
-        'Custom Angular UI communicating via REST APIs to Apache OFBiz Java backend.',
+        'Angular Web & Mobile REST API interfaces for enterprise ERP modules.',
       dockerK8sUsage:
-        'Deployed on high-security enterprise Linux servers.',
+        'Enterprise Tomcat server deployment.',
       securityAuth:
-        'Enterprise Single Sign-On (SSO) integration.',
+        'Role-based permissions & audit trail logging.',
       cicdWorkflow:
-        'Enterprise deployment scripts with automated rollback support.',
+        'Maven build automation & version control.',
     },
     {
-      title: 'Agora Real-Time Video Shopping App',
-      institution: 'E-Commerce Innovation Project',
-      timeline: '2023 - 2024',
+      title: 'Agora Real-Time Video Calling & Live Streaming',
+      institution: 'My Hub Technologies Ltd',
+      timeline: '2023 – 2024',
       techStack:
-        'Angular 19 · Agora WebRTC SDK · WebSockets · Spring Boot · Microservices · Redis · PostgreSQL',
+        'Angular · Agora WebRTC SDK · Spring Boot · Microservices · PostgreSQL · AWS',
       description:
-        'Interactive live-video commerce application powered by Agora WebRTC SDK, WebSockets, Angular 19, and Spring Boot for live broadcast product showcases and instant checkout.',
+        'Interactive real-time video calling and live streaming platform between customers and retailers powered by Agora WebRTC SDK and Spring Boot.',
       problemSolved:
-        'Standard e-commerce static photos lack engagement. Created a low-latency live video streaming experience where hosts can demo products live while viewers buy in real-time.',
+        'Customers needed live video consultations with retailers before purchasing high-value items online. Integrated low-latency Agora WebRTC streaming directly into the web application.',
       features: [
-        'Integrated <strong>Agora WebRTC Video SDK</strong> for ultra-low latency (<200ms) live streaming.',
-        'Built <strong>real-time chat & live product overlay</strong> allowing viewers to buy during the live video.',
-        'Engineered <strong>Spring Boot WebSocket gateway</strong> managing thousands of concurrent viewers.',
+        'Integrated <strong>Agora WebRTC Video SDK</strong> for real-time customer-retailer video consultations.',
+        'Built <strong>live streaming product showcase overlay</strong> allowing instant in-call purchase actions.',
+        'Integrated high-concurrency Spring Boot backend for channel token generation and session management.',
       ],
       highlights: [
-        'Ultra-low latency Agora WebRTC video streaming',
-        'In-stream instant checkout overlay',
-        'Real-time chat & host interactions',
-        'Spring Boot WebSocket mesh',
+        'Real-time Agora video calling & live streaming',
+        'Customer-to-retailer video consultation',
+        'Ultra-low latency streaming',
+        'Spring Boot token authorization',
       ],
       tags: ['angular', 'microservices'],
       skills: [
-        { name: 'Angular 19', level: 94 },
-        { name: 'Agora WebRTC', level: 90 },
+        { name: 'Angular', level: 92 },
+        { name: 'Agora WebRTC', level: 88 },
         { name: 'Spring Boot', level: 90 },
       ],
       accent: '#ffdb70',
-      badge: '🎥 Live Stream · Innovation',
+      badge: '🎥 Live Video · Innovation',
       image: 'assets/project-video-shopping.jpg',
       architecture:
-        'Angular Video App → Agora WebRTC Cloud + Spring WebSocket Gateway → [Live Commerce Service] → Redis',
+        'Angular Video App → Agora Cloud RTC + Spring Security Token Gateway → PostgreSQL',
       githubUrl: '',
       liveUrl: '',
       backendFrontendSeparation:
-        'Angular 19 SPA with custom video player overlays connected to Spring Boot video backend.',
+        'Angular frontend with video overlays calling Spring Boot token generation endpoints.',
       dockerK8sUsage:
-        'Docker containers running on cloud infrastructure with auto-scaling streams.',
+        'AWS EC2 cloud instances.',
       securityAuth:
-        'Secure token generation via Agora authentication service.',
+        'Dynamic channel encryption tokens.',
       cicdWorkflow:
-        'Automated build pipeline with CDN media distribution.',
+        'Jenkins automated deployments.',
     },
   ];
 
