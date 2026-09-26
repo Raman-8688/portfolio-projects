@@ -22,7 +22,7 @@ export class PortfolioService {
   readonly navItems: NavItem[] = NAV_ITEMS;
 
   // ─── Personal Profile (Source of Truth from Resume) ─────────
-  name = 'Adi Sekhara Reddy Hanumanthu';
+  name = 'Adi Sekhara Reddy';
   shortName = 'Adi Sekhara Reddy';
   titles = [
     'Senior Java Full Stack Developer',
