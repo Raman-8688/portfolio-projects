@@ -1,0 +1,94 @@
+<main>
+  <!-- #SIDEBAR (Sticky Profile Card on Desktop, Collapsible on Mobile) -->
+  <aside class="sidebar" [class.active]="sidebarActive">
+    <div class="sidebar-info">
+      <figure class="avatar-box">
+        <img src="assets/profile.png" [alt]="ps.name" width="80" height="80">
+      </figure>
+
+      <div class="info-content">
+        <h1 class="name" [title]="ps.name">{{ ps.name }}</h1>
+        <p class="title">{{ ps.titles[0] }}</p>
+      </div>
+
+      <button class="info_more-btn" (click)="toggleSidebar()" aria-label="Toggle contact details">
+        <span>Show Contacts</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-info_more">
+      <div class="separator"></div>
+
+      <ul class="contacts-list">
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Email</p>
+            <a [href]="'mailto:' + ps.email" class="contact-link">{{ ps.email }}</a>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Phone</p>
+            <a [href]="'tel:' + ps.phone" class="contact-link">{{ ps.phone }}</a>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Experience</p>
+            <time>{{ ps.yearsExp }}</time>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Location</p>
+            <address>{{ ps.location }}</address>
+          </div>
+        </li>
+      </ul>
+
+      <div class="separator"></div>
+
+      <ul class="social-list">
+        <li *ngFor="let social of ps.socialLinks" class="social-item">
+          <a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-link" [title]="social.label">
+            <i [class]="social.icon"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- #MAIN-CONTENT (Top Tab Navbar + Active Section Articles + Global Footer) -->
+  <div class="main-content">
+    <app-navbar></app-navbar>
+
+    <!-- Section Components (Each component's root <article> binds [class.active]) -->
+    <app-about></app-about>
+    <app-experience></app-experience>
+    <app-projects></app-projects>
+    <app-architecture-showcase></app-architecture-showcase>
+    <app-contact></app-contact>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+  </div>
+</main>
+
+<!-- Preferences Drawer / Settings Modal -->
+<app-settings-panel></app-settings-panel>

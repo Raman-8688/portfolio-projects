@@ -1,0 +1,125 @@
+<article class="about" [class.active]="ps.activeSection() === 'about'" id="section-about">
+  <header>
+    <h2 class="h2 article-title">About Me</h2>
+  </header>
+
+  <!-- Hero Header Banner inside About Section -->
+  <section class="about-hero" style="margin-bottom: 25px;">
+    <div class="typewriter-box" style="margin-bottom: 12px; font-size: 18px; font-weight: 600; color: var(--accent-color);">
+      <span>{{ tw.displayText() }}</span><span class="cursor" style="color: var(--accent-color); font-weight: 400;">|</span>
+    </div>
+
+    <p class="about-tagline" style="font-size: 15px; color: var(--text-primary); margin-bottom: 16px; font-weight: 500;" [innerHTML]="ps.heroTagline"></p>
+
+    <!-- Quick Action CTAs -->
+    <div class="action-buttons" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+      <button class="form-btn" (click)="ps.navigateTo('projects')" style="padding: 10px 18px; font-size: 13px; min-height: 44px;">
+        <i class="fas fa-project-diagram"></i>
+        <span>View Enterprise Projects</span>
+      </button>
+
+      <a [href]="ps.linkedin" target="_blank" rel="noopener noreferrer" class="form-btn" style="padding: 10px 18px; font-size: 13px; min-height: 44px; text-decoration: none;">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn Profile</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Bio Overview -->
+  <section class="about-text">
+    <p [innerHTML]="ps.aboutIntro"></p>
+
+    <div class="about-points" style="margin-top: 15px; display: flex; flex-direction: column; gap: 14px;">
+      <div *ngFor="let pt of ps.aboutPoints" style="display: flex; gap: 14px; align-items: flex-start;">
+        <div class="icon-box" style="flex-shrink: 0; width: 36px; height: 36px;">
+          <i [class]="pt.icon"></i>
+        </div>
+        <p [innerHTML]="pt.text" style="margin: 0; font-size: var(--fs-6); color: var(--text-secondary); line-height: 1.6;"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Achievements Counter Grid -->
+  <section class="achievements" style="margin-bottom: 30px;">
+    <div class="achievements-grid">
+      <div *ngFor="let ach of ps.achievements" class="achievement-card">
+        <div style="font-size: 20px; margin-bottom: 6px;" [style.color]="ach.color">
+          <i [class]="ach.icon"></i>
+        </div>
+        <div class="achievement-value" [style.color]="ach.color">{{ ach.value }}</div>
+        <div class="achievement-label">{{ ach.label }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services: What I'm Doing -->
+  <section class="service">
+    <h3 class="h3 service-title">Core Architectural Focus</h3>
+
+    <ul class="service-list">
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-dev.svg" alt="Web Development Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Enterprise Microservices Architecture</h4>
+          <p class="service-item-text">
+            Designing resilient microservices mesh with Java 21, Spring Boot 3, Apache Kafka event streams, Redis caching, and Angular 19 frontend systems.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-design.svg" alt="Architecture Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Omni-Channel Retail POS & Live Streaming</h4>
+          <p class="service-item-text">
+            Integrating PhonePe POS hardware payment terminals, live video shopping platforms via Agora WebRTC SDK, and high-concurrency order processors.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-app.svg" alt="Database Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Transportation TMS & Enterprise ERP</h4>
+          <p class="service-item-text">
+            Architecting real-time GPS telemetry pipelines for fleet management, route optimization, and Indian Railways Apache OFBiz ERP customizations.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-photo.svg" alt="Cloud Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Cloud Infrastructure & DevOps</h4>
+          <p class="service-item-text">
+            Containerizing enterprise services with Docker, deploying to Kubernetes (EKS/On-Prem), and automating CI/CD pipelines with Jenkins and AWS.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Overview Highlight Cards -->
+  <section class="info-summary" style="margin-bottom: 30px;">
+    <h3 class="h3" style="margin-bottom: 18px;">Overview Highlights</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+      <div *ngFor="let card of ps.infoCards" class="content-card" style="padding: 16px; display: flex; align-items: center; gap: 14px;">
+        <div class="icon-box" [style.background]="card.bg" [style.color]="card.color">
+          <i [class]="card.icon"></i>
+        </div>
+        <div>
+          <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">{{ card.label }}</div>
+          <div style="font-size: 13px; font-weight: var(--fw-600); color: var(--text-primary); margin-top: 2px;">{{ card.value }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>

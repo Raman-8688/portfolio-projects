@@ -1,0 +1,65 @@
+<article class="resume" [class.active]="ps.activeSection() === 'experience'" id="section-experience">
+  <header>
+    <h2 class="h2 article-title">Resume</h2>
+  </header>
+
+  <!-- Work Experience Timeline -->
+  <section class="timeline">
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <h3 class="h3">Work Experience</h3>
+    </div>
+
+    <ol class="timeline-list">
+      <li *ngFor="let exp of ps.experiences" class="timeline-item">
+        <h4 class="h4 timeline-item-title">
+          {{ exp.role }} — <span [style.color]="exp.color">{{ exp.company }}</span>
+        </h4>
+        <span>{{ exp.period }} | {{ exp.location }} ({{ exp.type }})</span>
+
+        <p class="timeline-text">{{ exp.description }}</p>
+
+        <ul class="timeline-achievements" style="margin-top: 10px;">
+          <li *ngFor="let ach of exp.achievements" [innerHTML]="ach"></li>
+        </ul>
+
+        <div class="tech-badges">
+          <span *ngFor="let tech of exp.techUsed" class="tech-badge">{{ tech }}</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Education Timeline -->
+  <section class="timeline">
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3 class="h3">Education</h3>
+    </div>
+
+    <ol class="timeline-list">
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">JSpiders Training Institute</h4>
+        <span>Jun 2024 — Jan 2025 | Bangalore, India</span>
+        <p class="timeline-text">
+          Java Full Stack Trainee — Earned competitive scholarship. Mastered Core Java, Spring Boot microservices, REST APIs, SQL, and Angular. Built Bank Management System.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Newtons Institute of Engineering</h4>
+        <span>2020 — 2024 | Andhra Pradesh, India</span>
+        <p class="timeline-text">
+          Bachelor of Technology (B.Tech) in Computer Science & Engineering. Strong foundation in algorithms, database management systems, and software engineering.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Embedded Technical Arsenal Skills Component -->
+  <app-skills></app-skills>
+</article>

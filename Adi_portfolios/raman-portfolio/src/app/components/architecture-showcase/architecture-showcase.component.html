@@ -1,0 +1,102 @@
+<article class="architecture" [class.active]="ps.activeSection() === 'architecture'" id="section-architecture">
+  <header>
+    <h2 class="h2 article-title">Architecture & DevOps</h2>
+  </header>
+
+  <p class="about-text" style="margin-bottom: 20px;">
+    Production-grade distributed microservices topology and cloud deployment pipelines — click any system node below to inspect architectural patterns and tech stack details.
+  </p>
+
+  <!-- Interactive SVG Topology -->
+  <div class="diagram-wrapper content-card" style="padding: 20px; margin-bottom: 25px; overflow-x: auto;">
+    <svg class="arch-svg" viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="min-width: 800px; width: 100%;">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(255,219,112,0.6)"/>
+        </marker>
+        <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+          <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+
+      <rect width="1060" height="260" fill="url(#grid)" rx="16"/>
+
+      <!-- Connection lines -->
+      <line x1="168" y1="130" x2="238" y2="130" stroke="rgba(255,219,112,0.4)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+      <line x1="388" y1="130" x2="458" y2="130" stroke="rgba(255,219,112,0.4)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+      <line x1="608" y1="130" x2="678" y2="130" stroke="rgba(255,219,112,0.4)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+      <line x1="828" y1="130" x2="898" y2="130" stroke="rgba(255,219,112,0.4)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+      <!-- NODE 0: Angular UI -->
+      <g class="svg-node" (click)="selectNode(0)" style="cursor:pointer">
+        <rect x="20" y="72" width="148" height="116" rx="14"
+          fill="rgba(0,188,212,0.08)" stroke="#00bcd4" stroke-width="1.5"/>
+        <text x="94" y="114" text-anchor="middle" font-size="18" fill="#00bcd4"><tspan font-family="sans-serif">🅰️</tspan></text>
+        <text x="94" y="147" text-anchor="middle" font-size="9" font-weight="700" fill="#00bcd4" font-family="monospace">FRONTEND</text>
+        <text x="94" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Angular SPA</text>
+      </g>
+
+      <!-- NODE 1: API Gateway -->
+      <g class="svg-node" (click)="selectNode(1)" style="cursor:pointer">
+        <rect x="240" y="72" width="148" height="116" rx="14"
+          fill="rgba(124,58,237,0.08)" stroke="#7c3aed" stroke-width="1.5"/>
+        <text x="314" y="114" text-anchor="middle" font-size="18" fill="#7c3aed"><tspan font-family="sans-serif">🌐</tspan></text>
+        <text x="314" y="147" text-anchor="middle" font-size="9" font-weight="700" fill="#7c3aed" font-family="monospace">ROUTING & AUTH</text>
+        <text x="314" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">API Gateway</text>
+      </g>
+
+      <!-- NODE 2: Microservices -->
+      <g class="svg-node" (click)="selectNode(2)" style="cursor:pointer">
+        <rect x="460" y="72" width="148" height="116" rx="14"
+          fill="rgba(5,150,105,0.08)" stroke="#059669" stroke-width="1.5"/>
+        <text x="534" y="114" text-anchor="middle" font-size="18" fill="#059669"><tspan font-family="sans-serif">⚙️</tspan></text>
+        <text x="534" y="147" text-anchor="middle" font-size="9" font-weight="700" fill="#059669" font-family="monospace">BACKEND</text>
+        <text x="534" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Spring Services</text>
+      </g>
+
+      <!-- NODE 3: Database Layer -->
+      <g class="svg-node" (click)="selectNode(3)" style="cursor:pointer">
+        <rect x="680" y="72" width="148" height="116" rx="14"
+          fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="754" y="114" text-anchor="middle" font-size="18" fill="#f59e0b"><tspan font-family="sans-serif">🗄️</tspan></text>
+        <text x="754" y="147" text-anchor="middle" font-size="9" font-weight="700" fill="#f59e0b" font-family="monospace">DATA LAYER</text>
+        <text x="754" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">PostgreSQL / MSSQL</text>
+      </g>
+
+      <!-- NODE 4: Docker & K8s -->
+      <g class="svg-node" (click)="selectNode(4)" style="cursor:pointer">
+        <rect x="900" y="72" width="140" height="116" rx="14"
+          fill="rgba(233,30,99,0.08)" stroke="#e91e63" stroke-width="1.5"/>
+        <text x="970" y="114" text-anchor="middle" font-size="18" fill="#e91e63"><tspan font-family="sans-serif">🐳</tspan></text>
+        <text x="970" y="147" text-anchor="middle" font-size="9" font-weight="700" fill="#e91e63" font-family="monospace">DEVOPS</text>
+        <text x="970" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Docker & K8s</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Selected Node Details -->
+  <div *ngIf="selectedNodeIndex !== null && architectureNodes[selectedNodeIndex]" class="content-card" style="padding: 24px; margin-bottom: 25px;">
+    <span class="project-badge" [style.color]="architectureNodes[selectedNodeIndex].color">{{ architectureNodes[selectedNodeIndex].type }}</span>
+    <h3 class="h3" style="margin-top: 8px; margin-bottom: 6px;">{{ architectureNodes[selectedNodeIndex].title }}</h3>
+    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">{{ architectureNodes[selectedNodeIndex].purpose }}</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div>
+        <h4 class="h4" style="color: var(--accent-color); font-size: 14px; margin-bottom: 10px;"><i class="fas fa-cubes"></i> Tech Stack</h4>
+        <div class="tech-badges">
+          <span *ngFor="let tech of architectureNodes[selectedNodeIndex].techStack" class="tech-badge">{{ tech }}</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="h4" style="color: var(--accent-color); font-size: 14px; margin-bottom: 10px;"><i class="fas fa-list-check"></i> Key Responsibilities</h4>
+        <ul style="padding-left: 18px; color: var(--text-secondary); font-size: 13px; display: flex; flex-direction: column; gap: 6px;">
+          <li *ngFor="let resp of architectureNodes[selectedNodeIndex].responsibilities" [innerHTML]="resp"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded DevOps CI/CD & Kubernetes Pod Health Component -->
+  <app-devops-deployment></app-devops-deployment>
+</article>

@@ -1,0 +1,28 @@
+<nav class="navbar" aria-label="Main Navigation">
+  <ul class="navbar-list" role="tablist">
+    <li *ngFor="let item of navItems" class="navbar-item" role="presentation">
+      <button
+        role="tab"
+        [id]="'tab-' + item.id"
+        [attr.aria-controls]="'section-' + item.id"
+        [attr.aria-selected]="ps.activeSection() === item.id"
+        class="navbar-link"
+        [class.active]="ps.activeSection() === item.id"
+        (click)="navigate(item.id)"
+      >
+        <i [class]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </button>
+    </li>
+  </ul>
+
+  <!-- Settings Gear Trigger -->
+  <button
+    class="settings-trigger-btn"
+    (click)="ps.toggleSettings()"
+    title="Open Preferences"
+    aria-label="Preferences"
+  >
+    <i class="fas fa-cog" [class.spinning]="ps.settingsPanelOpen()"></i>
+  </button>
+</nav>

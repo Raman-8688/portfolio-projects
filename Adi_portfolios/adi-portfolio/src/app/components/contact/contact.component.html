@@ -1,0 +1,61 @@
+<section class="contact-section section-alt" [class.dark]="ps.isDarkMode()">
+  <div class="section-container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Direct Enterprise Outreach</span>
+      <h2 class="section-title">Executive <span class="accent">Contact Details</span></h2>
+      <p class="section-sub">Connect directly for Lead Java Developer, Microservices Architecture & Enterprise Consulting opportunities.</p>
+      <div class="title-line"></div>
+    </div>
+
+    <!-- AVAILABILITY BANNER -->
+    <div class="availability-banner glass-card" data-aos="fade-up">
+      <div class="avail-badge">
+        <span class="pulse-indicator"></span>
+        <span>Active Recruitment Status</span>
+      </div>
+      <h3>Available for Senior Leadership & Architecture Roles</h3>
+      <p>
+        Leveraging 10+ years of production experience in Java, Spring Boot, Microservices, Angular, PostgreSQL, and Payment Gateway integrations (PhonePe UPI & Agora Live RTC). Let's connect directly!
+      </p>
+    </div>
+
+    <!-- EXECUTIVE CONTACT CARDS LIST (VERTICAL STACK - ONE BY ONE) -->
+    <div class="contact-hub-list" data-aos="fade-up">
+      <div class="contact-hub-item glass-card" *ngFor="let item of contactItems">
+        <div class="item-left-info">
+          <div class="hub-icon-wrap" [style.background]="item.bg" [style.color]="item.color">
+            <i [class]="item.icon"></i>
+          </div>
+          <div class="item-details">
+            <span class="hub-item-label">{{ item.label }}</span>
+            <div class="hub-item-value">{{ item.value }}</div>
+          </div>
+        </div>
+        
+        <a [href]="item.href" target="_blank" class="hub-action-btn" [style.border-color]="item.color + '40'">
+          <span>{{ item.actionLabel }}</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- DIRECT ACTION BAR -->
+    <div class="contact-actions-bar glass-card" data-aos="fade-up">
+      <div class="action-info">
+        <h4>Need Adi's Verified 1-Page ATS Resume?</h4>
+        <p>Download full technical experience history or schedule an interview discussion.</p>
+      </div>
+      <div class="action-btn-group">
+        <a href="mailto:adireddy.h@gmail.com" class="btn-primary-contact">
+          <i class="fas fa-paper-plane"></i> Direct Email
+        </a>
+        <a href="tel:+919182370938" class="btn-secondary-contact">
+          <i class="fas fa-phone-alt"></i> Call +91-9182370938
+        </a>
+        <button class="btn-resume-contact" (click)="ps.openResumeModal()">
+          <i class="fas fa-file-pdf"></i> ATS Resume
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

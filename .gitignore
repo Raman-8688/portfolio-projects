@@ -1,0 +1,19 @@
+# Dependencies
+**/node_modules/
+node_modules/
+
+# Build & Cache
+**/dist/
+dist/
+**/.angular/
+.angular/
+
+# IDE & OS Files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Logs & Temporary Files
+*.log
+*.zip

@@ -1,0 +1,74 @@
+<article class="contact" [class.active]="ps.activeSection() === 'contact'" id="section-contact">
+  <header>
+    <h2 class="h2 article-title">Contact Information</h2>
+  </header>
+
+  <!-- Google Map Location Embed (Hyderabad) -->
+  <section class="mapbox" style="margin-bottom: 30px;">
+    <figure>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3169822765!2d78.2679586!3d17.4121531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1711000000000!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Location Map"
+      ></iframe>
+    </figure>
+  </section>
+
+  <!-- Clean Sequential Contact Details (One By One) -->
+  <section class="contact-details-container" style="display: flex; flex-direction: column; gap: 16px;">
+    <h3 class="h3" style="margin-bottom: 10px; color: var(--text-primary);">Direct Contact Channels</h3>
+
+    <div class="content-card" style="padding: 20px; display: flex; align-items: center; gap: 18px; width: 100%;">
+      <div class="icon-box" style="width: 46px; height: 46px; flex-shrink: 0; font-size: 20px; background: rgba(0, 188, 212, 0.1); color: #00bcd4;">
+        <i class="fas fa-user-tie"></i>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Full Name</div>
+        <div style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-top: 3px;">{{ ps.name }} ({{ ps.titles[0] }})</div>
+      </div>
+    </div>
+
+    <div class="content-card" style="padding: 20px; display: flex; align-items: center; gap: 18px; width: 100%;">
+      <div class="icon-box" style="width: 46px; height: 46px; flex-shrink: 0; font-size: 20px; background: rgba(255, 219, 112, 0.1); color: #ffdb70;">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Email Address</div>
+        <a [href]="'mailto:' + ps.email" style="font-size: 16px; font-weight: 600; color: var(--text-primary); text-decoration: none; margin-top: 3px; display: block;">{{ ps.email }}</a>
+      </div>
+    </div>
+
+    <div class="content-card" style="padding: 20px; display: flex; align-items: center; gap: 18px; width: 100%;">
+      <div class="icon-box" style="width: 46px; height: 46px; flex-shrink: 0; font-size: 20px; background: rgba(16, 185, 129, 0.1); color: #10b981;">
+        <i class="fas fa-phone-alt"></i>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Phone Number</div>
+        <a [href]="'tel:' + ps.phone" style="font-size: 16px; font-weight: 600; color: var(--text-primary); text-decoration: none; margin-top: 3px; display: block;">{{ ps.phone }}</a>
+      </div>
+    </div>
+
+    <div class="content-card" style="padding: 20px; display: flex; align-items: center; gap: 18px; width: 100%;">
+      <div class="icon-box" style="width: 46px; height: 46px; flex-shrink: 0; font-size: 20px; background: rgba(124, 58, 237, 0.1); color: #8b5cf6;">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">LinkedIn Profile</div>
+        <a [href]="ps.linkedin" target="_blank" rel="noopener noreferrer" style="font-size: 16px; font-weight: 600; color: var(--accent-color); text-decoration: underline; margin-top: 3px; display: block;">{{ ps.linkedin }}</a>
+      </div>
+    </div>
+
+    <div class="content-card" style="padding: 20px; display: flex; align-items: center; gap: 18px; width: 100%;">
+      <div class="icon-box" style="width: 46px; height: 46px; flex-shrink: 0; font-size: 20px; background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Work Location</div>
+        <div style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-top: 3px;">{{ ps.location }}</div>
+      </div>
+    </div>
+  </section>
+</article>
