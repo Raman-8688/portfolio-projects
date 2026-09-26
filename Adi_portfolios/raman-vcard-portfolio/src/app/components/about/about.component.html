@@ -1,0 +1,138 @@
+<article class="about" [class.active]="ps.activeSection() === 'about'" id="section-about">
+  <header>
+    <h2 class="h2 article-title">About Me</h2>
+  </header>
+
+  <!-- Hero Header Banner inside About Section -->
+  <section class="about-hero" style="margin-bottom: 25px;">
+    <div class="typewriter-box" style="margin-bottom: 12px; font-size: 18px; font-weight: 600; color: var(--accent-color);">
+      <span>{{ tw.displayText() }}</span><span class="cursor" style="color: var(--accent-color); font-weight: 400;">|</span>
+    </div>
+
+    <p class="about-tagline" style="font-size: 15px; color: var(--text-primary); margin-bottom: 16px; font-weight: 500;" [innerHTML]="ps.heroTagline"></p>
+
+    <!-- Quick Action CTAs -->
+    <div class="action-buttons" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+      <button class="form-btn" (click)="ps.navigateTo('projects')" style="padding: 10px 18px; font-size: 13px; min-height: 44px;">
+        <i class="fas fa-project-diagram"></i>
+        <span>View Projects</span>
+      </button>
+
+      <a href="assets/resume.pdf" download class="form-btn" style="padding: 10px 18px; font-size: 13px; min-height: 44px; text-decoration: none;">
+        <i class="fas fa-file-download"></i>
+        <span>Download Resume</span>
+      </a>
+
+      <a [href]="ps.github" target="_blank" rel="noopener noreferrer" class="form-btn" style="padding: 10px 18px; font-size: 13px; min-height: 44px; text-decoration: none;">
+        <i class="fab fa-github"></i>
+        <span>GitHub Profile</span>
+      </a>
+
+      <a [href]="ps.linkedin" target="_blank" rel="noopener noreferrer" class="form-btn" style="padding: 10px 18px; font-size: 13px; min-height: 44px; text-decoration: none;">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn Profile</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Bio Overview -->
+  <section class="about-text">
+    <p [innerHTML]="ps.aboutIntro"></p>
+
+    <div class="about-points" style="margin-top: 15px; display: flex; flex-direction: column; gap: 14px;">
+      <div *ngFor="let pt of ps.aboutPoints" style="display: flex; gap: 14px; align-items: flex-start;">
+        <div class="icon-box" style="flex-shrink: 0; width: 36px; height: 36px;">
+          <i [class]="pt.icon"></i>
+        </div>
+        <p [innerHTML]="pt.text" style="margin: 0; font-size: var(--fs-6); color: var(--text-secondary); line-height: 1.6;"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Achievements Counter Grid -->
+  <section class="achievements" style="margin-bottom: 30px;">
+    <div class="achievements-grid">
+      <div *ngFor="let ach of ps.achievements" class="achievement-card">
+        <div style="font-size: 20px; margin-bottom: 6px;" [style.color]="ach.color">
+          <i [class]="ach.icon"></i>
+        </div>
+        <div class="achievement-value" [style.color]="ach.color">{{ ach.value }}</div>
+        <div class="achievement-label">{{ ach.label }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services: What I'm Doing -->
+  <section class="service">
+    <h3 class="h3 service-title">What I'm Doing</h3>
+
+    <ul class="service-list">
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-dev.svg" alt="Web Development Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Spring Boot & Angular Development</h4>
+          <p class="service-item-text">
+            Designing resilient microservices with Java Spring Boot, reactive Angular frontends, RESTful APIs, and Spring Security JWT authentication.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-design.svg" alt="Architecture Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Multi-Tenant Architecture</h4>
+          <p class="service-item-text">
+            Architecting production multi-tenant systems using PostgreSQL dynamic schema-per-tenant routing and DB-driven dynamic multilanguage UI.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-app.svg" alt="Database Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Database & Stored Procedures</h4>
+          <p class="service-item-text">
+            Crafting high-performance stored procedures, query optimization, indexing, and synonyms across MSSQL, PostgreSQL, and MySQL.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-icon-box">
+          <img src="assets/images/icon-photo.svg" alt="Cloud Icon" width="40" height="40">
+        </div>
+        <div class="service-content-box">
+          <h4 class="h4 service-item-title">Containerization & Deployment</h4>
+          <p class="service-item-text">
+            Containerizing microservices with Docker and deploying onto Kubernetes clusters with Eureka service discovery and API Gateway routing.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Overview Highlight Cards -->
+  <section class="info-summary" style="margin-bottom: 30px;">
+    <h3 class="h3" style="margin-bottom: 18px;">Overview Highlights</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+      <div *ngFor="let card of ps.infoCards" class="content-card" style="padding: 16px; display: flex; align-items: center; gap: 14px;">
+        <div class="icon-box" [style.background]="card.bg" [style.color]="card.color">
+          <i [class]="card.icon"></i>
+        </div>
+        <div>
+          <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">{{ card.label }}</div>
+          <div style="font-size: 13px; font-weight: var(--fw-600); color: var(--text-primary); margin-top: 2px;">{{ card.value }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Activity & Open Source Presence -->
+  <app-github-stats></app-github-stats>
+</article>

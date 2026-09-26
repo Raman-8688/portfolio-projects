@@ -1,0 +1,104 @@
+<main>
+  <!-- #SIDEBAR (Sticky Profile Card on Desktop, Collapsible on Mobile) -->
+  <aside class="sidebar" [class.active]="sidebarActive">
+    <div class="sidebar-info">
+      <figure class="avatar-box">
+        <img src="assets/profile.png" alt="Ramanjaneyulu Boya" width="80" height="80">
+      </figure>
+
+      <div class="info-content">
+        <h1 class="name" title="Ramanjaneyulu Boya">Ramanjaneyulu Boya</h1>
+        <p class="title">Java Full Stack Developer</p>
+      </div>
+
+      <button class="info_more-btn" (click)="toggleSidebar()" aria-label="Toggle contact details">
+        <span>Show Contacts</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-info_more">
+      <div class="separator"></div>
+
+      <ul class="contacts-list">
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Email</p>
+            <a href="mailto:ramanms8688&#64;gmail.com" class="contact-link">ramanms8688&#64;gmail.com</a>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Phone</p>
+            <a href="tel:+918688505451" class="contact-link">+91 8688505451</a>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Experience</p>
+            <time>1+ Year (Full Stack)</time>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="icon-box">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-info">
+            <p class="contact-title">Location</p>
+            <address>Kurnool, AP, India</address>
+          </div>
+        </li>
+      </ul>
+
+      <div class="separator"></div>
+
+      <ul class="social-list">
+        <li class="social-item">
+          <a href="https://github.com/Raman-8688" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="social-item">
+          <a href="https://linkedin.com/in/b-ramanjaneyulu-155021258" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li class="social-item">
+          <a href="mailto:ramanms8688&#64;gmail.com" class="social-link" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- #MAIN-CONTENT (Top Tab Navbar + Active Section Articles + Global Footer) -->
+  <div class="main-content">
+    <app-navbar></app-navbar>
+
+    <!-- Section Components (Each component's root <article> binds [class.active]) -->
+    <app-about></app-about>
+    <app-experience></app-experience>
+    <app-projects></app-projects>
+    <app-architecture-showcase></app-architecture-showcase>
+    <app-contact></app-contact>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+  </div>
+</main>
+
+<!-- Preferences Drawer / Settings Modal -->
+<app-settings-panel></app-settings-panel>
