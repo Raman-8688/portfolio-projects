@@ -1,0 +1,308 @@
+/* ── Contact Section ──────────────────────────────────────── */
+.contact-section {
+  padding: 110px 60px;
+  background: var(--bg-color);
+  transition: background 0.4s;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 50% 40% at 75% 5%,
+      color-mix(in srgb, var(--theme-color) 8%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 35% 35% at 15% 95%,
+      color-mix(in srgb, #6366f1 6%, transparent),
+      transparent
+    );
+  pointer-events: none;
+}
+
+/* ── Availability Banner ─────────────────────────────────── */
+.availability-banner {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px 32px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 36px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.avail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  color: #10b981;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: pulseDot 1.4s infinite alternate;
+}
+
+@keyframes pulseDot {
+  from {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 8px #10b981;
+  }
+}
+
+.availability-banner h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.availability-banner p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Executive Contact Hub Vertical List (One By One) ────── */
+.contact-hub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 36px;
+}
+
+.contact-hub-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-hub-item:hover {
+  transform: translateX(6px);
+  border-color: var(--theme-color);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+.item-left-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hub-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hub-item-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hub-item-value {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.hub-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: color-mix(in srgb, var(--text-primary) 4%, transparent);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.hub-action-btn:hover {
+  background: var(--theme-color);
+  color: #ffffff;
+  border-color: var(--theme-color) !important;
+  transform: translateX(4px);
+}
+
+/* ── Direct Action Bar ───────────────────────────────────── */
+.contact-actions-bar {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px 36px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.action-info h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.action-info p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.action-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary-contact,
+.btn-secondary-contact,
+.btn-resume-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-primary-contact {
+  background: var(--theme-color);
+  color: #ffffff;
+  border: 1px solid var(--theme-color);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--theme-color) 35%, transparent);
+}
+
+.btn-primary-contact:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-contact {
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary-contact:hover {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+  transform: translateY(-2px);
+}
+
+.btn-resume-contact {
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.btn-resume-contact:hover {
+  background: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .contact-actions-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+  .action-btn-group {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-section {
+    padding: 60px 16px;
+  }
+  .contact-hub-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+  .hub-action-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .action-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary-contact,
+  .btn-secondary-contact,
+  .btn-resume-contact {
+    width: 100%;
+    justify-content: center;
+  }
+}
