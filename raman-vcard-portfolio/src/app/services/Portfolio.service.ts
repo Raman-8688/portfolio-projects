@@ -288,19 +288,62 @@ export class PortfolioService {
   // ─── Projects Catalog (with Visual Images & Live Links) ────
   projects: Project[] = [
     {
+      title: 'AMS — Asset Management System (Hyderabad Metro)',
+      institution: 'Client Project · Live Production System (Hyderabad Metro Rail)',
+      timeline: '2024',
+      techStack:
+        'Angular · Java · Spring Boot · Microservices · MSSQL · Stored Procedures · API Gateway',
+      description:
+        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing physical station assets across locations, categories, layout groups, and group types. Built on Java Spring Boot microservices with MSSQL and Angular frontend.',
+      problemSolved:
+        'Hyderabad Metro required a centralized platform to track physical assets across stations by location and category. Built station inventory screens, stored procedures, and indexes to handle high-concurrency station audit operations.',
+      features: [
+        'Designed and implemented <strong>inventory screens</strong> for asset registration and filtering — location-based, category-based, and layout group views.',
+        'Engineered <strong>MSSQL stored procedures</strong> for complex asset batch inserts and audit trail logging; optimized queries using database indexes and synonyms.',
+        'Delivered <strong>production features & bug fixes</strong> based on direct client requirements for Hyderabad Metro Rail stations.',
+      ],
+      highlights: [
+        '🚇 Live production system at Hyderabad Metro stations',
+        'MSSQL stored procedures + indexes + synonyms',
+        'Asset tracking by station, location, category, layout group',
+        'Microservices: Auth + Admin + Asset Register',
+      ],
+      tags: ['angular', 'microservices', 'database'],
+      skills: [
+        { name: 'Angular', level: 88 },
+        { name: 'MSSQL', level: 85 },
+        { name: 'Spring Boot', level: 85 },
+      ],
+      accent: '#7c3aed',
+      badge: '🚇 Metro · Production Project',
+      image: 'assets/images/project-ams-metro.jpg',
+      architecture:
+        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (Spring Boot) → MSSQL',
+      githubUrl: '',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Angular frontend with dynamic inventory grid layouts; Java Spring Boot microservices expose REST APIs.',
+      dockerK8sUsage:
+        'Microservices deployed individually on client server environments.',
+      securityAuth:
+        'Auth Service handles station login; role-based access enforced at API Gateway level.',
+      cicdWorkflow:
+        'Git version control; services independently built and deployed to client environment.',
+    },
+    {
       title: 'Multi-Tenant Pharma Platform with Multilanguage UI',
-      institution: 'Winfocus Solutions Pvt Ltd',
+      institution: 'Winfocus Solutions Pvt Ltd · Enterprise SaaS',
       timeline: 'Jun 2024 – Present',
       techStack:
         'Angular · Spring Boot · Microservices · PostgreSQL · Eureka · API Gateway · Spring Security · Docker · Kubernetes',
       description:
-        'Production-grade multi-tenant Pharma Management System with full microservices architecture and dynamic multilanguage UI — labels, placeholders, button names all switchable per user preference from the database.',
+        'Production-grade multi-tenant Pharma Management System with microservices architecture and dynamic multilanguage UI — labels, placeholders, button names all switchable per user preference directly from the database.',
       problemSolved:
-        'A single-schema monolith could not serve multiple pharmacy organizations securely. Additionally, the product needed to support multiple languages without code changes — labels needed to be database-driven and user-switchable.',
+        'Single-schema monoliths could not isolate pharmacy client data or support dynamic runtime localization without code redeployments. Implemented schema-per-tenant PostgreSQL routing and DB-driven UI label translation.',
       features: [
-        'Built separate <strong>Spring Boot microservices</strong> for Inventory, Billing, Users, and Reporting — each independently deployable with its own schema.',
+        'Built separate <strong>Spring Boot microservices</strong> for Inventory, Billing, Users, and Reporting with schema isolation.',
         'Implemented <strong>multi-tenant schema routing</strong> — each organization login resolves to its own private PostgreSQL schema dynamically via DataSource routing.',
-        'Built <strong>multilanguage dynamic UI</strong> — all Angular labels, field names, placeholders stored in DB; user selects preferred language and the UI re-renders with zero page reload.',
+        'Built <strong>multilanguage dynamic UI</strong> — all Angular labels and placeholders stored in DB; user selects language and UI re-renders instantly.',
       ],
       highlights: [
         'Multi-tenant schema-per-org architecture',
@@ -316,12 +359,12 @@ export class PortfolioService {
         { name: 'Microservices', level: 84 },
       ],
       accent: '#00bcd4',
-      badge: '💊 Pharma · Live',
+      badge: '💊 Pharma · Enterprise SaaS',
       image: 'assets/images/project-pharma-platform.jpg',
       architecture:
         'Angular SPA → API Gateway → [Inventory | Billing | User | Report] Services → PostgreSQL (schema-per-tenant)',
-      githubUrl: 'https://github.com/Raman-8688',
-      liveUrl: 'https://raman-8688.github.io/portfolio-projects/',
+      githubUrl: '',
+      liveUrl: '',
       backendFrontendSeparation:
         'Decoupled Angular SPA with lazy loading communicating to isolated Spring Boot services via API Gateway.',
       dockerK8sUsage:
@@ -332,100 +375,15 @@ export class PortfolioService {
         'Git version control; Docker image builds with Kubernetes manifest deployments per service.',
     },
     {
-      title: 'Multilanguage Dynamic Converter Tool',
-      institution: 'Winfocus Solutions Pvt Ltd — Internal Tooling',
-      timeline: '2024 - 2025',
-      techStack:
-        'Angular · Hugging Face AI API · Docker · CSV / SQL Generation',
-      description:
-        'An internal developer tool that converts any existing Angular project into a fully dynamic multilanguage application — accepts a project ZIP, scans all HTML and TypeScript files, replaces static text with dynamic label keys, and outputs ready-to-import CSV + SQL INSERT queries.',
-      problemSolved:
-        'Converting large existing Angular projects to multilanguage support manually was expensive and error-prone. This tool automates the entire conversion — the developer specifies a pattern and the tool handles scanning, replacing, and generating database entries.',
-      features: [
-        'Built an <strong>AI-powered backend</strong> that unzips project folders, traverses all HTML/TS files, and identifies static text using configurable pattern matching.',
-        'Integrated <strong>Hugging Face AI API</strong> for batch auto-translation — one label generates values for all configured languages in a single API call.',
-        'Generates <strong>ZIP output</strong> containing converted project files + CSV files + SQL INSERT queries ready to run directly in the target database.',
-      ],
-      highlights: [
-        'Converts entire Angular project ZIP automatically',
-        'AI-powered batch translation via Hugging Face',
-        'Outputs SQL INSERT queries + CSV for DB import',
-        'Configurable text pattern matching',
-      ],
-      tags: ['angular', 'microservices'],
-      skills: [
-        { name: 'Angular', level: 85 },
-        { name: 'AI Integration', level: 80 },
-      ],
-      accent: '#ffdb70',
-      badge: '🌐 AI · Internal Tool',
-      image: 'assets/images/project-multilanguage-tool.jpg',
-      architecture:
-        'Angular Upload UI → Backend API → Hugging Face AI Batch Translator → CSV/SQL Generator → Output ZIP',
-      githubUrl: 'https://github.com/Raman-8688',
-      liveUrl: 'https://raman-8688.github.io/portfolio-projects/',
-      backendFrontendSeparation:
-        'Angular upload/config frontend; backend handles file scanning and Hugging Face API orchestration.',
-      dockerK8sUsage:
-        'Entire tool packaged as Docker container — team runs it with docker-compose.',
-      securityAuth:
-        'Secured within company network; input validation on uploaded ZIP contents.',
-      cicdWorkflow:
-        'Docker-based deployment with version controlled release branches.',
-    },
-    {
-      title: 'AMS — Asset Management System (Hyderabad Metro)',
-      institution: 'Client Project · Live Production System',
-      timeline: '2024',
-      techStack:
-        'Angular · Java · Spring Boot · Microservices · MSSQL · Stored Procedures · API Gateway',
-      description:
-        'Live enterprise asset management system actively used by Hyderabad Metro Rail — tracking and managing station assets across locations, categories, layout groups and group types. Built on Java Spring Boot microservices with MSSQL and an Angular frontend.',
-      problemSolved:
-        'Hyderabad Metro had no centralized system to track physical assets across stations by location and category. Manual tracking caused errors and audit failures. This system is now live in production at metro stations.',
-      features: [
-        'Designed and implemented <strong>inventory screens</strong> for asset registration and filtering — by location, category, layout group type, and group.',
-        'Written <strong>MSSQL stored procedures</strong> for complex asset queries, batch inserts, and audit trail logging. Created optimized database <strong>indexes and synonyms</strong>.',
-        'Delivered <strong>production bug fixes and new screen implementations</strong> based on direct client requirements.',
-      ],
-      highlights: [
-        '🚇 Live system used at Hyderabad Metro stations',
-        'MSSQL stored procedures + indexes + synonyms',
-        'Asset filtering: location, category, layout group',
-        'Microservices: Auth + Admin + Asset Register',
-      ],
-      tags: ['angular', 'microservices', 'database'],
-      skills: [
-        { name: 'Angular', level: 85 },
-        { name: 'MSSQL', level: 82 },
-        { name: 'Stored Procedures', level: 80 },
-      ],
-      accent: '#7c3aed',
-      badge: '🚇 Metro · Live Production',
-      image: 'assets/images/project-ams-metro.jpg',
-      architecture:
-        'Angular UI → API Gateway → [Auth | Admin | Asset Register] Services (Spring Boot) → MSSQL',
-      githubUrl: 'https://github.com/Raman-8688',
-      liveUrl: 'https://raman-8688.github.io/portfolio-projects/',
-      backendFrontendSeparation:
-        'Angular frontend with dynamic inventory grid layouts; Java Spring Boot microservices expose REST APIs.',
-      dockerK8sUsage:
-        'Microservices deployed individually on server environments.',
-      securityAuth:
-        'Auth Service handles login; role-based access enforced at API Gateway level.',
-      cicdWorkflow:
-        'Git version control; services independently built and deployed to client environment.',
-    },
-    {
-      title: 'Enterprise Order Management System',
-      institution: 'Personal Project · Microservices Architecture',
-      timeline: '2025',
+      title: 'Enterprise Order Management System (EMS)',
+      institution: 'Personal Open Source Project',
+      timeline: '2025 - 2026',
       techStack:
         'Java · Spring Boot · Angular · Kafka · Eureka · API Gateway · Resilience4j · PostgreSQL · Docker · Kubernetes',
       description:
         'Distributed order management platform built on a full enterprise microservices stack. Separate services for Auth, Users, Products, Inventory, Orders, Payments, Notifications, and Invoices — communicating via Kafka events and Feign sync calls.',
       problemSolved:
-        'A monolithic order system cannot independently scale payment processing, inventory, or notifications. This architecture isolates each domain with its own database and uses event-driven decoupling.',
+        'Monolithic order systems suffer from cascading failures during flash sales. This system uses Apache Kafka event streaming to asynchronously process payment, inventory reservation, and notification pipelines.',
       features: [
         '<strong>8 independent microservices</strong> — Auth, Users, Products, Inventory, Orders, Payments, Notifications, Invoices — with database-per-service pattern.',
         '<strong>Apache Kafka</strong> for async event streaming (order placed → inventory reserved → payment processed → notification sent).',
@@ -444,20 +402,234 @@ export class PortfolioService {
         { name: 'Kafka', level: 80 },
       ],
       accent: '#f59e0b',
-      badge: '⚡ Kafka · Enterprise Stack',
+      badge: '⚡ EMS · Microservices',
       image: 'assets/images/project-order-management.jpg',
       architecture:
         'Angular UI → Spring Gateway (JWT) → Eureka → [8 Microservices] → Kafka + Feign → PostgreSQL',
       githubUrl: 'https://github.com/Raman-8688/enterprise-order-management-system',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Angular SPA communicates only through API Gateway via JWT authentication headers.',
+      dockerK8sUsage:
+        'Dockerized services with Kubernetes manifests for Deployments, Pods, ConfigMaps, and Services.',
+      securityAuth:
+        'Spring Cloud Gateway JWT filter validates request tokens and forwards claims.',
+      cicdWorkflow:
+        'GitHub repository with per-service modules and Docker Compose orchestration.',
+    },
+    {
+      title: 'Memory Verse App',
+      institution: 'Personal Project · Live Web Platform',
+      timeline: '2026',
+      techStack:
+        'Java · Spring Boot · Angular · PostgreSQL · Vercel · REST API',
+      description:
+        'A private digital storytelling and memory preservation platform allowing users to curate personal milestones, journal reflections, and media galleries in an interactive timeline.',
+      problemSolved:
+        'Traditional blogging apps lack structured timeline views, tag filtering, and fast cloud delivery. Memory Verse combines an Angular UI with Spring Boot backend services.',
+      features: [
+        'Interactive timeline view for personal stories, milestones, and verse memories.',
+        'RESTful API backend for story creation, categorization, searching, and media attachments.',
+        'Deployed live on Vercel with responsive dark/light mode experience.',
+      ],
+      highlights: [
+        'Live deployed Web App on Vercel',
+        'Interactive story timeline with media galleries',
+        'Tag-based filtering and instant search',
+        'Spring Boot backend REST APIs',
+      ],
+      tags: ['angular', 'microservices'],
+      skills: [
+        { name: 'Angular', level: 86 },
+        { name: 'Spring Boot', level: 84 },
+      ],
+      accent: '#10b981',
+      badge: '📖 Memory App · Live',
+      image: 'assets/images/project-memory-verse.jpg',
+      architecture:
+        'Angular SPA (Vercel) → Spring Boot REST API → PostgreSQL',
+      githubUrl: 'https://github.com/Raman-8688/memory-verse',
+      liveUrl: 'https://memory-verse-ashy.vercel.app',
+      backendFrontendSeparation:
+        'Angular frontend hosted on Vercel communicating via CORS-enabled REST APIs.',
+      dockerK8sUsage:
+        'Containerized Spring Boot backend services.',
+      securityAuth:
+        'Session token authentication and endpoint protection.',
+      cicdWorkflow:
+        'Automated Vercel deployment pipeline triggered on GitHub push to main.',
+    },
+    {
+      title: 'ERP Nexus Core Work Hub',
+      institution: 'Personal Open Source Project',
+      timeline: '2026',
+      techStack:
+        'Java · Spring Boot · Angular 17 · JPA/Hibernate · PostgreSQL · REST API · RBAC',
+      description:
+        'Full-stack Employee Management and Enterprise Resource Planning Work Hub. Features comprehensive CRUD operations, multi-field search and pagination, role-based access control (RBAC), and validation filters.',
+      problemSolved:
+        'SME businesses need lightweight ERP platforms for workforce allocation without heavy licensing costs. Nexus Core provides employee onboarding, department hierarchies, and audit logging.',
+      features: [
+        'Spring Boot REST APIs with Spring Data JPA and Hibernate query optimization.',
+        'Angular 17 standalone components with reactive forms and server-side pagination.',
+        'Role-Based Access Control (RBAC) separating Admin, Manager, and Employee access levels.',
+      ],
+      highlights: [
+        'Full-stack ERP & Employee Hub',
+        'Spring Boot REST API + JPA/Hibernate',
+        'Angular 17 frontend with pagination & search',
+        'Role-Based Access Control (RBAC)',
+      ],
+      tags: ['angular', 'database', 'microservices'],
+      skills: [
+        { name: 'Spring Boot', level: 86 },
+        { name: 'Angular 17', level: 85 },
+        { name: 'PostgreSQL', level: 84 },
+      ],
+      accent: '#3b82f6',
+      badge: '💼 ERP Hub · Open Source',
+      image: 'assets/images/project-nexus-core.jpg',
+      architecture:
+        'Angular 17 SPA → Spring Boot REST Controller → JPA / Hibernate → PostgreSQL',
+      githubUrl: 'https://github.com/Raman-8688/NexusCore-ERP-Work-Hub',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Decoupled Angular 17 client interacting via RESTful endpoints.',
+      dockerK8sUsage:
+        'Containerized application images for local and cloud server environments.',
+      securityAuth:
+        'Spring Security authentication with RBAC role authorization guards.',
+      cicdWorkflow:
+        'Git branch management and GitHub Actions automated build checks.',
+    },
+    {
+      title: 'Security AI Assistant (NVIDIA AI Guard)',
+      institution: 'Personal Project · Live AI Platform',
+      timeline: '2026',
+      techStack:
+        'Java · Spring Boot · Angular · NVIDIA AI API / Hugging Face · Python AI Sidecar · Vercel',
+      description:
+        'AI-driven security guardrail and code auditing assistant that inspects REST API endpoints, detects OWASP vulnerability vectors, and performs intelligent prompt sanitization before model execution.',
+      problemSolved:
+        'Generative AI integrations in enterprise APIs require strict prompt injection filtering and real-time security auditing. This tool intercepts API payloads and validates security compliance.',
+      features: [
+        'Real-time prompt injection detection and OWASP vulnerability scanner.',
+        'Integrated NVIDIA AI Guard and Hugging Face inference APIs for security classification.',
+        'Angular interactive dashboard with live scan results and severity flags.',
+      ],
+      highlights: [
+        'Live deployed AI Assistant on Vercel',
+        'NVIDIA AI Guard & Hugging Face LLM integration',
+        'OWASP API security audit & prompt sanitization',
+        'Spring Boot + Angular full-stack implementation',
+      ],
+      tags: ['angular', 'microservices'],
+      skills: [
+        { name: 'AI Integration', level: 86 },
+        { name: 'Spring Boot', level: 84 },
+        { name: 'Angular', level: 85 },
+      ],
+      accent: '#ec4899',
+      badge: '🤖 Security AI · Live',
+      image: 'assets/images/project-security-ai.jpg',
+      architecture:
+        'Angular UI (Vercel) → Spring Boot AI Gateway → NVIDIA AI API / Hugging Face → Security Logger',
+      githubUrl: 'https://github.com/Raman-8688/secure-ai-assistant',
+      liveUrl: 'https://secure-ai-assistant.vercel.app',
+      backendFrontendSeparation:
+        'Angular client communicates with AI Gateway REST endpoints.',
+      dockerK8sUsage:
+        'Docker containerized AI gateway service.',
+      securityAuth:
+        'API Key validation and rate-limiting security filters.',
+      cicdWorkflow:
+        'Continuous deployment via Vercel integration with GitHub main branch.',
+    },
+    {
+      title: 'Full-Stack Enterprise Portfolio Platform',
+      institution: 'Personal Open Source Platform',
+      timeline: '2026',
+      techStack:
+        'Angular 19 · TypeScript · CSS Grid/Flexbox · GitHub Pages · CI/CD',
+      description:
+        'Production portfolio platform showcasing microservices topologies, interactive SVG architecture diagrams, STAR method case studies, and real-time tech stack search filters.',
+      problemSolved:
+        'Traditional resume documents cannot visually demonstrate dynamic microservice data flow, interactive architecture nodes, or live pod health telemetry. Built an enterprise Angular 19 SPA platform.',
+      features: [
+        'Interactive SVG topology diagram with animated data packet flow and node inspector.',
+        'Real-time search bar filtering projects by tech stack, keywords, and domain categories.',
+        'Light/Dark theme switcher, accessible tab navigation, and mobile-first responsive layout.',
+      ],
+      highlights: [
+        'Live deployed on GitHub Pages',
+        'Interactive SVG architecture flow diagram',
+        'Real-time tech stack search filtering',
+        'Angular 19 Standalone Signals architecture',
+      ],
+      tags: ['angular'],
+      skills: [
+        { name: 'Angular 19', level: 90 },
+        { name: 'TypeScript', level: 88 },
+        { name: 'CSS3', level: 90 },
+      ],
+      accent: '#6366f1',
+      badge: '🚀 Portfolio · Live System',
+      image: 'assets/images/project-portfolio-platform.jpg',
+      architecture:
+        'Angular 19 SPA → RxJS Signals → Service State → GitHub Pages CDN',
+      githubUrl: 'https://github.com/Raman-8688/portfolio-projects',
       liveUrl: 'https://raman-8688.github.io/portfolio-projects/',
       backendFrontendSeparation:
-        'Angular SPA communicates only through API Gateway.',
+        'Client-side Angular 19 SPA using signal-driven architecture.',
       dockerK8sUsage:
-        'Dockerized services with Kubernetes manifests for Deployments and Services.',
+        'Static production bundle served globally via CDN.',
       securityAuth:
-        'Spring Cloud Gateway JWT filter validates request tokens.',
+        'HTTPS encryption and safe sanitization of innerHTML contents.',
       cicdWorkflow:
-        'GitHub repository with per-service modules and Docker Compose local stack.',
+        'GitHub Actions automated deployment to gh-pages branch upon main push.',
+    },
+    {
+      title: 'Mini Bank Application',
+      institution: 'Personal Open Source Project',
+      timeline: '2025 - 2026',
+      techStack:
+        'Java · Spring Boot · Spring Security · JWT · PostgreSQL · Angular',
+      description:
+        'Full-featured Banking Application supporting user registration, login, account creation, fund transfers, transaction history, and balance inquiries with real-time updates.',
+      problemSolved:
+        'Demonstrates secure financial transaction processing with ACID compliance, Spring Security JWT authentication, and relational database schema design.',
+      features: [
+        'Account registration and login with Spring Security stateless JWT authentication.',
+        'Fund transfer module with transaction isolation and balance validation.',
+        'Transaction history ledger with filterable statements and balance breakdown.',
+      ],
+      highlights: [
+        'Spring Boot + Spring Security JWT authentication',
+        'ACID compliant fund transfer transaction engine',
+        'PostgreSQL database with indexed statement queries',
+        'Angular frontend with transaction history table',
+      ],
+      tags: ['angular', 'microservices', 'database'],
+      skills: [
+        { name: 'Spring Boot', level: 86 },
+        { name: 'Spring Security', level: 84 },
+        { name: 'Angular', level: 82 },
+      ],
+      accent: '#14b8a6',
+      badge: '🏦 Banking App · Open Source',
+      image: 'assets/images/project-mini-bank.jpg',
+      architecture:
+        'Angular SPA → Spring Boot REST API (Spring Security JWT) → PostgreSQL',
+      githubUrl: 'https://github.com/Raman-8688/mini-bank-application',
+      liveUrl: '',
+      backendFrontendSeparation:
+        'Angular SPA communicating via secure REST APIs.',
+      dockerK8sUsage:
+        'Docker containerized deployment.',
+      securityAuth:
+        'Spring Security JWT bearer token authentication.',
+      cicdWorkflow:
+        'Git version control repository.',
     },
   ];
 
