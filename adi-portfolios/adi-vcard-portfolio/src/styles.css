@@ -1043,3 +1043,66 @@ textarea.form-input { min-height: 120px; resize: vertical; margin-bottom: 16px; 
   .contacts-list { grid-template-columns: 1fr; }
   .social-list { justify-content: center; }
 }
+
+/*-----------------------------------*\
+  # MNC Executive Animations & Micro-Interactions
+\*-----------------------------------*/
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpToast {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+article.active {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.content-card, .achievement-card, .project-card, .testimonials-item .content-card {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+  backdrop-filter: blur(14px);
+}
+
+.content-card:hover, .achievement-card:hover, .project-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 219, 112, 0.15);
+}
+
+.tech-badge {
+  transition: all 0.2s ease !important;
+  display: inline-block;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+  background: var(--accent-color) !important;
+  color: #1e1e1f !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(255, 219, 112, 0.3);
+}
+
+.form-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.form-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}

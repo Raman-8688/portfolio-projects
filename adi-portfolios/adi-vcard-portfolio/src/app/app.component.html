@@ -12,7 +12,10 @@
 
         <!-- Explicit Recruiter Locale & Contact Metadata -->
         <div style="margin-top: 6px; font-size: 12px; color: var(--accent-color); display: flex; flex-direction: column; gap: 3px;">
-          <span><i class="fas fa-map-marker-alt"></i> <strong>{{ ps.location }}</strong> (Open for Hiring)</span>
+          <span style="display: flex; align-items: center; gap: 6px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; box-shadow: 0 0 8px #10b981;"></span>
+            <strong>{{ ps.location }}</strong> (Open for Hiring)
+          </span>
           <span style="color: var(--text-secondary);"><i class="fas fa-envelope"></i> {{ ps.email }}</span>
           <span style="color: var(--text-secondary);"><i class="fas fa-phone-alt"></i> {{ ps.phone }}</span>
         </div>
@@ -28,23 +31,23 @@
       <div class="separator"></div>
 
       <ul class="contacts-list">
-        <li class="contact-item">
+        <li class="contact-item" (click)="ps.copyContactInfo(ps.email, 'Email Address')" style="cursor: pointer;" title="Click to copy Email">
           <div class="icon-box">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="contact-info">
-            <p class="contact-title">Email</p>
-            <a [href]="'mailto:' + ps.email" class="contact-link">{{ ps.email }}</a>
+            <p class="contact-title">Email <i class="fas fa-copy" style="font-size: 10px; margin-left: 4px; color: var(--accent-color);"></i></p>
+            <a [href]="'mailto:' + ps.email" class="contact-link" (click)="$event.stopPropagation()">{{ ps.email }}</a>
           </div>
         </li>
 
-        <li class="contact-item">
+        <li class="contact-item" (click)="ps.copyContactInfo(ps.phone, 'Phone Number')" style="cursor: pointer;" title="Click to copy Phone">
           <div class="icon-box">
             <i class="fas fa-phone-alt"></i>
           </div>
           <div class="contact-info">
-            <p class="contact-title">Phone</p>
-            <a [href]="'tel:' + ps.phone" class="contact-link">{{ ps.phone }}</a>
+            <p class="contact-title">Phone <i class="fas fa-copy" style="font-size: 10px; margin-left: 4px; color: var(--accent-color);"></i></p>
+            <a [href]="'tel:' + ps.phone" class="contact-link" (click)="$event.stopPropagation()">{{ ps.phone }}</a>
           </div>
         </li>
 
@@ -99,3 +102,9 @@
 
 <!-- Preferences Drawer / Settings Modal -->
 <app-settings-panel></app-settings-panel>
+
+<!-- Floating Copy Toast Notification -->
+<div *ngIf="ps.toastMessage()" class="floating-toast" style="position: fixed; bottom: 30px; right: 30px; background: rgba(24, 24, 28, 0.95); border: 1px solid var(--accent-color); color: var(--text-primary); padding: 12px 22px; border-radius: 12px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(12px); z-index: 9999; animation: slideUpToast 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+  <i class="fas fa-check-circle" style="color: #10b981; font-size: 16px;"></i>
+  <span>{{ ps.toastMessage() }}</span>
+</div>

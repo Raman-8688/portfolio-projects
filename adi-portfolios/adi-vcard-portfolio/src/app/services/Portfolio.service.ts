@@ -601,6 +601,18 @@ export class PortfolioService {
     document.documentElement.style.setProperty('--accent-color', color);
   }
 
+  toastMessage = signal<string | null>(null);
+
+  copyContactInfo(text: string, label: string): void {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      this.toastMessage.set(`Copied ${label} (${text}) to clipboard!`);
+      setTimeout(() => {
+        this.toastMessage.set(null);
+      }, 3000);
+    }
+  }
+
   toggleSettings(): void {
     this.settingsPanelOpen.update((v) => !v);
   }

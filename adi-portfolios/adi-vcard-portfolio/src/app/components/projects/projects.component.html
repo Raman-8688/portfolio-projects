@@ -3,27 +3,49 @@
     <h2 class="h2 article-title">Enterprise Case Studies</h2>
   </header>
 
-  <!-- Filter List (Large Screens) -->
-  <ul class="filter-list" role="tablist" aria-label="Project Categories">
-    <li *ngFor="let f of filters" class="filter-item" role="presentation">
+  <!-- Search Bar & Category Filters Container -->
+  <div style="margin-bottom: 25px; display: flex; flex-direction: column; gap: 15px;">
+    <!-- Interactive Search Bar -->
+    <div style="position: relative; width: 100%;">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
+        placeholder="🔍 Search Case Studies by Tech Stack (e.g. Kafka, PhonePe, Angular 19, Spring Boot, Docker)..."
+        style="width: 100%; padding: 12px 42px 12px 16px; background: var(--onyx); border: 1px solid var(--border-color); border-radius: 12px; color: var(--text-primary); font-size: 14px; outline: none; transition: border-color 0.2s ease;"
+      />
       <button
-        role="tab"
-        [attr.aria-selected]="activeFilter === f.id"
-        [class.active]="activeFilter === f.id"
-        (click)="setFilter(f.id)"
+        *ngIf="searchQuery"
+        (click)="clearSearch()"
+        style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px;"
+        title="Clear Search"
       >
-        {{ f.label }}
+        <i class="fas fa-times"></i>
       </button>
-    </li>
-  </ul>
+    </div>
 
-  <!-- Filter Select Box (Mobile) -->
-  <div class="filter-select-box">
-    <select class="filter-select" (change)="onFilterSelect($event)" aria-label="Filter Projects by Category">
-      <option *ngFor="let f of filters" [value]="f.id" [selected]="activeFilter === f.id">
-        {{ f.label }}
-      </option>
-    </select>
+    <!-- Filter List (Large Screens) -->
+    <ul class="filter-list" role="tablist" aria-label="Project Categories" style="margin-bottom: 0;">
+      <li *ngFor="let f of filters" class="filter-item" role="presentation">
+        <button
+          role="tab"
+          [attr.aria-selected]="activeFilter === f.id"
+          [class.active]="activeFilter === f.id"
+          (click)="setFilter(f.id)"
+        >
+          {{ f.label }}
+        </button>
+      </li>
+    </ul>
+
+    <!-- Filter Select Box (Mobile) -->
+    <div class="filter-select-box">
+      <select class="filter-select" (change)="onFilterSelect($event)" aria-label="Filter Projects by Category">
+        <option *ngFor="let f of filters" [value]="f.id" [selected]="activeFilter === f.id">
+          {{ f.label }}
+        </option>
+      </select>
+    </div>
   </div>
 
   <!-- Projects Grid -->
