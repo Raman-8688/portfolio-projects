@@ -1,21 +1,44 @@
 <article class="portfolio" [class.active]="ps.activeSection() === 'projects'" id="section-projects">
   <header>
-    <h2 class="h2 article-title">Portfolio</h2>
+    <h2 class="h2 article-title">Portfolio & Case Studies</h2>
   </header>
 
-  <!-- Filter List (Large Screens) -->
-  <ul class="filter-list" role="tablist" aria-label="Project Categories">
-    <li *ngFor="let f of filters" class="filter-item" role="presentation">
+  <!-- Search Bar & Category Filters Container -->
+  <div style="margin-bottom: 25px; display: flex; flex-direction: column; gap: 15px;">
+    <!-- Interactive Search Bar -->
+    <div style="position: relative; width: 100%;">
+      <i class="fas fa-search" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 14px;"></i>
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
+        placeholder="Search Projects by Tech Stack (e.g. Spring Boot, Angular, Microservices, SQL)..."
+        style="width: 100%; padding: 12px 42px 12px 42px; background: var(--onyx); border: 1px solid var(--border-color); border-radius: 12px; color: var(--text-primary); font-size: 14px; outline: none; transition: border-color 0.2s ease;"
+      />
       <button
-        role="tab"
-        [attr.aria-selected]="activeFilter === f.id"
-        [class.active]="activeFilter === f.id"
-        (click)="setFilter(f.id)"
+        *ngIf="searchQuery"
+        (click)="clearSearch()"
+        style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px;"
+        title="Clear Search"
       >
-        {{ f.label }}
+        <i class="fas fa-times"></i>
       </button>
-    </li>
-  </ul>
+    </div>
+
+    <!-- Filter List (Large Screens) -->
+    <ul class="filter-list" role="tablist" aria-label="Project Categories" style="margin-bottom: 0;">
+      <li *ngFor="let f of filters" class="filter-item" role="presentation">
+        <button
+          role="tab"
+          [attr.aria-selected]="activeFilter === f.id"
+          [class.active]="activeFilter === f.id"
+          (click)="setFilter(f.id)"
+        >
+          {{ f.label }}
+        </button>
+      </li>
+    </ul>
+  </div>
 
   <!-- Filter Select Box (Mobile) -->
   <div class="filter-select-box">
