@@ -24,7 +24,7 @@
       </button>
     </div>
 
-    <!-- Filter List (Large Screens) -->
+    <!-- Filter List -->
     <ul class="filter-list" role="tablist" aria-label="Project Categories" style="margin-bottom: 0;">
       <li *ngFor="let f of filters" class="filter-item" role="presentation">
         <button
@@ -37,15 +37,6 @@
         </button>
       </li>
     </ul>
-
-    <!-- Filter Select Box (Mobile) -->
-    <div class="filter-select-box">
-      <select class="filter-select" (change)="onFilterSelect($event)" aria-label="Filter Projects by Category">
-        <option *ngFor="let f of filters" [value]="f.id" [selected]="activeFilter === f.id">
-          {{ f.label }}
-        </option>
-      </select>
-    </div>
   </div>
 
   <!-- Projects Grid -->
