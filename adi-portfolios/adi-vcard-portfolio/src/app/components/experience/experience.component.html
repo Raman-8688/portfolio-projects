@@ -1,6 +1,11 @@
 <article class="resume" [class.active]="ps.activeSection() === 'experience'" id="section-experience">
-  <header>
+  <header style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
     <h2 class="h2 article-title">Resume</h2>
+
+    <a [href]="ps.resumeUrl" download="Adi_Sekhara_Reddy_Hanumanthu_Resume.pdf" class="form-btn" style="padding: 10px 18px; font-size: 13px; min-height: 40px; text-decoration: none; background: var(--accent-color); color: #1e1e1f; font-weight: 600;">
+      <i class="fas fa-file-download"></i>
+      <span>Download ATS Resume (PDF)</span>
+    </a>
   </header>
 
   <!-- Work Experience Timeline -->
@@ -43,18 +48,10 @@
 
     <ol class="timeline-list">
       <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">JSpiders Training Institute</h4>
-        <span>Jun 2024 — Jan 2025 | Bangalore, India</span>
+        <h4 class="h4 timeline-item-title">JNTU University, Anantapur</h4>
+        <span>Andhra Pradesh, India</span>
         <p class="timeline-text">
-          Java Full Stack Trainee — Earned competitive scholarship. Mastered Core Java, Spring Boot microservices, REST APIs, SQL, and Angular. Built Bank Management System.
-        </p>
-      </li>
-
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Newtons Institute of Engineering</h4>
-        <span>2020 — 2024 | Andhra Pradesh, India</span>
-        <p class="timeline-text">
-          Bachelor of Technology (B.Tech) in Computer Science & Engineering. Strong foundation in algorithms, database management systems, and software engineering.
+          Bachelor of Engineering (B.E.) / B.Tech in Computer Science & Engineering. Strong foundation in software engineering, database management systems, data structures, and computer networks.
         </p>
       </li>
     </ol>

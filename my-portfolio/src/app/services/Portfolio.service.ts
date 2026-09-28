@@ -54,7 +54,7 @@ export class PortfolioService {
   github = 'https://github.com/Raman-8688';
   linkedin = 'https://linkedin.com/in/b-ramanjaneyulu-155021258';
   yearsExp = '1+';
-  resumeUrl = 'assets/resume.pdf';
+  resumeUrl = 'assets/Resumes/Raman_full_stack_java.pdf';
   profileImage = 'assets/profile.png?v=2';
 
   // ─── Hero Intro (concise, powerful) ─────────────────────────

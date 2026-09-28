@@ -53,7 +53,7 @@ export class PortfolioService {
   location = 'Hyderabad, Telangana, India';
   linkedin = 'https://linkedin.com/in/adisekharareddy';
   yearsExp = '10+';
-  resumeUrl = 'assets/resume.pdf';
+  resumeUrl = 'assets/Resumes/Adi_java_full_stack.pdf';
   profileImage = 'assets/profile.png';
 
   // ─── Hero Intro ─────────────────────────────────────────────

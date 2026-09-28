@@ -37,6 +37,7 @@ export class PortfolioService {
   linkedin = 'https://linkedin.com/in/b-ramanjaneyulu-155021258';
   yearsExp = '1+';
   currentEmployer = 'Winfocus Solutions';
+  resumeUrl = 'assets/resumes/Raman_full_stack_java.pdf';
 
   heroTagline = 'Building enterprise-grade microservices and multi-tenant platforms that scale.';
   heroSub =

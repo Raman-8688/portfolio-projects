@@ -62,7 +62,7 @@
         </div>
 
         <div class="action-buttons">
-          <a href="assets/resume.pdf" download class="primary-button">
+          <a [href]="ps.resumeUrl" download="Ramanjaneyulu_Boya_Resume.pdf" class="primary-button">
             <i class="fas fa-file-download"></i> Download ATS Resume
           </a>
           <button class="secondary-button" (click)="ps.navigateTo('experience')">

@@ -37,6 +37,7 @@ export class PortfolioService {
   linkedin = 'https://linkedin.com/in/adisekharareddy';
   yearsExp = '10+ Years';
   currentEmployer = 'My Hub Technologies Ltd';
+  resumeUrl = 'assets/Resumes/Adi_java_full_stack.pdf';
 
   heroTagline = 'Building scalable enterprise applications, microservices, digital payments & ERP systems.';
   heroSub =
