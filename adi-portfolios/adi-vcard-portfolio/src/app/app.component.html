@@ -9,6 +9,13 @@
       <div class="info-content">
         <h1 class="name" [title]="ps.name">{{ ps.shortName }}</h1>
         <p class="title">{{ ps.titles[0] }}</p>
+
+        <!-- Explicit Recruiter Locale & Contact Metadata -->
+        <div style="margin-top: 6px; font-size: 12px; color: var(--accent-color); display: flex; flex-direction: column; gap: 3px;">
+          <span><i class="fas fa-map-marker-alt"></i> <strong>{{ ps.location }}</strong> (Open for Hiring)</span>
+          <span style="color: var(--text-secondary);"><i class="fas fa-envelope"></i> {{ ps.email }}</span>
+          <span style="color: var(--text-secondary);"><i class="fas fa-phone-alt"></i> {{ ps.phone }}</span>
+        </div>
       </div>
 
       <button class="info_more-btn" (click)="toggleSidebar()" aria-label="Toggle contact details">

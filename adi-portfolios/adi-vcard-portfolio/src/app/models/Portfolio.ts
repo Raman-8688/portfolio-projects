@@ -48,6 +48,11 @@ export interface Project {
   dockerK8sUsage?: string;
   securityAuth?: string;
   cicdWorkflow?: string;
+  // STAR Method Case Study Fields
+  situation?: string;
+  task?: string;
+  action?: string;
+  result?: string;
 }
 
 export interface Experience {
@@ -86,4 +91,37 @@ export interface ArchitectureNode {
   purpose: string;
   techStack: string[];
   responsibilities: string[];
+}
+
+export interface InfoCard {
+  icon: string;
+  label: string;
+  value: string;
+  subText?: string;
+  bg: string;
+  color: string;
+}
+
+export interface Certification {
+  title: string;
+  issuer: string;
+  year: string;
+  icon: string;
+  color: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+}
+
+export interface AtsResume {
+  summary: string;
+  skillsCategorized: { category: string; items: string }[];
+  experience: { company: string; role: string; period: string; location: string; bullets: string[] }[];
+  education: string;
+  certifications: string;
 }

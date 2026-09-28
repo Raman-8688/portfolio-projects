@@ -115,16 +115,64 @@
   <!-- Overview Highlight Cards -->
   <section class="info-summary" style="margin-bottom: 30px;">
     <h3 class="h3" style="margin-bottom: 18px;">Overview Highlights</h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
-      <div *ngFor="let card of ps.infoCards" class="content-card" style="padding: 16px; display: flex; align-items: center; gap: 14px;">
-        <div class="icon-box" [style.background]="card.bg" [style.color]="card.color">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+      <div *ngFor="let card of ps.infoCards" class="content-card" style="padding: 16px; display: flex; align-items: flex-start; gap: 14px;">
+        <div class="icon-box" [style.background]="card.bg" [style.color]="card.color" style="flex-shrink: 0; width: 42px; height: 42px;">
           <i [class]="card.icon"></i>
         </div>
         <div>
-          <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">{{ card.label }}</div>
-          <div style="font-size: 13px; font-weight: var(--fw-600); color: var(--text-primary); margin-top: 2px;">{{ card.value }}</div>
+          <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">{{ card.label }}</div>
+          <div style="font-size: 13px; font-weight: var(--fw-600); color: var(--text-primary); margin-top: 3px;">{{ card.value }}</div>
+          <div *ngIf="card.subText" style="font-size: 11px; color: var(--accent-color); margin-top: 4px; font-weight: 500;">{{ card.subText }}</div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Verified Professional Certifications -->
+  <section class="certifications" style="margin-bottom: 30px;">
+    <h3 class="h3" style="margin-bottom: 18px;">Verified Professional Certifications</h3>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+      <div *ngFor="let cert of ps.certifications" class="content-card" style="padding: 18px; display: flex; align-items: center; gap: 16px;">
+        <div class="icon-box" [style.background]="'rgba(255, 219, 112, 0.1)'" [style.color]="cert.color" style="width: 46px; height: 46px; flex-shrink: 0; font-size: 20px;">
+          <i [class]="cert.icon"></i>
+        </div>
+        <div>
+          <h4 class="h4" style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">{{ cert.title }}</h4>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-top: 3px;">{{ cert.issuer }} • <span style="color: var(--accent-color);">{{ cert.year }}</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colleague & Leadership Recommendations -->
+  <section class="testimonials" style="margin-bottom: 30px;">
+    <h3 class="h3 testimonials-title" style="margin-bottom: 20px;">Leadership & Peer Feedback</h3>
+
+    <ul class="testimonials-list has-scrollbar" style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 15px;">
+      <li *ngFor="let test of ps.testimonials" class="testimonials-item" style="min-width: 300px; flex: 1;">
+        <div class="content-card" style="padding: 20px; border-radius: 14px; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="color: var(--accent-color); font-size: 18px; margin-bottom: 10px;">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="testimonials-text" style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; font-style: italic;">
+              "{{ test.quote }}"
+            </p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 15px; padding-top: 12px; border-top: 1px solid var(--border-color);">
+            <div class="testimonials-avatar-box" style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: var(--border-color); flex-shrink: 0;">
+              <img [src]="test.avatar" [alt]="test.name" width="38" height="38">
+            </div>
+            <div>
+              <h4 class="h4 testimonials-item-title" style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0;">{{ test.name }}</h4>
+              <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">{{ test.role }} • <span style="color: var(--accent-color);">{{ test.company }}</span></p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </section>
 </article>
