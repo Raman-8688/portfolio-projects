@@ -39,31 +39,26 @@
 
       <rect width="1060" height="260" fill="url(#grid)" rx="16"/>
 
-      <!-- Animated Connecting Lines -->
-      <line class="arch-line" x1="168" y1="130" x2="238" y2="130" stroke="#00bcd4" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-      <line class="arch-line" x1="388" y1="130" x2="458" y2="130" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-      <line class="arch-line" x1="608" y1="130" x2="678" y2="130" stroke="#059669" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
-      <line class="arch-line" x1="828" y1="130" x2="898" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+      <!-- Top Feedback Loop Arc: CI/CD Deployment Trigger -->
+      <path d="M 970 72 Q 970 28 534 28 Q 314 28 314 72" fill="none" stroke="rgba(240, 80, 50, 0.55)" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="534" y="22" fill="rgba(240, 80, 50, 0.9)" font-size="10" font-family="monospace" text-anchor="middle" font-weight="700">🔄 CI/CD deploy trigger arc</text>
 
-      <!-- Flowing Data Packets (Traveling Animated Dots) -->
-      <circle r="4" fill="#00bcd4" filter="url(#glow-cyan)">
-        <animate attributeName="cx" from="168" to="238" dur="1.5s" repeatCount="indefinite" />
-        <animate attributeName="cy" from="130" to="130" dur="1.5s" repeatCount="indefinite" />
-      </circle>
+      <!-- Animated Connecting Lines with Protocol Labels -->
+      <line class="arch-line" x1="168" y1="130" x2="240" y2="130" stroke="#00bcd4" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+      <text x="204" y="121" fill="#00bcd4" font-size="9" font-family="monospace" text-anchor="middle" font-weight="700">HTTP</text>
 
-      <circle r="4" fill="#7c3aed" filter="url(#glow-purple)">
-        <animate attributeName="cx" from="388" to="458" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
-        <animate attributeName="cy" from="130" to="130" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
-      </circle>
+      <line class="arch-line" x1="388" y1="130" x2="460" y2="130" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+      <text x="424" y="121" fill="#a78bfa" font-size="9" font-family="monospace" text-anchor="middle" font-weight="700">JWT</text>
 
-      <circle r="4" fill="#059669" filter="url(#glow-green)">
-        <animate attributeName="cx" from="608" to="678" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
-        <animate attributeName="cy" from="130" to="130" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
-      </circle>
+      <line class="arch-line" x1="608" y1="130" x2="680" y2="130" stroke="#059669" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+      <text x="644" y="121" fill="#10b981" font-size="9" font-family="monospace" text-anchor="middle" font-weight="700">gRPC</text>
 
-      <circle r="4" fill="#f59e0b" filter="url(#glow-orange)">
-        <animate attributeName="cx" from="828" to="898" dur="1.5s" begin="0.9s" repeatCount="indefinite" />
-        <animate attributeName="cy" from="130" to="130" dur="1.5s" begin="0.9s" repeatCount="indefinite" />
+      <line class="arch-line" x1="828" y1="130" x2="900" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+      <text x="864" y="121" fill="#f59e0b" font-size="9" font-family="monospace" text-anchor="middle" font-weight="700">K8S</text>
+
+      <!-- Flowing Data Packets (Traveling Animated Dots across entire pipeline) -->
+      <circle r="4.5" fill="#38bdf8" filter="url(#glow-cyan)">
+        <animateMotion path="M 168,130 L 900,130" dur="3.5s" repeatCount="indefinite" />
       </circle>
 
       <!-- NODE 0: Angular UI -->
